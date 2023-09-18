@@ -1,9 +1,28 @@
-.postscontainer{
-    display: flex;
-    justify-content: baseline;
-    flex-wrap: wrap;
+/*.postscontainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 4px;
     margin-top: 36px;
-}
+}*/
+
+.postscontainer {
+    columns: 270px;
+    gap: 4px;
+    counter-reset: grid;
+  }
+  
+  .postscontainer section + .postscontainer section {
+    margin-top: 4px;
+  }
+  
+  .postscontainer section {
+    break-inside:avoid;
+  }
+  
+  .postscontainer section::before {
+    counter-increment: grid;
+    content: counter(grid);
+  }
 
 .barmobile{
     display: none;
@@ -20,4 +39,28 @@
         border-radius: 36px;
         box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     }
+
+    /*.postscontainer{
+        display: flex;
+        flex-wrap: wrap;
+    }*/
+
+    .postscontainer {
+        columns: 42vw;
+        gap: 4px;
+        counter-reset: grid;
+      }
+      
+      .postscontainer section + .postscontainer section {
+        margin-top: 4px;
+      }
+      
+      .postscontainer section {
+        break-inside:avoid;
+      }
+      
+      .postscontainer section::before {
+        counter-increment: grid;
+        content: counter(grid);
+      }
 }
