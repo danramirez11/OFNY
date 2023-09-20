@@ -6,9 +6,10 @@ section{
     width: 90wh;
     padding: 4px;
     border-radius: 14px;
+    gap: 12px;
 }
 section img{
-    height:  10vw;
+    height:  8vw;
     min-height: 35px;
     margin: 10px;
 }

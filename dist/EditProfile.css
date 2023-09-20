@@ -1,0 +1,164 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 999;
+    display: none;
+  }
+.appear{
+    display: block;
+}
+
+.modal-content{
+    width: 75vw;
+    height: max-content;
+    background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 24px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.basic{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.basic-pfp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+}
+.basic-pfp p{
+    margin: 0;
+    font-size: small;
+}
+.profilepicture{
+    width: 28vw;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: 0;
+}
+.basic-username{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.basic-username h3{
+    color: gray;
+    margin: 0;
+}
+.basic-username button{
+    border-radius: 16px;
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    padding: 8px;
+    padding-inline: 24px;
+}
+.desc{
+    margin: 24px;
+}
+.desc-bio, .desc-pronouns, .desc-web{
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+input{
+    border-radius: 16px;
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    padding: 8px;
+    padding-inline: 24px;
+}
+::placeholder{
+    color: white;
+}
+.birth{
+    height: min-content;
+    margin: 8px;
+    
+}
+.birth h4, .birth p{
+    margin: 0;
+    color: white;
+}
+.birth button, .X{
+    background-color: transparent;
+    border-style: none;
+    color: white;
+}
+.button-save{
+    border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
+    position: absolute;
+    right: 18px;
+    top: 12px;
+}
+.X{
+    position: absolute;
+    left: 28px;
+    top: 12px;
+}
+
+@media (max-width: 540px) {
+
+    .modal-content{
+        align-items: flex-start;
+        
+    }
+    .basic{
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .basic-pfp{
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+    .profilepicture{
+        min-width: 160px;
+    }
+    .basic-username{
+        align-items: baseline;
+    }
+    .basic-username h3{
+        color: white;
+    }
+    .desc{
+        margin: 0;
+    }
+    .desc img{
+        display: none;
+    }
+    .desc input{
+        border-style: solid;
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        border-bottom: white;
+        border-width: 4px;
+        margin: 0;
+    }
+}
+

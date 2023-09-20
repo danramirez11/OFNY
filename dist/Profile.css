@@ -1,0 +1,69 @@
+.allprofile{
+    font-family: 'Poppins';
+    background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+    width: 75vw;
+    height: max-content;
+    min-height: 24vh;
+    margin: 12px;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 10vh;
+    padding: 8px;
+}
+
+.profilepicture{
+    width: 190px;
+    height: 190px;
+    border-radius: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: -20%;
+    left: 4%;
+}
+
+.profile-user{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button{
+    border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: none;
+    padding: 8px;
+    padding-inline: 24px;
+}
+
+p{
+    margin-bottom: 8px;
+}
+
+@media (max-width: 540px) {
+
+    .profilepicture{
+        height: 24px;
+        width: 24px;
+        min-width: none;
+        min-height: none;
+    }
+
+    .user-stats{
+        position: absolute;
+        bottom: 4px;
+    }
+
+    .profile-user{
+        flex-direction: column;
+       
+    }
+
+    .allprofile{
+        min-height: 32vh;
+    }
+}

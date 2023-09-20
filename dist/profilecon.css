@@ -1,0 +1,46 @@
+profile-container{
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: end;
+    font-family: 'Poppins';
+}
+.clothescontainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8vh;
+    width: 75vw;
+    overflow-x: scroll;
+}
+
+h3{
+    color: #667FF7;
+}
+
+hr{
+    border-color: #667FF7;
+    width: 75vw;
+}
+.division{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 8px;
+}
+.division div{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+@media (max-width: 540px) {
+
+    .clothescontainer{
+        margin-top: 8px;
+    }
+    .division{
+        margin-top: 12px;
+    }
+}

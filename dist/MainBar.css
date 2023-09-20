@@ -4,7 +4,8 @@ section{
     font-family: 'Poppins';
     justify-content: space-around;
     align-items: center;
-    max-width: 1464px;
+    width: 75vw;
+    width: 100%;
 }
 .main-bar-name{
     display: flex;
