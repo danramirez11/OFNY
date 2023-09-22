@@ -16,4 +16,7 @@ section img{
 .profilepicture{
     border-radius: 100%;
     object-fit: cover;
+    height:  8vw;
+    min-height: 35px;
+    margin: 10px;
 }

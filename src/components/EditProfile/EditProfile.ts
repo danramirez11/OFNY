@@ -1,3 +1,5 @@
+import EditProfileStyle from "./EditProfile.css"
+
 export enum EditAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",

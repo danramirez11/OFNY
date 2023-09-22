@@ -1,3 +1,5 @@
+import BuyProfileStyle from "./BuyProfile.css"
+
 export enum BuyPAttribute {
     "clothes" = "clothes"
 }

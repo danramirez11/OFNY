@@ -1,3 +1,5 @@
+import MainBarStyle from "./MainBar.css"
+
 export enum Attribute {
     "username" = "username",
     "profilepicture" = "profilepicture"
@@ -38,7 +40,7 @@ class MainBar extends HTMLElement{
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="MainBar.css">
+            <style>${MainBarStyle}</style>
             <section>
             <div class="main-bar-name">
             <img class="logo-desktop" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png" alt="">

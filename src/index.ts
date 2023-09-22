@@ -5,8 +5,11 @@ import BarMobile, { BarMobileAttribute } from "./components/BarMobile/BarMobile"
 import Profile, { ProfileAttribute} from "./components/Profile/Profile";
 import BuyProfile, { BuyPAttribute} from "./components/BuyProfile/BuyProfile";
 import EditProfile, {EditAttribute} from "./components/EditProfile/EditProfile";
-import { postData } from "./data/postData";
-import { clothesData } from "./data/clothesData";
+import { postData } from "./Data/DataMain";
+import { clothesData } from "./Data/clothesData";
+import mainStyle from "./main.css";
+import profileconStyle from "./profilecon.css";
+import displayPostStyle from "./displayPost.css";
 
 class MainContainer extends HTMLElement {
 
@@ -33,8 +36,8 @@ class MainContainer extends HTMLElement {
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="./main.css">
-            <link rel="stylesheet" href="displayPost.css">
+            <style>${mainStyle}</style>
+            <style>${displayPostStyle}</style>
             `
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
@@ -89,8 +92,8 @@ class ProfileContainer extends HTMLElement {
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="./profile/profilecon.css">
-            <link rel="stylesheet" href="displayPost.css">
+            <style>${profileconStyle}</style>
+            <style>${displayPostStyle}</style>
             `
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;

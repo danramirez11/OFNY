@@ -1,3 +1,5 @@
+import MainPostStyle from "./MainPost.css"
+
 export enum PostAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
@@ -52,7 +54,7 @@ class MainPost extends HTMLElement{
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="MainPost.css">
+            <style>${MainPostStyle}</style>
             <section>
             <img class="post-img" src="${this.post}">
             <img class="post-heart-mobile heart" src="${this.like}">

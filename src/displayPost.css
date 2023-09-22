@@ -1,14 +1,8 @@
-/*.postscontainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 4px;
-    margin-top: 36px;
-}
-
 .postscontainer {
     columns: 270px;
     gap: 4px;
     counter-reset: grid;
+    margin-top: 24px;
   }
   
   .postscontainer section + .postscontainer section {
@@ -22,30 +16,11 @@
   .postscontainer section::before {
     counter-increment: grid;
     content: counter(grid);
-  }*/
-
-.barmobile{
-    display: none;
-}
+  }
 
 @media (max-width: 540px) {
-    .barmobile{
-        display: flex;
-        position: fixed;
-        bottom: 12px;
-        width: 90vw;
-        background-color: rgb(255, 255, 255);
-        justify-content: space-around;
-        border-radius: 36px;
-        box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
-    }
-
-    /*.postscontainer{
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .postscontainer {
+  
+  .postscontainer {
         columns: 42vw;
         gap: 4px;
         counter-reset: grid;
@@ -62,5 +37,5 @@
       .postscontainer section::before {
         counter-increment: grid;
         content: counter(grid);
-      }*/
+      }
 }

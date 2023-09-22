@@ -1,3 +1,5 @@
+import ProfileStyle from "./Profile.css"
+
 export enum ProfileAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
@@ -59,7 +61,7 @@ class Profile extends HTMLElement{
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="./Profile.css">
+            <style>${ProfileStyle}</style>
             <section class="allprofile">
                 <img class="profilepicture" src="${this.profilepicture}">
                 <section>
