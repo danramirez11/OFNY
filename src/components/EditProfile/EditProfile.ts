@@ -43,7 +43,7 @@ class EditProfile extends HTMLElement{
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="./EditProfile.css">
+            <style>${EditProfileStyle}</style>
             <section class="modal hide" id="modal">
                 <section class="modal-content">
                 <button class="X">X</button>

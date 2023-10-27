@@ -37,7 +37,7 @@ class BuyProfile extends HTMLElement{
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href=".BuyProfile.css">
+            <style>${BuyProfileStyle}</style>
             <section>
             <img src="${this.clothes}">
             <button>SHOP</button>
