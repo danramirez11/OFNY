@@ -44,7 +44,7 @@ class EditProfile extends HTMLElement{
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${EditProfileStyle}</style>
-            <section class="modal appear" id="modal">
+            <section class="modal" id="modal">
                 <section class="modal-content">
                 <button class="X">X</button>
                 <button class="button-save">SAVE</button>

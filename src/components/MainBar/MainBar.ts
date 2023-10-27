@@ -1,4 +1,9 @@
 import MainBarStyle from "./MainBar.css"
+import { addObserver, appState, dispatch } from '../../store/index';
+import { Navigate } from '../../types/store';
+import { Screens } from '../../types/navigation';
+import { navigate } from '../../store/actions';
+
 
 export enum Attribute {
     "username" = "username",
@@ -35,6 +40,33 @@ class MainBar extends HTMLElement{
     
     connectedCallback(){
         this.render();
+
+        const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
+        btnProfile?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.PROFILE
+				)
+			);
+        })
+
+        const btnMain = this.shadowRoot?.querySelector('.logo-desktop');
+        btnMain?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.DASHBOARD
+				)
+			);
+        })
+
+        const btnMainMobile = this.shadowRoot?.querySelector('.logo-mobile');
+        btnMainMobile?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.DASHBOARD
+				)
+			);
+        })
     }
     
     render(){
