@@ -67,15 +67,15 @@ class ProfileContainer extends HTMLElement {
             });
             this.shadowRoot.appendChild(clothescontainer);
 
-            this.shadowRoot.innerHTML += ` 
-            <section class="division">
-            <div>
+            const profileposts =  this.ownerDocument.createElement("section");
+            profileposts.classList.add("profileposts");
+            profileposts.innerHTML += `
+            <nav>
                 <h3>OFNIS</h3>
                 <h3>LIKES</h3>
                 <h3>FOLLOWING</h3>
-                </div>
+                </nav>
                 <hr>
-            </section>
             `
 
             const postscontainer =  this.ownerDocument.createElement("section");
@@ -83,7 +83,8 @@ class ProfileContainer extends HTMLElement {
             this.posts.forEach((post) => {
                 postscontainer.appendChild(post);
             })
-            this.shadowRoot.appendChild(postscontainer);
+            profileposts.appendChild(postscontainer);
+            this.shadowRoot.appendChild(profileposts)
 
             const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
             edit.setAttribute(EditAttribute.username, "username1234");

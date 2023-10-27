@@ -44,7 +44,7 @@ class EditProfile extends HTMLElement{
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${EditProfileStyle}</style>
-            <section class="modal hide" id="modal">
+            <section class="modal appear" id="modal">
                 <section class="modal-content">
                 <button class="X">X</button>
                 <button class="button-save">SAVE</button>
@@ -54,7 +54,7 @@ class EditProfile extends HTMLElement{
                         <p>Delete profile picture</p>
                         </div>
                         <div class="basic-username">
-                        <h3>${this.username}</h3>
+                        <input type="text" class="input-username" placeholder="${this.username}"></input>
                         <button>New Username</button>
                         </div>
                     </section>

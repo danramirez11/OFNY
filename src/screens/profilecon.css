@@ -1,17 +1,22 @@
-profile-container{
+/*app-profile{
     display: block;
     flex-direction: column;
     align-items: center;
     align-content: center;
     justify-content: end;
     font-family: 'Poppins';
-}
+}*/
 .clothescontainer{
     display: flex;
     flex-direction: row;
-    margin-top: 8vh;
+    margin-top: 12px;
     width: 75vw;
     overflow-x: scroll;
+}
+
+my-profile{
+    width: 100%;
+    background-color: aqua;
 }
 
 h3{
@@ -33,6 +38,14 @@ hr{
     display: flex;
     width: 100%;
     justify-content: space-around;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.profileposts{
+    margin-top: 12px;
 }
 
 @media (max-width: 540px) {
