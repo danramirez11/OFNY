@@ -1,0 +1,54 @@
+section{
+    display: flex;
+    height: 8vh;
+    font-family: 'Poppins';
+    justify-content: space-around;
+    align-items: center;
+    width: 75vw;
+    width: 100%;
+}
+.Landing-bar-logo{
+    display: flex;
+    align-items: center;
+}
+.logo-mobile{
+    display: none;
+}
+h3{
+    color: #667FF7;
+    font-size: medium;
+    margin: 4px;
+}
+
+.landing-bar-buttons{
+    display: flex;
+    align-items: center;
+
+}
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+#login-button {
+    background-color: #667FF7;
+    color: #fff;
+    border: none;
+}
+#singup-button {
+    background-color:#fff ;
+    color:#667FF7;
+    border-color: #667FF7;
+}
+
+@media (max-width: 540px) {
+
+h3{
+    display: none;
+}
+#singup-button {
+    display: none;
+}
+#singup-button {
+    display: none;
+}
+}
