@@ -5,8 +5,8 @@ import BarMobile, { BarMobileAttribute } from "../components/BarMobile/BarMobile
 import Profile, { ProfileAttribute} from "../components/Profile/Profile";
 import BuyProfile, { BuyPAttribute} from "../components/BuyProfile/BuyProfile";
 import EditProfile, {EditAttribute} from "../components/EditProfile/EditProfile";
-import { postData } from "../data/DataMain";
-import { clothesData } from "../data/clothesData";
+import { postData } from "../Data/DataMain";
+import { clothesData } from "../Data/clothesData";
 import mainStyle from "./main.css";
 import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
