@@ -1,0 +1,16 @@
+.footer-bar {
+    background-color: #fff; 
+    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px; 
+    display: flex; 
+    justify-content: center; 
+}
+
+button {
+    border: none; 
+    background-color: transparent; 
+    color: black; 
+    font-family: 'Poppins'; 
+    font-size: 14px; 
+    margin: 0 10px;
+}
