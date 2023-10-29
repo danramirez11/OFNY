@@ -16,7 +16,7 @@ class AppContainer extends HTMLElement {
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = ``
         }
-        const dashboard = this.ownerDocument.createElement('app-profile');
+        const dashboard = this.ownerDocument.createElement('app-dashboard');
         this.shadowRoot?.appendChild(dashboard);
     }
 }
