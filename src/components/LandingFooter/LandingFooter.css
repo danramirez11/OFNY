@@ -6,7 +6,8 @@
     justify-content: center; 
 }
 
-button {
+button :hover {
+    text-decoration: underline;
     border: none; 
     background-color: transparent; 
     color: black; 
