@@ -6,3 +6,4 @@ export {default as BuyProfile} from "./BuyProfile/BuyProfile";
 export {default as EditProfile} from "./EditProfile/EditProfile";
 export {default as LandingBar} from "./LandingBar/LandingBar";
 export {default as LandingShare} from "./LandingShare/LandingShare";
+export {default as LandingFooter} from "./LandingFooter/LandingFooter";
