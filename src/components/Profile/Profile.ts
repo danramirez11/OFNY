@@ -68,7 +68,6 @@ class Profile extends HTMLElement{
     }
 
     OpenEditProfile(){
-        console.log("click");
 
         if (appState.editprofile){
             dispatch(

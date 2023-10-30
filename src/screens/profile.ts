@@ -10,6 +10,7 @@ import { clothesData } from "../data/clothesData";
 import mainStyle from "./main.css";
 import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
+import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
 
 class ProfileContainer extends HTMLElement {
 
@@ -62,10 +63,6 @@ class ProfileContainer extends HTMLElement {
             profile.setAttribute(ProfileAttribute.followers, "695");
             profile.setAttribute(ProfileAttribute.following, "89");
             profile.setAttribute(ProfileAttribute.posts, "5");
-
-            const btnEditProfile = profile.shadowRoot?.querySelector('.btnEditProfile');
-            btnEditProfile?.addEventListener(('click'), this.OpenEditProfile)
-            
             this.shadowRoot.appendChild(profile);
 
             const clothescontainer = this.ownerDocument.createElement("section");
@@ -99,6 +96,11 @@ class ProfileContainer extends HTMLElement {
             edit.setAttribute(EditAttribute.profilepicture, "https://i.pinimg.com/564x/ca/04/0e/ca040ec2ce77e3da8c7da46f34cf8296.jpg");
             edit.setAttribute(EditAttribute.birth, "25 MARCH 2000")
             this.shadowRoot.appendChild(edit);
+
+            const create = this.ownerDocument.createElement("create-post") as CreatePost;
+            create.setAttribute(CreateAttribute.username, "username1234");
+            create.setAttribute(CreateAttribute.profilepicture, "https://i.pinimg.com/564x/ca/04/0e/ca040ec2ce77e3da8c7da46f34cf8296.jpg");
+            this.shadowRoot.appendChild(create);
     }
 }
 }

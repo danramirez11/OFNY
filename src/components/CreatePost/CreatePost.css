@@ -1,0 +1,132 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 999;
+    display: none;
+    font-family: 'Poppins', sans-serif;
+  }
+.appear{
+    display: block;
+}
+.post-info-user-mobile{
+    display: none;
+}
+
+.modal-content{
+    width: 75vw;
+    height: max-content;
+    background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 38px;
+    border-radius: 40px;
+    display: flex;
+    color: white;
+}
+
+.upload-photo{
+    background-color: #EFEDFB;
+    border-radius: 20px;
+    color: #667FF7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-right: 12px;
+}
+.upload-photo img{
+    width: 50%;
+}
+
+.post-info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.post-info-user{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.profilepicture{
+    width: 16%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: 4px;
+}
+input{
+    border-radius: 16px;
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    padding: 8px;
+    padding-inline: 24px;
+}
+::placeholder{
+    color: white;
+}
+.button-upload, .button-tag{
+    border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
+}
+.button-upload{
+    position: absolute;
+    right: 18px;
+    top: 12px;
+}
+.X{
+    background-color: transparent;
+    border-style: none;
+    color: white;
+    position: absolute;
+    left: 28px;
+    top: 12px;
+}
+h4{
+    margin: 0;
+}
+
+@media (max-width: 540px) {
+
+    .modal-content{
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .post-info-user{
+        display: none;
+    }
+    .post-info-user-mobile{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .upload-photo{
+        width: 100%;
+    }
+    input{
+        border-style: solid;
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        border-bottom: white;
+        border-width: 4px;
+        margin: 0;
+    }
+}
+
