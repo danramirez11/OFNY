@@ -39,6 +39,10 @@ class ProfileContainer extends HTMLElement {
         this.render();
     }
 
+    OpenEditProfile(){
+        console.log("click")
+    }
+
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
@@ -58,6 +62,10 @@ class ProfileContainer extends HTMLElement {
             profile.setAttribute(ProfileAttribute.followers, "695");
             profile.setAttribute(ProfileAttribute.following, "89");
             profile.setAttribute(ProfileAttribute.posts, "5");
+
+            const btnEditProfile = profile.shadowRoot?.querySelector('.btnEditProfile');
+            btnEditProfile?.addEventListener(('click'), this.OpenEditProfile)
+            
             this.shadowRoot.appendChild(profile);
 
             const clothescontainer = this.ownerDocument.createElement("section");

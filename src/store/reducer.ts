@@ -1,5 +1,5 @@
 import { AppState } from '../types/store';
-import { Actions, Navigate } from '../types/store';
+import { Actions, Navigate, EditModal } from '../types/store';
 import { appState } from './index';
 
 export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
@@ -12,6 +12,13 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
 			screen: payload,
 		  };
         break;
+
+		case EditModal.EDITMODAL:
+			return {
+				...currentState,
+				editprofile: payload,
+			  };
+			break;
         
 		default:
 		  return currentState;

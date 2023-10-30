@@ -2,10 +2,15 @@ export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
 	screen: string,
+	editprofile: boolean 
 };
 
 export enum Navigate {
 	'NAVIGATE' = 'NAVIGATE',
+}
+
+export enum EditModal {
+	'EDITMODAL' = 'EDITMODAL'
 }
 
 export interface ChangeScreen {
@@ -13,4 +18,9 @@ export interface ChangeScreen {
 	payload: "white";
 }
 
-export type Actions = ChangeScreen;
+export interface ShowModal {
+	action: EditModal.EDITMODAL
+	payload: true,
+}
+
+export type Actions = ChangeScreen | ShowModal;

@@ -1,4 +1,8 @@
 import ProfileStyle from "./Profile.css"
+import { addObserver, appState, dispatch } from '../../store/index';
+import { showmodal } from '../../store/actions';
+
+
 
 export enum ProfileAttribute {
     "username" = "username",
@@ -52,10 +56,29 @@ class Profile extends HTMLElement{
     constructor(){
         super();
         this.attachShadow({mode: "open"});
+        addObserver(this);
     }
     
     connectedCallback(){
         this.render();
+
+        const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
+            btnEditProfile?.addEventListener(('click'), this.OpenEditProfile)
+
+    }
+
+    OpenEditProfile(){
+        console.log("click");
+
+        if (appState.editprofile){
+            dispatch(
+                showmodal(false)
+            )
+        } else {
+            dispatch(
+                showmodal(true)
+            )
+        }
     }
     
     render(){
@@ -67,7 +90,7 @@ class Profile extends HTMLElement{
                 <section>
                 <div class="profile-user">
                     <h3>${this.username}</h3>
-                    <button>EDIT PROFILE</button>
+                    <button class="btnEditProfile">EDIT PROFILE</button>
                 </div>
                 <p class="user-stats">${this.posts || 0} Ofnis    ${this.followers || 0} followers ${this.following || 0}    following</p>
                 <p>${this.desc || "No description available :("}</p>

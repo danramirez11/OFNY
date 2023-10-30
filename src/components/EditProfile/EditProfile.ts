@@ -1,4 +1,6 @@
 import EditProfileStyle from "./EditProfile.css"
+import { addObserver, appState, dispatch } from '../../store/index';
+import { showmodal } from "../../store/actions";
 
 export enum EditAttribute {
     "username" = "username",
@@ -34,10 +36,25 @@ class EditProfile extends HTMLElement{
     constructor(){
         super();
         this.attachShadow({mode: "open"});
+        addObserver(this);
     }
     
     connectedCallback(){
         this.render();
+
+        const modal = this.shadowRoot?.querySelector('.modal')
+        if (appState.editprofile){
+            modal?.classList.add('appear')
+        } else {
+            modal?.classList.remove('appear')
+        }
+
+        const btnClose = this.shadowRoot?.querySelector('.X')
+        btnClose?.addEventListener(('click'), () => {
+            dispatch(
+                showmodal(false)
+            )
+        })
     }
     
     render(){

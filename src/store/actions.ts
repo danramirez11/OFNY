@@ -1,4 +1,4 @@
-import { Navigate } from '../types/store';
+import { Navigate, EditModal } from '../types/store';
 import { Screens } from '../types/navigation';
 
 export const navigate = (screen: Screens) => {
@@ -7,3 +7,10 @@ export const navigate = (screen: Screens) => {
 		payload: screen,
 	};
 };
+
+export const showmodal = (show: boolean) => {
+	return {
+		action: EditModal.EDITMODAL,
+		payload: show
+	}
+}
