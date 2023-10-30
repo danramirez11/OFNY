@@ -1,16 +1,15 @@
-body {
-    position: relative; /* Necesario para posicionar el footer en relación a la página */
-}
+
 .footer-bar {
     background-color: #fff; 
-    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px; 
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
     display: flex; 
     justify-content: center; 
     align-items: flex-end; 
-    position: absolute;
+    position: fixed;
     bottom: 0; 
     width: 100%;
+    height: max-content;
 }
 
 button {

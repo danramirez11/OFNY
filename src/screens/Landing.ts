@@ -18,19 +18,22 @@ class LandingContainer extends HTMLElement {
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = `
             <style>${LandigStyle}</style>
+
             `;
+            const body = document.createElement("section")
+            this.shadowRoot.appendChild(body);
+            body.classList.add("body")
 
             const LandingBar = document.createElement("landing-bar");
-            this.shadowRoot.appendChild(LandingBar);
+            body.appendChild(LandingBar);
 
             const LandingShare = document.createElement("landing-share");
-            this.shadowRoot.appendChild(LandingShare);
+            body.appendChild(LandingShare);
 
             const Footer = document.createElement("footer-landing");
-            this.shadowRoot.appendChild(Footer);
+            body.appendChild(Footer);
         }
     }
 }
 
 customElements.define("app-landing", LandingContainer);
-
