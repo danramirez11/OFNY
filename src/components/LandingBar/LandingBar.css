@@ -2,9 +2,8 @@ section{
     display: flex;
     height: 8vh;
     font-family: 'Poppins';
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
-    width: 75vw;
     width: 100%;
 }
 .Landing-bar-logo{
@@ -26,15 +25,18 @@ h3{
 
 }
 button {
-    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-block: 5px;
     cursor: pointer;
     border-radius: 15px;
     font-size: 15px;
+    border-style:solid;
 }
 #login-button {
     background-color: #667FF7;
     color: #fff;
-    border: none;
+    border-color: #667FF7;
     margin-right: 10px
 }
 #singup-button {
