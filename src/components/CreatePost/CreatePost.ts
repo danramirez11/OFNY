@@ -38,13 +38,42 @@ class CreatePost extends HTMLElement{
     
     connectedCallback(){
         this.render();
+
+        const modal = this.shadowRoot?.querySelector('.modal');
+        let modalPost = false
+        console.log(modalPost)
+
+        const btnPost = this.shadowRoot?.querySelector('.btnPost')
+        btnPost?.addEventListener(('click'), () => this.showModal(modalPost, modal))
+        
+        const btnClose = this.shadowRoot?.querySelector('.X');
+        btnClose?.addEventListener(('click'), () => this.showModal(modalPost, modal))
+
+        
+    }
+
+    showModal(modalPost: boolean, modal: any){
+        if (modalPost){
+            modalPost = false;
+            modal?.classList.remove('appear')
+            console.log("its active")
+        } else {
+            modalPost = true;
+            modal?.classList.add('appear')
+            console.log("its deactive")
+        }
     }
     
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${CreatePostStyle}</style>
-            <section class="modal appear" id="modal">
+
+            <div class="btnPost">
+            <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1168721226831757312/OFNYLogofullwhite.png?ex=6552cb76&is=65405676&hm=0799a421db5ad330e568478f2056bd692ad71111ccb9d08bd0c19533d96e0e39&">
+            </div>
+
+            <section class="modal" id="modal">
                 <section class="modal-content">
                 <button class="X">X</button>
                 <button class="button-upload">OFNY</button>

@@ -12,6 +12,26 @@
 .appear{
     display: block;
 }
+
+.btnPost{
+    position: fixed;
+    right: 4vw;
+    bottom: 4vh;
+    border-radius: 100%;
+    background-color:#667FF7;
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px #00000031;
+    min-width: 80px;
+    min-height: 80px;
+}
+.btnPost img{
+    width: 60%;
+}
+
 .post-info-user-mobile{
     display: none;
 }
