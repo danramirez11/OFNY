@@ -8,6 +8,8 @@ export enum CreateAttribute {
 }
 
 class CreatePost extends HTMLElement{
+
+    modalPost: boolean = false
     
     username?: string;
     profilepicture?: string;
@@ -40,27 +42,23 @@ class CreatePost extends HTMLElement{
         this.render();
 
         const modal = this.shadowRoot?.querySelector('.modal');
-        let modalPost = false
-        console.log(modalPost)
 
         const btnPost = this.shadowRoot?.querySelector('.btnPost')
-        btnPost?.addEventListener(('click'), () => this.showModal(modalPost, modal))
+        btnPost?.addEventListener(('click'), () => this.showModal(modal))
         
         const btnClose = this.shadowRoot?.querySelector('.X');
-        btnClose?.addEventListener(('click'), () => this.showModal(modalPost, modal))
+        btnClose?.addEventListener(('click'), () => this.showModal(modal))
 
         
     }
 
-    showModal(modalPost: boolean, modal: any){
-        if (modalPost){
-            modalPost = false;
+    showModal(modal: any){
+        if (this.modalPost){
+            this.modalPost = false;
             modal?.classList.remove('appear')
-            console.log("its active")
         } else {
-            modalPost = true;
+            this.modalPost = true;
             modal?.classList.add('appear')
-            console.log("its deactive")
         }
     }
     

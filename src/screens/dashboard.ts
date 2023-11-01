@@ -10,6 +10,11 @@ import { clothesData } from "../data/clothesData";
 import mainStyle from "./main.css";
 import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
+//import firebase from "../utils/firebase";
+
+const formPost = {
+    tittle: " "
+}
 
 class MainContainer extends HTMLElement {
 
@@ -33,12 +38,27 @@ class MainContainer extends HTMLElement {
         this.render();
     }
 
-    render(){
+    /*changeTitle(e: any){
+        formPost.tittle = e.target.value;
+
+    }
+
+    submitForm(){
+        firebase.addPost(formPost)
+    }*/
+
+    async render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${mainStyle}</style>
             <style>${displayPostStyle}</style>
             `
+
+            /*const posts = await firebase.getPost();
+            posts.forEach((post: any) => {
+                //acá ya se crea esa vuelta idk like ownder document ykwim
+                //se referencia como post.algo
+            })*/
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
             mainbar.setAttribute(Attribute.username, "username1234");
