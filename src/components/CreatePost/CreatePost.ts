@@ -49,7 +49,39 @@ class CreatePost extends HTMLElement{
         const btnClose = this.shadowRoot?.querySelector('.X');
         btnClose?.addEventListener(('click'), () => this.showModal(modal))
 
+        const btnMenu = this.shadowRoot?.querySelector('.btnMenu');
+        btnMenu?.addEventListener(('click'), () => this.toggleMenu(select))
+
+        const select = this.shadowRoot?.querySelector('.dropdown-menu');
+        select?.addEventListener(('change'), () => this.updateTags(select, tagsContainer))
+
+        const tagsContainer = this.shadowRoot?.querySelector('.post-info-tags');
         
+    }
+
+    toggleMenu(select: any){
+        if (select.style.display === 'none') {
+            select.style.display = 'block';
+        } else {
+            select.style.display = 'none';
+        }
+    }
+
+    updateTags(select: any, tagsContainer: any){
+        tagsContainer.innerHTML = '';
+
+        const selectedOptions = Array.from(select.selectedOptions);
+
+        selectedOptions.forEach((option: any) => {
+            const tag = document.createElement('button');
+            tag.className = '.button-tag';
+            tag.textContent = option.value;
+            tag.addEventListener('click', () => {
+                select.remove(option.index); 
+                tagsContainer.removeChild(tag); 
+            });
+            tagsContainer.appendChild(tag);
+        });
     }
 
     showModal(modal: any){
@@ -81,7 +113,7 @@ class CreatePost extends HTMLElement{
                 </div>
                     <div class="upload-photo">
                     <img src="https://media.discordapp.net/attachments/1108887572618412231/1168670571152822385/OFNYupload.png?ex=65529c49&is=65402749&hm=527adb16f0bd124e4d44bb325dbe8654004fa7cb31bd3fa9c8e979e5c1a09b68&=&width=486&height=655">
-                    <p>Upload your OFNY</p>
+                    <input type="text" placeholder="Upload your OFNY (url)">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">
@@ -90,10 +122,14 @@ class CreatePost extends HTMLElement{
                     </div>
                     <input type="text" placeholder="CAPTION...">
                     <h4>TAGS</h4>
-                    <input type="text" placeholder="SEARCH...">
+                    <button class="btnMenu">SEARCH</button>
+                    <select class="dropdown-menu" multiple>
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="deportivo">Deportivo</option>
+                        <option value="gótico">Gótico</option>
+                    </select>
                     <section class="post-info-tags">
-                    <button class="button-tag">CASUAL X</button>
-                    <button class="button-tag">GOTH X</button>
                     </section>
                     </section>
                 </section>

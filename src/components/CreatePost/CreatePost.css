@@ -13,6 +13,10 @@
     display: block;
 }
 
+.dropdown-menu{
+    display: none;
+}
+
 .btnPost{
     position: fixed;
     right: 4vw;
@@ -60,15 +64,28 @@
     align-items: center;
     width: 50%;
     margin-right: 12px;
+    padding: 24px;
+    gap: 16px;
 }
 .upload-photo img{
     width: 50%;
+}
+.upload-photo input{
+    border-color: #667FF7;
+    text-align: center;
+}
+.upload-photo input::placeholder{
+    color: #667FF7;
 }
 
 .post-info{
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+.post-info-tags{
+    display: flex;
+    gap: 4px;
 }
 .post-info-user{
     display: flex;
@@ -83,7 +100,7 @@
     border-radius: 100%;
     margin: 4px;
 }
-input{
+input, button{
     border-radius: 16px;
     color: white;
     background-color: transparent;
@@ -91,6 +108,7 @@ input{
     border-color: white;
     padding: 8px;
     padding-inline: 24px;
+    text-align: left;
 }
 ::placeholder{
     color: white;
