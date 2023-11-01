@@ -100,12 +100,13 @@
     border-radius: 100%;
     margin: 4px;
 }
-input, button{
+input, button, .dropdown-menu{
     border-radius: 16px;
     color: white;
     background-color: transparent;
     border-style: solid;
     border-color: white;
+    border-width: 2px;
     padding: 8px;
     padding-inline: 24px;
     text-align: left;
@@ -127,6 +128,7 @@ input, button{
     right: 18px;
     top: 12px;
 }
+
 .X{
     background-color: transparent;
     border-style: none;
