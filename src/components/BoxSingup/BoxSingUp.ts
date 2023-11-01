@@ -37,8 +37,8 @@ class BoxSingUp extends HTMLElement {
                 <div class="terms-service">
                     <button id="terms">I agree Terms of Service and Privace Policy</button>
                 </div>
-                <div class"button-login">
-                    <button id="login-button">Log In</button>  
+                <div class"button-singup">
+                    <button id="singup-button">Sing Up</button>  
                 </div>
                 <div class="already-account">
                 <button id="already-acount">Already have an account? Log in</button>
