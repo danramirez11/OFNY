@@ -43,6 +43,11 @@ h1{
   width: 300px;
   margin-bottom: 10px;
 }
+.options{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
 
 #Forgot-password:hover{
     text-decoration: underline;

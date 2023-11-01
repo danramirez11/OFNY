@@ -6,9 +6,13 @@ class BoxLogin extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
 
-    connectedCallback() {
+    connectedCallback(){
         this.render();
-       
+        
+        const check = this.shadowRoot?.querySelectorAll(".check");
+            check?.forEach((check) => {
+                check.addEventListener("click", this.checkClick);
+            });
     }
     
     render(){
@@ -29,6 +33,7 @@ class BoxLogin extends HTMLElement {
                     <input placeholder="Password" type="password" id="password" name="password">
                 </div>
                 <div class="options">
+                <img class="post-heart-desktop check" src="https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&">
                     <button id="Remember">Remember</button>
                     <button id="Forgot-password">Forgot-password?</button>
                 </div>
@@ -43,7 +48,21 @@ class BoxLogin extends HTMLElement {
             `
         }
     }
-    
+    isliked: boolean = false
+
+    checkClick = () => {
+        this.isliked = !this.isliked;
+        const check = this.shadowRoot?.querySelectorAll(".check") as NodeListOf<HTMLImageElement>;
+
+        check.forEach((check) => {
+        if (this.isliked) {
+            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218243448973/Group_311.png?ex=6554d8b8&is=654263b8&hm=eb4eb00eca23aee00264abf3df56800956f46e24ea2a462ef32d57c8cf19336b&"
+            ;
+        } else {
+            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&"
+            ;
+        }});
+    };
 }
 
 customElements.define("box-login", BoxLogin);

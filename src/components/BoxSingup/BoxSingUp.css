@@ -65,6 +65,11 @@ h1{
 #already-acount:hover{
   text-decoration: underline;
 }
+.terms-service{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
 button {
   border: none; 
   background-color: transparent; 
