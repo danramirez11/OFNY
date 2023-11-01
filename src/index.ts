@@ -2,6 +2,7 @@ import "./screens/profile"
 import "./screens/dashboard"
 import "./components/export"
 import "./screens/Landing"
+import "./screens/Login"
 import styles from "./global.css"
 
 class AppContainer extends HTMLElement {
@@ -18,7 +19,7 @@ class AppContainer extends HTMLElement {
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `<style>${styles}</style>`
         }
-        const dashboard = this.ownerDocument.createElement('app-landing');
+        const dashboard = this.ownerDocument.createElement('app-login');
         this.shadowRoot?.appendChild(dashboard);
     }
 }

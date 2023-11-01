@@ -22,7 +22,7 @@ class LandingBar extends HTMLElement {
             </div>
             
             <div class="landing-bar-buttons">
-                 <button id="login-button">Log In</button>
+                <button id="login-button">Log In</button>
                 <button id="singup-button">Sign Up</button>
             </div>
             </section>

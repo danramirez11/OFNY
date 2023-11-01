@@ -1,8 +1,8 @@
 import * as components from "../components/export"
 import BoxLogin from "../components/BoxLogin/BoxLogin";
-import LoginStyle from "./Landing.css";
+import LoginStyle from "./Login.css";
 
-class LandingContainer extends HTMLElement {
+class LogInContainer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -16,16 +16,15 @@ class LandingContainer extends HTMLElement {
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = `
             <style>${LoginStyle}</style>
-
             `;
             const body = document.createElement("section")
             this.shadowRoot.appendChild(body);
             body.classList.add("body")
 
-            const BoxLogin = document.createElement("landing-bar");
+            const BoxLogin = document.createElement("box-login");
             body.appendChild(BoxLogin);
         }
     }
 }
 
-customElements.define("app-landing", LandingContainer);
+customElements.define("app-login", LogInContainer);
