@@ -1,6 +1,6 @@
-import BoxLoginStyle from "./BoxLogin.css"
+import BoxSingUpStyle from "./BoxSingUp.css"
 
-class BoxLogin extends HTMLElement {
+class BoxSingUp extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -14,7 +14,7 @@ class BoxLogin extends HTMLElement {
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
-            <style>${BoxLoginStyle}</style>
+            <style>${BoxSingUpStyle}</style>
             <section>
             <div class=user>
             <h1>SING UP</h1>
@@ -52,5 +52,5 @@ class BoxLogin extends HTMLElement {
     
 }
 
-customElements.define("box-login", BoxLogin);
-export default BoxLogin;
+customElements.define("box-singup", BoxSingUp);
+export default BoxSingUp;
