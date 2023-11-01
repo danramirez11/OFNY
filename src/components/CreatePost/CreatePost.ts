@@ -1,10 +1,18 @@
 import CreatePostStyle from "./CreatePost.css"
 import { addObserver, appState, dispatch } from '../../store/index';
 import { showmodal } from "../../store/actions";
+import firebase from "../../utils/firebase";
 
 export enum CreateAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
+}
+
+const formPost = {
+    desc: " ",
+    img: " ",
+    username: " ",
+    pfp: " "
 }
 
 class CreatePost extends HTMLElement{
@@ -56,7 +64,29 @@ class CreatePost extends HTMLElement{
         select?.addEventListener(('change'), () => this.updateTags(select, tagsContainer))
 
         const tagsContainer = this.shadowRoot?.querySelector('.post-info-tags');
+
+        const imgInput = this.shadowRoot?.querySelector('.imgInput');
+        imgInput?.addEventListener("change", this.changeImg);
+
+        const captionInput = this.shadowRoot?.querySelector('.captionInput');
+        captionInput?.addEventListener("change", this.changeCaption)
+
+        const buttonUppload = this.shadowRoot?.querySelector('.button-upload');
+        buttonUppload?.addEventListener("click", () => this.submitForm(modal))
         
+    }
+
+    changeImg(e: any){
+        formPost.img = e.target.value;
+    }
+
+    changeCaption(e: any){
+        formPost.desc = e.target.value
+    }
+
+    submitForm(modal: any){
+        firebase.addPost(formPost)
+        this.showModal(modal)
     }
 
     toggleMenu(select: any){
@@ -113,14 +143,14 @@ class CreatePost extends HTMLElement{
                 </div>
                     <div class="upload-photo">
                     <img src="https://media.discordapp.net/attachments/1108887572618412231/1168670571152822385/OFNYupload.png?ex=65529c49&is=65402749&hm=527adb16f0bd124e4d44bb325dbe8654004fa7cb31bd3fa9c8e979e5c1a09b68&=&width=486&height=655">
-                    <input type="text" placeholder="Upload your OFNY (url)">
+                    <input type="text" class="imgInput" placeholder="Upload your OFNY (url)">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">
                     <img class="profilepicture" src="${this.profilepicture}">
                     <h4>${this.username}</h4>
                     </div>
-                    <input type="text" placeholder="CAPTION...">
+                    <input type="text" class="captionInput" placeholder="CAPTION...">
                     <h4>TAGS</h4>
                     <button class="btnMenu">SEARCH</button>
                     <select class="dropdown-menu" multiple>

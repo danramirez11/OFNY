@@ -11,6 +11,8 @@ import mainStyle from "./main.css";
 import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
 import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
+import { getPost, addPost } from "../utils/firebase";
+import firebase from "../utils/firebase";
 
 class ProfileContainer extends HTMLElement {
 
@@ -36,8 +38,9 @@ class ProfileContainer extends HTMLElement {
         }
     }
 
-    connectedCallback(){
+    async connectedCallback(){
         this.render();
+
     }
 
     OpenEditProfile(){
