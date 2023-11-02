@@ -5,16 +5,12 @@ import BarMobile, { BarMobileAttribute } from "../components/BarMobile/BarMobile
 import Profile, { ProfileAttribute} from "../components/Profile/Profile";
 import BuyProfile, { BuyPAttribute} from "../components/BuyProfile/BuyProfile";
 import EditProfile, {EditAttribute} from "../components/EditProfile/EditProfile";
-import { postData } from "../data/DataMain";
 import { clothesData } from "../data/clothesData";
 import mainStyle from "./main.css";
 import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
-//import firebase from "../utils/firebase";
-
-const formPost = {
-    tittle: " "
-}
+import firebase from "../utils/firebase";
+import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
 
 class MainContainer extends HTMLElement {
 
@@ -23,29 +19,26 @@ class MainContainer extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode:"open"});
+
         
-        postData.forEach((post) => {
+        
+    }
+
+    async connectedCallback(){
+        
+
+        const postData = await firebase.getPost()
+        
+        postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            newpost.setAttribute(PostAttribute.post, post.post);
-            newpost.setAttribute(PostAttribute.profilepicture, post.profilepicture);
+            newpost.setAttribute(PostAttribute.post, post.img);
             newpost.setAttribute(PostAttribute.username, post.username);
+            newpost.setAttribute(PostAttribute.profilepicture, post.pfp)
             this.mainposts.push(newpost);
         })
-        
-    }
 
-    connectedCallback(){
         this.render();
     }
-
-    /*changeTitle(e: any){
-        formPost.tittle = e.target.value;
-
-    }
-
-    submitForm(){
-        firebase.addPost(formPost)
-    }*/
 
     async render(){
         if(this.shadowRoot){
@@ -76,6 +69,11 @@ class MainContainer extends HTMLElement {
             barmobile.classList.add("barmobile")
             barmobile.setAttribute(BarMobileAttribute.profilepicture, "https://i.pinimg.com/564x/ca/04/0e/ca040ec2ce77e3da8c7da46f34cf8296.jpg");
             this.shadowRoot.appendChild(barmobile);
+
+            const create = this.ownerDocument.createElement("create-post") as CreatePost;
+            create.setAttribute(CreateAttribute.username, "username1234");
+            create.setAttribute(CreateAttribute.profilepicture, "https://i.pinimg.com/564x/ca/04/0e/ca040ec2ce77e3da8c7da46f34cf8296.jpg");
+            this.shadowRoot.appendChild(create);
         }
     }
 }

@@ -11,8 +11,8 @@ export enum CreateAttribute {
 const formPost = {
     desc: " ",
     img: " ",
-    username: " ",
-    pfp: " "
+    username: "saggu",
+    pfp: "https://i.pinimg.com/564x/65/be/f4/65bef489cfda8b949f0efd10249c7e19.jpg"
 }
 
 class CreatePost extends HTMLElement{

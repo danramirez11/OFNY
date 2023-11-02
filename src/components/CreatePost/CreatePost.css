@@ -74,7 +74,10 @@
     border-color: #667FF7;
     text-align: center;
 }
-.upload-photo input::placeholder{
+.upload-photo input::placeholder {
+    color: #667FF7;
+}
+.upload-photo::target-text{
     color: #667FF7;
 }
 
