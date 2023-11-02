@@ -146,6 +146,9 @@ h4{
 
 @media (max-width: 540px) {
 
+    .btnPost{
+        bottom: 12vh;
+    }
     .modal-content{
         align-items: flex-start;
         flex-direction: column;

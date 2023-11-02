@@ -125,6 +125,7 @@ class CreatePost extends HTMLElement{
     }
     
     render(){
+
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${CreatePostStyle}</style>

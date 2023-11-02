@@ -3,6 +3,7 @@ import { addObserver, appState, dispatch } from '../../store/index';
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
 import { navigate } from '../../store/actions';
+import firebase from "../../utils/firebase";
 
 export enum BarMobileAttribute {
     "profilepicture" = "profilepicture"
@@ -45,6 +46,8 @@ class BarMobile extends HTMLElement{
 				)
 			);
         })
+
+        
     }
     
     render(){
@@ -57,6 +60,8 @@ class BarMobile extends HTMLElement{
                 <img class="profilepicture" src="${this.profilepicture}">
             </section>
             `
+
+            
         }
     }
 }

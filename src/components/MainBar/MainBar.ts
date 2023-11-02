@@ -3,6 +3,7 @@ import { addObserver, appState, dispatch } from '../../store/index';
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
 import { navigate } from '../../store/actions';
+import firebase from "../../utils/firebase";
 
 
 export enum Attribute {
@@ -38,7 +39,7 @@ class MainBar extends HTMLElement{
         this.attachShadow({mode: "open"});
     }
     
-    connectedCallback(){
+    async connectedCallback(){
         this.render();
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
@@ -70,6 +71,7 @@ class MainBar extends HTMLElement{
     }
     
     render(){
+
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${MainBarStyle}</style>
