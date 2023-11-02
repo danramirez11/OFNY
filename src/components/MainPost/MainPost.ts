@@ -32,7 +32,7 @@ class MainPost extends HTMLElement{
             this[propName] = newValue;
             break;
         }
-        this.mount();
+        this.render();
     }
     
     constructor(){
@@ -43,12 +43,12 @@ class MainPost extends HTMLElement{
     }
     
     connectedCallback(){
-        this.mount(); 
-    }
-
-    mount(){
         this.render();
-        this.addEventListeners();
+        
+        const heart = this.shadowRoot?.querySelectorAll(".heart");
+            heart?.forEach((heart) => {
+                heart.addEventListener("click", this.likeClick);
+            });
     }
     
     render(){
@@ -70,15 +70,6 @@ class MainPost extends HTMLElement{
     }
 
     isliked: boolean = false
-
-    addEventListeners(){
-        if (this.shadowRoot){
-            const heart = this.shadowRoot.querySelectorAll(".heart");
-            heart.forEach((heart) => {
-                heart.addEventListener("click", this.likeClick);
-            });
-        }
-    }
 
     likeClick = () => {
         this.isliked = !this.isliked;

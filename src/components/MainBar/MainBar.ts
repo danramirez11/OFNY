@@ -1,4 +1,10 @@
 import MainBarStyle from "./MainBar.css"
+import { addObserver, appState, dispatch } from '../../store/index';
+import { Navigate } from '../../types/store';
+import { Screens } from '../../types/navigation';
+import { navigate } from '../../store/actions';
+import firebase from "../../utils/firebase";
+
 
 export enum Attribute {
     "username" = "username",
@@ -33,11 +39,39 @@ class MainBar extends HTMLElement{
         this.attachShadow({mode: "open"});
     }
     
-    connectedCallback(){
+    async connectedCallback(){
         this.render();
+
+        const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
+        btnProfile?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.PROFILE
+				)
+			);
+        })
+
+        const btnMain = this.shadowRoot?.querySelector('.logo-desktop');
+        btnMain?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.DASHBOARD
+				)
+			);
+        })
+
+        const btnMainMobile = this.shadowRoot?.querySelector('.logo-mobile');
+        btnMainMobile?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.DASHBOARD
+				)
+			);
+        })
     }
     
     render(){
+
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${MainBarStyle}</style>

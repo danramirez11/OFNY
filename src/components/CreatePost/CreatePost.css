@@ -1,0 +1,178 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 999;
+    display: none;
+    font-family: 'Poppins', sans-serif;
+  }
+.appear{
+    display: block;
+}
+
+.dropdown-menu{
+    display: none;
+}
+
+.btnPost{
+    position: fixed;
+    right: 4vw;
+    bottom: 4vh;
+    border-radius: 100%;
+    background-color:#667FF7;
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px #00000031;
+    min-width: 80px;
+    min-height: 80px;
+}
+.btnPost img{
+    width: 60%;
+}
+
+.post-info-user-mobile{
+    display: none;
+}
+
+.modal-content{
+    width: 75vw;
+    height: max-content;
+    background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 38px;
+    border-radius: 40px;
+    display: flex;
+    color: white;
+}
+
+.upload-photo{
+    background-color: #EFEDFB;
+    border-radius: 20px;
+    color: #667FF7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-right: 12px;
+    padding: 24px;
+    gap: 16px;
+}
+.upload-photo img{
+    width: 50%;
+}
+.upload-photo input{
+    border-color: #667FF7;
+    text-align: center;
+}
+.upload-photo input::placeholder {
+    color: #667FF7;
+}
+.upload-photo::target-text{
+    color: #667FF7;
+}
+
+.post-info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.post-info-tags{
+    display: flex;
+    gap: 4px;
+}
+.post-info-user{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.profilepicture{
+    width: 16%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    margin: 4px;
+}
+input, button, .dropdown-menu{
+    border-radius: 16px;
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    padding: 8px;
+    padding-inline: 24px;
+    text-align: left;
+}
+::placeholder{
+    color: white;
+}
+.button-upload, .button-tag{
+    border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
+}
+.button-upload{
+    position: absolute;
+    right: 18px;
+    top: 12px;
+}
+
+.X{
+    background-color: transparent;
+    border-style: none;
+    color: white;
+    position: absolute;
+    left: 28px;
+    top: 12px;
+}
+h4{
+    margin: 0;
+}
+
+@media (max-width: 540px) {
+
+    .btnPost{
+        bottom: 12vh;
+    }
+    .modal-content{
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .post-info-user{
+        display: none;
+    }
+    .post-info-user-mobile{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .upload-photo{
+        width: 100%;
+    }
+    input{
+        border-style: solid;
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        border-bottom: white;
+        border-width: 4px;
+        margin: 0;
+    }
+}
+

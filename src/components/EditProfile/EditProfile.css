@@ -7,6 +7,7 @@
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 999;
     display: none;
+    font-family: 'Poppins', sans-serif;
   }
 .appear{
     display: block;
@@ -55,8 +56,8 @@
     display: flex;
     flex-direction: column;
 }
-.basic-username h3{
-    color: gray;
+.input-username{
+    border: none;
     margin: 0;
 }
 .basic-username button{
@@ -141,9 +142,10 @@ input{
     }
     .basic-username{
         align-items: baseline;
+        width: 100%;
     }
-    .basic-username h3{
-        color: white;
+    .basic-username button{
+        width: 100%;
     }
     .desc{
         margin: 0;
