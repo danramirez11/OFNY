@@ -4,3 +4,8 @@ export {default as BarMobile} from "./BarMobile/BarMobile";
 export {default as Profile} from "./Profile/Profile";
 export {default as BuyProfile} from "./BuyProfile/BuyProfile";
 export {default as EditProfile} from "./EditProfile/EditProfile";
+export {default as LandingBar} from "./LandingBar/LandingBar";
+export {default as LandingShare} from "./LandingShare/LandingShare";
+export {default as LandingFooter} from "./LandingFooter/LandingFooter";
+export {default as BoxLogin} from "./BoxLogin/BoxLogin";
+export {default as BoxSingUp} from "./BoxSingup/BoxSingUp";

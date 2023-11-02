@@ -1,0 +1,99 @@
+section {
+    border-radius: 53px;
+    display: flex;
+    width: 70vw;
+    background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+    font-family: "poppins";
+    width: 800px;
+    height: 455px;
+    opacity: 0.9;
+  }   
+.user {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+h1{
+    font-size: 50px;
+    color: #fff;
+}
+#username{
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-style: solid;
+  border-color: #fff;
+  height: 25px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+#email{
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-style: solid;
+  border-color: #fff;
+  height: 25px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+#password{
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-style: solid;
+  border-color: #fff;
+  height: 25px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+#confirm-password{
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-style: solid;
+  border-color: #fff;
+  height: 25px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+#terms:hover{
+    text-decoration: underline;
+}
+#already-acount:hover{
+  text-decoration: underline;
+}
+.terms-service{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+button {
+  border: none; 
+  background-color: transparent; 
+  color:#fff; 
+  font-family: 'Poppins'; 
+  font-size: 14px; 
+  margin: 0 10px;
+}
+#singup-button{
+    background-color: #fff;
+    color: #667FF7;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 250px;
+}
+input::placeholder{
+  color:#fff;
+  text-align: center;
+}
+#imagen {
+    width: 40%;
+  }

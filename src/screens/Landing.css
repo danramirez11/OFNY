@@ -1,0 +1,15 @@
+.body {
+    background-color: #EFEDFB;
+    margin: 0; 
+    padding: 0; 
+}
+
+.body {
+    background-image: url('https://cdn.discordapp.com/attachments/1108887572618412231/1168661673016561774/Group_347_1.png?ex=655293ff&is=65401eff&hm=d766cf019a396088e9a336a6500317470e1e70b116b3ff6d5b0ff4aec80e4ad7&'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    
+}
+landing-share{
+    height: 200vh;
+}

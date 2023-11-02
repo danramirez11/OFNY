@@ -1,0 +1,40 @@
+section {
+    margin: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    height: 200vh;
+    
+}
+
+h1 {
+    font-family: 'Karantina';
+    font-size: 300px;
+    text-align: left; 
+    letter-spacing: 10px;
+    margin: 0; 
+    color: #667FF7
+}
+
+h2 {
+    font-family: 'Poppins'; 
+    font-size: 50px; 
+    text-align: left;
+    margin: 0; 
+    color: #67707A;
+}
+
+#share-button {
+    font-family: 'Poppins';
+    font-size: 19px;
+    margin: 0 auto; 
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #667FF7;
+    color: #fff;
+    border: none;
+    position:absolute;
+    left: 16%;
+    bottom: 80px;
+}

@@ -1,6 +1,10 @@
 import "./screens/profile"
 import "./screens/dashboard"
 import "./components/export"
+import "./screens/Landing"
+import "./screens/Login"
+import "./screens/SingUp"
+import styles from "./global.css"
 
 class AppContainer extends HTMLElement {
     constructor(){
@@ -14,9 +18,9 @@ class AppContainer extends HTMLElement {
 
     render() {
         if(this.shadowRoot){
-            this.shadowRoot.innerHTML = ``
+            this.shadowRoot.innerHTML = `<style>${styles}</style>`
         }
-        const dashboard = this.ownerDocument.createElement('app-profile');
+        const dashboard = this.ownerDocument.createElement('app-login');
         this.shadowRoot?.appendChild(dashboard);
     }
 }
