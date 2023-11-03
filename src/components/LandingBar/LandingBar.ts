@@ -1,4 +1,8 @@
 import LandingBarStyle from "./LandingBar.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { Navigate } from "../../types/store";
+import { Screens } from "../../types/navigation";
+import { navigate } from "../../store/actions";
 
 class LandingBar extends HTMLElement {
     constructor() {
@@ -8,6 +12,22 @@ class LandingBar extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        const btnLogin = this.shadowRoot?.querySelector('#login-button');
+        btnLogin?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.LOGIN
+				)
+			);
+        })
+        const btnSingup = this.shadowRoot?.querySelector('#singup-button');
+        btnSingup?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.SINGUP
+				)
+			);
+        })
     }
     
     render(){
