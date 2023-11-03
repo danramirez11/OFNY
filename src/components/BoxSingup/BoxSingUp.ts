@@ -1,4 +1,8 @@
 import BoxSingUpStyle from "./BoxSingUp.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { Navigate } from "../../types/store";
+import { Screens } from "../../types/navigation";
+import { navigate } from "../../store/actions";
 
 class BoxSingUp extends HTMLElement {
     constructor() {
@@ -13,6 +17,22 @@ class BoxSingUp extends HTMLElement {
             check?.forEach((check) => {
                 check.addEventListener("click", this.checkClick);
             });
+        const btnSingup = this.shadowRoot?.querySelector('#singup-button');
+             btnSingup?.addEventListener(('click'), () => {
+                dispatch( 
+                    navigate(
+                        Screens.LOGIN
+                    )
+                );
+            })
+        const btnLogin = this.shadowRoot?.querySelector('#already-acount');
+            btnLogin?.addEventListener(('click'), () => {
+                dispatch( 
+                    navigate(
+                        Screens.LOGIN
+                    )
+                );
+            })
     }
 
     render(){
