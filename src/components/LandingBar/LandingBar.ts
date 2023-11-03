@@ -20,6 +20,14 @@ class LandingBar extends HTMLElement {
 				)
 			);
         })
+        const btnSingup = this.shadowRoot?.querySelector('#singup-button');
+        btnSingup?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.SINGUP
+				)
+			);
+        })
     }
     
     render(){
