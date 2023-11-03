@@ -71,8 +71,8 @@ class CreatePost extends HTMLElement{
         const captionInput = this.shadowRoot?.querySelector('.captionInput');
         captionInput?.addEventListener("change", this.changeCaption)
 
-        const buttonUppload = this.shadowRoot?.querySelector('.button-upload');
-        buttonUppload?.addEventListener("click", () => this.submitForm(modal))
+        const buttonUpload = this.shadowRoot?.querySelector('.button-upload');
+        buttonUpload?.addEventListener("click", () => this.submitForm(modal))
         
     }
 
@@ -87,6 +87,7 @@ class CreatePost extends HTMLElement{
     submitForm(modal: any){
         firebase.addPost(formPost)
         this.showModal(modal)
+        this.render()
     }
 
     toggleMenu(select: any){

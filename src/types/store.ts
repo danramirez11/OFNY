@@ -2,7 +2,8 @@ export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
 	screen: string,
-	editprofile: boolean 
+	editprofile: boolean,
+	user: string
 };
 
 export enum Navigate {

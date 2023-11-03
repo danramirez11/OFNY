@@ -68,6 +68,8 @@ class MainBar extends HTMLElement{
 				)
 			);
         })
+
+        
     }
     
     render(){
