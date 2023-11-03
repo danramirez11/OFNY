@@ -16,17 +16,10 @@ import firebase from "../utils/firebase";
 class ProfileContainer extends HTMLElement {
 
     posts: MainPost[] = [];
-    clothes: BuyProfile[] = []
 
     constructor(){
         super();
         this.attachShadow({mode:"open"});
-        
-        clothesData.forEach((item) => {
-            const clothe = this.ownerDocument.createElement("buy-profile") as BuyProfile;
-            clothe.setAttribute(BuyPAttribute.clothes, item.clothes);
-            this.clothes.push(clothe)
-        })   
     }
 
     async connectedCallback(){
@@ -70,13 +63,6 @@ class ProfileContainer extends HTMLElement {
             profile.setAttribute(ProfileAttribute.following, userData[0].following);
             profile.setAttribute(ProfileAttribute.posts, String(postData.length));
             this.shadowRoot.appendChild(profile);
-
-            const clothescontainer = this.ownerDocument.createElement("section");
-            clothescontainer.classList.add("clothescontainer");
-            this.clothes.forEach((item) => {
-                clothescontainer.appendChild(item)
-            });
-            this.shadowRoot.appendChild(clothescontainer);
 
             const profileposts =  this.ownerDocument.createElement("section");
             profileposts.classList.add("profileposts");

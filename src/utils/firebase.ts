@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } 
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxeSrDMLo-tv-ZEVkVLLDGAAW_M93cRD0",
-  authDomain: "dcalg-7b097.firebaseapp.com",
+  authDomain: "dcalg-7b097.firebaseapp.com",    
   projectId: "dcalg-7b097",
   storageBucket: "dcalg-7b097.appspot.com",
   messagingSenderId: "992054711155",
