@@ -1,4 +1,7 @@
 export enum Screens {
     PROFILE = "PROFILE",
-    DASHBOARD = "DASHBOARD"
+    DASHBOARD = "DASHBOARD",
+    LANDING = "LANDING",
+    SINGUP = "SINGUP",
+    LOGIN = "LOGIN",
 }
