@@ -25,12 +25,24 @@ class AppContainer extends HTMLElement {
         }
         switch(appState.screen){
             case Screens.PROFILE:
-                const login = this.ownerDocument.createElement('app-profile');
-                this.shadowRoot?.appendChild(login);
+                const profile = this.ownerDocument.createElement('app-profile');
+                this.shadowRoot?.appendChild(profile);
             break;
             case Screens.DASHBOARD:
                 const dashboard = this.ownerDocument.createElement('app-dashboard');
                 this.shadowRoot?.appendChild(dashboard);
+            break;
+            case Screens.LOGIN:
+                const login = this.ownerDocument.createElement('app-login');
+                this.shadowRoot?.appendChild(login);
+            break;
+            case Screens.SINGUP:
+                const singup = this.ownerDocument.createElement('app-singup');
+                this.shadowRoot?.appendChild(singup);
+            break;
+            case Screens.LANDING:
+                const landing = this.ownerDocument.createElement('app-landing');
+                this.shadowRoot?.appendChild(landing);
             break;
         }
     }

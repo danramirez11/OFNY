@@ -1,4 +1,8 @@
 import LandingShareStyle from "./LandingShare.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { Navigate } from "../../types/store";
+import { Screens } from "../../types/navigation";
+import { navigate } from "../../store/actions";
 
 class LandingShare extends HTMLElement {
     constructor() {
@@ -8,6 +12,14 @@ class LandingShare extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        const btnLogin = this.shadowRoot?.querySelector('#share-button');
+        btnLogin?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.LOGIN
+				)
+			);
+        })
     }
     
     render(){

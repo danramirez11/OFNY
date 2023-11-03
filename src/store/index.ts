@@ -2,7 +2,7 @@ import { AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 
 export let appState: AppState = {
-	screen: "PROFILE",
+	screen: "LANDING",
 	editprofile: false,
 };
 
