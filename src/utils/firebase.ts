@@ -1,6 +1,6 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -61,8 +61,9 @@ const getFile = async (filename: string) => {
 
 const editProfile = async (forms: Object, id: string) => {
   try{
-    const where = collection(db, "users", id)
-    await addDoc(where, forms)
+    const where = doc(db, "users", id);
+    await updateDoc(where, {})
+    
 } catch (error) {
     console.error(error)
 }
