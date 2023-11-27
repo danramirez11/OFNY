@@ -8,6 +8,10 @@ export enum EditAttribute {
     "birth" = "birth"
 }
 
+const formsProfile = {
+    
+}
+
 class EditProfile extends HTMLElement{
     
     username?: string;
