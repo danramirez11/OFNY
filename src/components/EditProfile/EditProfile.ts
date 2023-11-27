@@ -9,7 +9,12 @@ export enum EditAttribute {
 }
 
 const formsProfile = {
-    
+    username: " ",
+    profilepicture: " ",
+    bio: " ",
+    pronouns: " ",
+    website: " ",
+    birth: " ",
 }
 
 class EditProfile extends HTMLElement{
