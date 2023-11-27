@@ -12,7 +12,8 @@ const formPost = {
     desc: " ",
     img: " ",
     username: "saggu",
-    pfp: "https://i.pinimg.com/564x/65/be/f4/65bef489cfda8b949f0efd10249c7e19.jpg"
+    pfp: "https://i.pinimg.com/564x/65/be/f4/65bef489cfda8b949f0efd10249c7e19.jpg",
+    tags: {}
 }
 
 class CreatePost extends HTMLElement{
@@ -46,7 +47,7 @@ class CreatePost extends HTMLElement{
         addObserver(this);
     }
     
-    connectedCallback(){
+    async connectedCallback(){
         this.render();
 
         const modal = this.shadowRoot?.querySelector('.modal');
@@ -65,19 +66,34 @@ class CreatePost extends HTMLElement{
 
         const tagsContainer = this.shadowRoot?.querySelector('.post-info-tags');
 
-        const imgInput = this.shadowRoot?.querySelector('.imgInput');
-        imgInput?.addEventListener("change", this.changeImg);
+        const imgInput = this.ownerDocument.createElement("input")
+        imgInput.type = "file";
+        imgInput.classList.add('imgInput');
+        imgInput?.addEventListener("change", async () => {
+            const file = imgInput.files?.[0];
+            if (file) { 
+                const fullPath = await firebase.uploadFile(file);
+                formPost.img = fullPath;
+                console.log("full: " + fullPath);
+            }
+          });
+        const upPhotoDiv = this.shadowRoot?.querySelector('.upload-photo');
+        upPhotoDiv?.appendChild(imgInput)
 
         const captionInput = this.shadowRoot?.querySelector('.captionInput');
         captionInput?.addEventListener("change", this.changeCaption)
 
         const buttonUpload = this.shadowRoot?.querySelector('.button-upload');
         buttonUpload?.addEventListener("click", () => this.submitForm(modal))
+
+        const dropdownMenu = this.shadowRoot?.querySelector('.dropdown-menu');
+        dropdownMenu?.addEventListener("change", this.changeTags)
         
     }
 
-    changeImg(e: any){
-        formPost.img = e.target.value;
+    changeTags(e: any){
+        const selectedOptions = Array.from(e.target.selectedOptions).map( (option: any) => option.value);
+        formPost.tags = selectedOptions;
     }
 
     changeCaption(e: any){
@@ -88,6 +104,7 @@ class CreatePost extends HTMLElement{
         firebase.addPost(formPost)
         this.showModal(modal)
         this.render()
+        console.log(formPost)
     }
 
     toggleMenu(select: any){
@@ -145,7 +162,6 @@ class CreatePost extends HTMLElement{
                 </div>
                     <div class="upload-photo">
                     <img src="https://media.discordapp.net/attachments/1108887572618412231/1168670571152822385/OFNYupload.png?ex=65529c49&is=65402749&hm=527adb16f0bd124e4d44bb325dbe8654004fa7cb31bd3fa9c8e979e5c1a09b68&=&width=486&height=655">
-                    <input type="text" class="imgInput" placeholder="Upload your OFNY (url)">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">

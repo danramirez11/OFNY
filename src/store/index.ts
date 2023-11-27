@@ -5,7 +5,7 @@ import firebase, { getProfile } from '../utils/firebase';
 const user = await getProfile()
 
 export let appState: AppState = {
-	screen: "LANDING",
+	screen: "DASHBOARD",
 	editprofile: false,
 	user: user,
 };

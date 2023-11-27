@@ -26,9 +26,12 @@ class MainContainer extends HTMLElement {
         
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            newpost.setAttribute(PostAttribute.post, post.img);
             newpost.setAttribute(PostAttribute.username, post.username);
-            newpost.setAttribute(PostAttribute.profilepicture, post.pfp)
+            newpost.setAttribute(PostAttribute.profilepicture, post.pfp);
+
+            const url = await firebase.getFile(post.img)
+            newpost.setAttribute(PostAttribute.post, url)
+
             this.mainposts.push(newpost);
         })
 
