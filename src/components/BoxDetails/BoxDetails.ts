@@ -6,7 +6,7 @@ import { navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 export enum EditAttribute {
-    "imagePost" = "imagePost",
+    "imagepost" = "imagepost",
     "username" = "username",
     "profilepicture" = "profilepicture",
     "caption" = "caption",
@@ -14,7 +14,7 @@ export enum EditAttribute {
 }
 
 class BoxDetails extends HTMLElement {
-    imagePost?: string;
+    imagepost?: string;
     username?: string;
     profilepicture?: string;
     caption?: string;
@@ -23,7 +23,7 @@ class BoxDetails extends HTMLElement {
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
-            imagePost: null,
+            imagepost: null,
             username: null,
             profilepicture: null,
             caption: null,
@@ -65,10 +65,10 @@ class BoxDetails extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <style>${BoxDetailsStyle}</style>
             <section>
-            <img id="image post" src="<>${this.imagePost}">
+            <img id="image post" src="<>${this.imagepost}">
             
-            <div class=user>
-            <h1>LOG IN</h1>
+            <div class=post details>
+            <h1>${this.username}</h1>
                 <div class="input-container">
                     <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1168666493194616852/Group_326.png?ex=6552987c&is=6540237c&hm=30a4aadfdb9f701d4a16a30690fea37279108f9b9a370b504d814d708a614fd3&" alt="User Icon">
                     <input placeholder="Username" type="text" id="username" name="username">
