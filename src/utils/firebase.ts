@@ -56,7 +56,17 @@ const getFile = async (filename: string) => {
   const url = getDownloadURL(ref(storage, filename))
 
   return url
-  }
+}
+
+
+const editProfile = async (forms: Object, id: string) => {
+  try{
+    const where = collection(db, "users", id)
+    await addDoc(where, forms)
+} catch (error) {
+    console.error(error)
+}
+}
 
 /*export const createUser = (email: any, pass: any /other stuff lije username/) => {
   createUserWithEmailAndPassword(auth, email, pass)
@@ -103,5 +113,5 @@ const logIn = (email:any, pass: any) => {
 
 
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile
 }

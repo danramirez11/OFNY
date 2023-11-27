@@ -99,8 +99,29 @@ class EditProfile extends HTMLElement{
         inputWeb?.addEventListener(("change"), (e: any) => {
             formsProfile.website = e.target.value
         });
+
+        const saveButton = this.shadowRoot?.querySelector('.button-save');
+        saveButton?.addEventListener("click", this.saveProfile)
         
 
+    }
+
+    saveProfile(){
+        firebase.editProfile(formsProfile, " id!!!!")
+        this.OpenEditProfile();
+    }
+
+    OpenEditProfile(){
+
+        if (appState.editprofile){
+            dispatch(
+                showmodal(false)
+            )
+        } else {
+            dispatch(
+                showmodal(true)
+            )
+        }
     }
     
     render(){
