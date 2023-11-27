@@ -32,7 +32,12 @@ h1{
     color: #4565FE;
 }
 
-#caption{
+.posterdetails{
+  border-radius: 20px;
   font-size: 15px;
+  color: #FFFFFF;
+}
+#caption{
+  background-image: linear-gradient(to right, #667FF7, #BBC3FA);
 }
 
