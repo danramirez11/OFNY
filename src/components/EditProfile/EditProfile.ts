@@ -64,6 +64,18 @@ class EditProfile extends HTMLElement{
                 showmodal(false)
             )
         })
+
+        const inputUsername = this.shadowRoot?.querySelector('.input-username');
+        inputUsername?.addEventListener(("change"), (e: any) => {
+            formsProfile.username = e.target.value
+        });
+
+        const inputPfp = this.shadowRoot?.querySelector('.profilepicture');
+        const inputBio = this.shadowRoot?.querySelector('.desc-bio');
+        const inputPron = this.shadowRoot?.querySelector('.desc-pronouns');
+        const inputWeb = this.shadowRoot?.querySelector('.desc-web');
+        
+
     }
     
     render(){
