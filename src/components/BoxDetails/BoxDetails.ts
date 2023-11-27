@@ -67,7 +67,7 @@ class BoxDetails extends HTMLElement {
             <section>
             <img id="imagepost" src="<>${this.imagepost}">
             
-            <div class="post details">
+            <div class="postdetails">
                 <div class="userdetails">
                 <img src="${this.profilepicture}" alt="User Profile Picture">
                 <h1>${this.username}</h1>
@@ -99,5 +99,5 @@ class BoxDetails extends HTMLElement {
     };
 }
 
-customElements.define("box-login", BoxLogin);
-export default BoxLogin;
+customElements.define("box-details", BoxDetails);
+export default BoxDetails;
