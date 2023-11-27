@@ -69,7 +69,7 @@ class BoxDetails extends HTMLElement {
             
             <div class="postdetails">
                 <div class="userdetails">
-                <img src="${this.profilepicture}" alt="User Profile Picture">
+                <img id="profilepicture" src="${this.profilepicture}" alt="User Profile Picture">
                 <h1>${this.username}</h1>
                 </div>
 
