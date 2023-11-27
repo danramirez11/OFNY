@@ -20,7 +20,7 @@ class AppContainer extends HTMLElement {
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `<style>${styles}</style>`
         }
-        const dashboard = this.ownerDocument.createElement('app-login');
+        const dashboard = this.ownerDocument.createElement('app-landing');
         this.shadowRoot?.appendChild(dashboard);
     }
 }
