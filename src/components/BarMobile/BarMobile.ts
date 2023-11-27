@@ -1,4 +1,9 @@
 import BarMobileStyle from "./BarMobile.css"
+import { addObserver, appState, dispatch } from '../../store/index';
+import { Navigate } from '../../types/store';
+import { Screens } from '../../types/navigation';
+import { navigate } from '../../store/actions';
+import firebase from "../../utils/firebase";
 
 export enum BarMobileAttribute {
     "profilepicture" = "profilepicture"
@@ -32,6 +37,17 @@ class BarMobile extends HTMLElement{
     
     connectedCallback(){
         this.render();
+
+        const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
+        btnProfile?.addEventListener(('click'), () => {
+			dispatch( 
+				navigate(
+					Screens.PROFILE
+				)
+			);
+        })
+
+        
     }
     
     render(){
@@ -44,6 +60,8 @@ class BarMobile extends HTMLElement{
                 <img class="profilepicture" src="${this.profilepicture}">
             </section>
             `
+
+            
         }
     }
 }

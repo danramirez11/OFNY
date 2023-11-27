@@ -3,7 +3,7 @@ section{
     margin: 8px;
     font-family: 'Poppins';
 }
-.post-img{
+.post-img {
     width: 250px;
     border-radius: 16px;
 }
@@ -27,7 +27,7 @@ section{
         width: 42vw;
         position: relative;
     }
-    .post-img{
+    .post-img {
         width: 42vw;
     }
     .post-info{

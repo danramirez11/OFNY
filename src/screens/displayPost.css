@@ -1,5 +1,5 @@
 .postscontainer {
-    columns: 270px;
+    columns: 250px;
     gap: 4px;
     counter-reset: grid;
     margin-top: 24px;
@@ -10,7 +10,7 @@
   }
   
   .postscontainer section {
-    break-inside:avoid;
+    break-inside: avoid;
   }
   
   .postscontainer section::before {

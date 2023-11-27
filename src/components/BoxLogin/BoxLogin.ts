@@ -1,4 +1,8 @@
 import BoxLoginStyle from "./BoxLogin.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { Navigate } from "../../types/store";
+import { Screens } from "../../types/navigation";
+import { navigate } from "../../store/actions";
 
 class BoxLogin extends HTMLElement {
     constructor() {
@@ -13,6 +17,22 @@ class BoxLogin extends HTMLElement {
             check?.forEach((check) => {
                 check.addEventListener("click", this.checkClick);
             });
+        const btnLogin = this.shadowRoot?.querySelector('#login-button');
+            btnLogin?.addEventListener(('click'), () => {
+                dispatch( 
+                    navigate(
+                        Screens.DASHBOARD
+                    )
+                );
+            })
+            const btnSingup = this.shadowRoot?.querySelector('#no-acount');
+            btnSingup?.addEventListener(('click'), () => {
+                dispatch( 
+                    navigate(
+                        Screens.SINGUP
+                    )
+                );
+            })
     }
     
     render(){
@@ -33,7 +53,7 @@ class BoxLogin extends HTMLElement {
                     <input placeholder="Password" type="password" id="password" name="password">
                 </div>
                 <div class="options">
-                <img class="post-heart-desktop check" src="https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&">
+                    <img class="post-heart-desktop check" src="https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&">
                     <button id="Remember">Remember</button>
                     <button id="Forgot-password">Forgot-password?</button>
                 </div>

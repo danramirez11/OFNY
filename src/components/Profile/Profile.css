@@ -47,10 +47,12 @@ p{
 @media (max-width: 540px) {
 
     .profilepicture{
-        height: 24px;
-        width: 24px;
+        height: 100px;
+        width: 100px;
         min-width: none;
         min-height: none;
+        top: -4%;
+        left: 8%;
     }
 
     .user-stats{
@@ -60,10 +62,12 @@ p{
 
     .profile-user{
         flex-direction: column;
-       
+        align-items: end;
+        gap: 4px;
     }
 
     .allprofile{
         min-height: 32vh;
+        width: 84vw;
     }
 }

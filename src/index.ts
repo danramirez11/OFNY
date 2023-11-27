@@ -5,11 +5,14 @@ import "./screens/Landing"
 import "./screens/Login"
 import "./screens/SingUp"
 import styles from "./global.css"
+import { addObserver, appState } from "./store/index";
+import { Screens } from "./types/navigation";
 
 class AppContainer extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: "open"})
+        addObserver(this);
     }
 
     connectedCallback() {
@@ -20,8 +23,28 @@ class AppContainer extends HTMLElement {
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `<style>${styles}</style>`
         }
-        const dashboard = this.ownerDocument.createElement('app-landing');
-        this.shadowRoot?.appendChild(dashboard);
+        switch(appState.screen){
+            case Screens.PROFILE:
+                const profile = this.ownerDocument.createElement('app-profile');
+                this.shadowRoot?.appendChild(profile);
+            break;
+            case Screens.DASHBOARD:
+                const dashboard = this.ownerDocument.createElement('app-dashboard');
+                this.shadowRoot?.appendChild(dashboard);
+            break;
+            case Screens.LOGIN:
+                const login = this.ownerDocument.createElement('app-login');
+                this.shadowRoot?.appendChild(login);
+            break;
+            case Screens.SINGUP:
+                const singup = this.ownerDocument.createElement('app-singup');
+                this.shadowRoot?.appendChild(singup);
+            break;
+            case Screens.LANDING:
+                const landing = this.ownerDocument.createElement('app-landing');
+                this.shadowRoot?.appendChild(landing);
+            break;
+        }
     }
 }
 
