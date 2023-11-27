@@ -1,11 +1,13 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
+import { getStorage, ref, uploadBytes } from "firebase/storage"
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const storage = getStorage(app)
 
 export const addPost = async (post: any) => {
   try{
@@ -81,8 +83,15 @@ const logIn = (email:any, pass: any) => {
   });
 }*/
 
+const uploadFile = async (file: File) => {
+  const storageRef = ref(storage, file.name);
+  const res = await uploadBytes(storageRef, file);
+  console.log("subio img", res)
+
+}
+
 
 
 export default {
-  addPost, getPost, getProfile
+  addPost, getPost, getProfile, uploadFile
 }
