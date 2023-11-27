@@ -1,6 +1,7 @@
 import EditProfileStyle from "./EditProfile.css"
 import { addObserver, appState, dispatch } from '../../store/index';
 import { showmodal } from "../../store/actions";
+import firebase from "../../utils/firebase";
 
 export enum EditAttribute {
     "username" = "username",
@@ -70,10 +71,34 @@ class EditProfile extends HTMLElement{
             formsProfile.username = e.target.value
         });
 
-        const inputPfp = this.shadowRoot?.querySelector('.profilepicture');
+        const imgInput = this.ownerDocument.createElement("input")
+        imgInput.type = "file";
+        imgInput.classList.add('imgInput');
+        imgInput?.addEventListener("change", async () => {
+            const file = imgInput.files?.[0];
+            if (file) { 
+                const fullPath = await firebase.uploadFile(file);
+                formsProfile.profilepicture = fullPath;
+                console.log("full: " + fullPath);
+            }
+          });
+          const pfpInfoDiv = this.shadowRoot?.querySelector('.basic-pfp');
+          pfpInfoDiv?.appendChild(imgInput);
+
         const inputBio = this.shadowRoot?.querySelector('.desc-bio');
+        inputBio?.addEventListener(("change"), (e: any) => {
+            formsProfile.bio = e.target.value
+        });
+
         const inputPron = this.shadowRoot?.querySelector('.desc-pronouns');
+        inputPron?.addEventListener(("change"), (e: any) => {
+            formsProfile.pronouns = e.target.value
+        });
+
         const inputWeb = this.shadowRoot?.querySelector('.desc-web');
+        inputWeb?.addEventListener(("change"), (e: any) => {
+            formsProfile.website = e.target.value
+        });
         
 
     }
@@ -89,7 +114,6 @@ class EditProfile extends HTMLElement{
                     <section class="basic">
                         <div class="basic-pfp">
                         <img class="profilepicture" src="${this.profilepicture}">
-                        <p>Delete profile picture</p>
                         </div>
                         <div class="basic-username">
                         <input type="text" class="input-username" placeholder="${this.username}"></input>
