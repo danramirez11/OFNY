@@ -4,6 +4,7 @@ import "./components/export"
 import "./screens/Landing"
 import "./screens/Login"
 import "./screens/SingUp"
+import "./screens/Details"
 import styles from "./global.css"
 import { addObserver, appState } from "./store/index";
 import { Screens } from "./types/navigation";
@@ -43,6 +44,10 @@ class AppContainer extends HTMLElement {
             case Screens.LANDING:
                 const landing = this.ownerDocument.createElement('app-landing');
                 this.shadowRoot?.appendChild(landing);
+            break;
+            case Screens.POSTDETAILS:
+                const postdetails = this.ownerDocument.createElement('app-details');
+                this.shadowRoot?.appendChild(postdetails);
             break;
         }
     }

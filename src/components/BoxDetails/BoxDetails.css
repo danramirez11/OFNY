@@ -28,7 +28,7 @@ section {
   object-fit: cover;
 }
 h1{
-    font-size: 50px;
+    font-size: 30px;
     color: #4565FE;
 }
 
@@ -43,4 +43,7 @@ h1{
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
 }
-
+.likehearth{
+  display: flex;
+  justify-items: end;
+}

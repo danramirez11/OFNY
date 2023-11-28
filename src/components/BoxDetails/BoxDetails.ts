@@ -10,7 +10,8 @@ export enum EditAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
     "caption" = "caption",
-    "tags" = "tags"
+    "tags" = "tags",
+    "like" = "like"
 }
 
 class BoxDetails extends HTMLElement {
@@ -19,6 +20,7 @@ class BoxDetails extends HTMLElement {
     profilepicture?: string;
     caption?: string;
     tags?: string;
+    like?: string;
 
 
     static get observedAttributes(){
@@ -28,6 +30,7 @@ class BoxDetails extends HTMLElement {
             profilepicture: null,
             caption: null,
             tags: null,
+            like: null,
         }
         return Object.keys(attrs);
     }
@@ -42,13 +45,20 @@ class BoxDetails extends HTMLElement {
         this.render();
     }
 
-    constructor() {
+    constructor(){
         super();
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({mode: "open"});
+        this.likeClick = this.likeClick.bind(this);
+        this.like = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
     }
 
     connectedCallback(){
         this.render();
+
+        const heart = this.shadowRoot?.querySelectorAll(".heart");
+            heart?.forEach((heart) => {
+                heart.addEventListener("click", this.likeClick);
+            });
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
         btnProfile?.addEventListener(('click'), () => {
@@ -77,6 +87,10 @@ class BoxDetails extends HTMLElement {
                 <p id="caption" >${this.caption}</p>
                 <p id="tags" >${this.tags}</p>
                 </div>
+                
+                <div class= "likehearth">
+                <img class="post-heart-desktop heart" src="${this.like}">
+                </div>
             </div>
             </section>
             `
@@ -84,17 +98,15 @@ class BoxDetails extends HTMLElement {
     }
     isliked: boolean = false
 
-    checkClick = () => {
+    likeClick = () => {
         this.isliked = !this.isliked;
-        const check = this.shadowRoot?.querySelectorAll(".check") as NodeListOf<HTMLImageElement>;
+        const heart = this.shadowRoot?.querySelectorAll(".heart") as NodeListOf<HTMLImageElement>;
 
-        check.forEach((check) => {
+        heart.forEach((heart) => {
         if (this.isliked) {
-            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218243448973/Group_311.png?ex=6554d8b8&is=654263b8&hm=eb4eb00eca23aee00264abf3df56800956f46e24ea2a462ef32d57c8cf19336b&"
-            ;
+            heart.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1153002760409722950/OFNYHeart.png";
         } else {
-            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&"
-            ;
+            heart.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
         }});
     };
 }
