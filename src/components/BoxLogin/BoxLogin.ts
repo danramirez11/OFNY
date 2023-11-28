@@ -5,7 +5,7 @@ import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
 import firebase from "../../utils/firebase";
 
-const formPost = {
+const formLogin = {
     username: "",
     password: "",
 };
