@@ -1,3 +1,6 @@
+import { dispatch } from "../../store";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
 import MainPostStyle from "./MainPost.css"
 
 export enum PostAttribute {
@@ -58,7 +61,7 @@ class MainPost extends HTMLElement{
     }
     
     detailsPost(){
-        
+        dispatch(navigate(Screens.DETAILS))
     }
 
     render(){
