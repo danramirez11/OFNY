@@ -26,7 +26,8 @@ class ProfileContainer extends HTMLElement {
         const postData = await firebase.getPost()
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            newpost.setAttribute(PostAttribute.post, post.img);
+            const url = await firebase.getFile(post.img)
+            newpost.setAttribute(PostAttribute.post, url)
             newpost.setAttribute(PostAttribute.username, post.username);
             newpost.setAttribute(PostAttribute.profilepicture, post.pfp)
             this.posts.push(newpost);
@@ -48,7 +49,7 @@ class ProfileContainer extends HTMLElement {
             `
 
             const userData = await firebase.getProfile()
-            const postData = await firebase.getPost()
+            const postData = await firebase.getPostProfile("saggu")
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
             mainbar.setAttribute(Attribute.username, userData[0].username);

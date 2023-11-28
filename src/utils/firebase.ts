@@ -23,7 +23,7 @@ export const addPost = async (post: any) => {
 }
 
 export const getPost = async () => {
-  const q = query((collection(db, "lab")), orderBy("createdAt", "desc"));
+  const q = query((collection(db, "posts")), orderBy("createdAt", "desc"));
   const querySnapshot = await getDocs(q);
 
   const transformed: any = [];
@@ -76,7 +76,7 @@ const editProfile = async (forms: Object, id: string) => {
 }
 
 const getPostProfile = async (id:string) => {
-  const q = query((collection(db, "posts")), where("username", "==", id), orderBy("createdAt", "desc"), );
+  const q = query((collection(db, "posts")), where("username", "==", id), orderBy("createdAt", "desc"));
   const querySnapshot = await getDocs(q);
 
   const transformed: any = [];
