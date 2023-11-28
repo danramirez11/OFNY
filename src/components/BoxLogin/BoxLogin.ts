@@ -43,7 +43,7 @@ class BoxLogin extends HTMLElement {
             inputusername?.addEventListener('change', this.changeUsername);
 
             const inputpassword = this.shadowRoot?.querySelector('#password');
-            inputpassword?.addEventListener('change', this.changeUsername);  
+            inputpassword?.addEventListener('change', this.changePassword);  
 
             const btmlogin = this.shadowRoot?.querySelector('#login-button');
             btmlogin?.addEventListener('click', this.submitForm);  
