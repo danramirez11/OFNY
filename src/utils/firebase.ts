@@ -1,6 +1,6 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -11,15 +11,21 @@ const storage = getStorage(app);
 
 export const addPost = async (post: any) => {
   try{
-      const where = collection(db, "posts")
-      await addDoc(where, post)
-  } catch (error) {
-      console.error(error)
-  }
+    const postWithTimestamp = {
+      ...post,
+      createdAt: serverTimestamp(),
+  };
+  const where = collection(db, "posts");
+  await addDoc(where, postWithTimestamp);
+} catch (error) {
+  console.error(error)
+}
 }
 
 export const getPost = async () => {
-  const querySnapshot = await getDocs(collection(db, "posts"));
+  const q = query((collection(db, "lab")), orderBy("createdAt", "desc"));
+  const querySnapshot = await getDocs(q);
+
   const transformed: any = [];
 
   querySnapshot.forEach((doc: any) => {
@@ -69,6 +75,20 @@ const editProfile = async (forms: Object, id: string) => {
 }
 }
 
+const getPostProfile = async (id:string) => {
+  const q = query((collection(db, "posts")), where("username", "==", id), orderBy("createdAt", "desc"), );
+  const querySnapshot = await getDocs(q);
+
+  const transformed: any = [];
+
+  querySnapshot.forEach((doc: any) => {
+      const data = doc.data();
+      transformed.push({id: doc.id, ...data})
+  });
+
+  return transformed;
+}
+
 /*export const createUser = (email: any, pass: any /other stuff lije username/) => {
   createUserWithEmailAndPassword(auth, email, pass)
   .then(async (userCredential) => {
@@ -114,5 +134,5 @@ const logIn = (email:any, pass: any) => {
 
 
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile, editProfile
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile
 }

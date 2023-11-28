@@ -1,11 +1,12 @@
 import { AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
+import { Screens } from '../types/navigation';
 
 const user = await getProfile()
 
 export let appState: AppState = {
-	screen: "PROFILE",
+	screen: Screens.DASHBOARD,
 	editprofile: true,
 	user: user,
 };
