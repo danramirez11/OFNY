@@ -7,7 +7,9 @@ import firebase from "../../utils/firebase";
 
 const formPost = {
     username: "",
+    email: "",
     password: "",
+    confirmpassword: "",
 };
 
 class BoxSingUp extends HTMLElement {
