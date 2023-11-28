@@ -28,16 +28,16 @@ class MainContainer extends HTMLElement {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
             newpost.setAttribute(PostAttribute.username, post.username);
             newpost.setAttribute(PostAttribute.profilepicture, post.pfp);
-
             const url = await firebase.getFile(post.img);
             newpost.setAttribute(PostAttribute.post, url);
-
             newpost.setAttribute(PostAttribute.uid, post.id);
-
             this.mainposts.push(newpost);
+            
         })
 
         this.render();
+
+        console.log(this.mainposts)
     }
 
     async render(){

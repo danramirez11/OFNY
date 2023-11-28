@@ -1,4 +1,4 @@
-import { dispatch } from "../../store";
+import { appState, dispatch } from "../../store";
 import { changepost, navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import MainPostStyle from "./MainPost.css"
@@ -62,8 +62,9 @@ class MainPost extends HTMLElement{
     
     detailsPost(){
         dispatch(navigate(Screens.DETAILS));
-        dispatch(changepost(String(this.uid)));
-        console.log("clicked post uid: " + this.uid)
+        dispatch(changepost(`${this.uid}`));
+        console.log("clicked post uid: " + this.uid + this.username);
+        console.log(appState);
     }
 
     render(){
