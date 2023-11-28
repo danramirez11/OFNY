@@ -52,8 +52,15 @@ class MainPost extends HTMLElement{
             heart?.forEach((heart) => {
                 heart.addEventListener("click", this.likeClick);
             });
+
+        const imgPost = this.shadowRoot?.querySelector('.post-img');
+        imgPost?.addEventListener("click", this.detailsPost)
     }
     
+    detailsPost(){
+        
+    }
+
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
