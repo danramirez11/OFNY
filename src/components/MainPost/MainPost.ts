@@ -4,7 +4,8 @@ export enum PostAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
     "post" = "post",
-    "like" = "like"
+    "like" = "like",
+    "uid" = "uid",
 }
 
 class MainPost extends HTMLElement{
@@ -15,6 +16,7 @@ class MainPost extends HTMLElement{
     profilepicture?: string;
     post?: string;
     like?: string;
+    uid?: string;
     
     static get observedAttributes(){
         const attrs: Record<PostAttribute,null> = {
@@ -22,6 +24,7 @@ class MainPost extends HTMLElement{
             profilepicture: null,
             post: null,
             like: null,
+            uid: null,
         }
         return Object.keys(attrs);
     }
