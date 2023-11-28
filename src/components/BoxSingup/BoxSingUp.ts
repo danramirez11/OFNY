@@ -3,6 +3,7 @@ import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from "../../types/store";
 import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
+import firebase from "../../utils/firebase";
 
 class BoxSingUp extends HTMLElement {
     constructor() {
