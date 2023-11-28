@@ -11,6 +11,9 @@ import profileconStyle from "./profilecon.css";
 import displayPostStyle from "./displayPost.css";
 import firebase from "../utils/firebase";
 import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
+import { appState, dispatch } from "../store";
+import { changepost, navigate } from "../store/actions";
+import { Screens } from "../types/navigation";
 
 class MainContainer extends HTMLElement {
 
@@ -31,8 +34,15 @@ class MainContainer extends HTMLElement {
             const url = await firebase.getFile(post.img);
             newpost.setAttribute(PostAttribute.post, url);
             newpost.setAttribute(PostAttribute.uid, post.id);
+
+            newpost.addEventListener(('click'), () => {
+                dispatch(navigate(Screens.DETAILS));
+                dispatch(changepost(`${post.id}`));
+                console.log("clicked post uid: " + post.id);
+                console.log(appState);
+            })
             this.mainposts.push(newpost);
-            
+
         })
 
         this.render();
