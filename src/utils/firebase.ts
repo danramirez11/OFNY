@@ -124,5 +124,5 @@ const logIn = async (email: string, password: string) => {
 }
 
 export default {
-  addPost, getPost, getProfile, uploadFile
+  addPost, getPost, getProfile, uploadFile, logIn, createUser, 
 }
