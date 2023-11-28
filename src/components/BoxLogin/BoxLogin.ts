@@ -4,6 +4,11 @@ import { Navigate } from "../../types/store";
 import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
 
+const formPost = {
+    username: "",
+    password: "",
+};
+
 class BoxLogin extends HTMLElement {
     constructor() {
         super();
@@ -34,7 +39,19 @@ class BoxLogin extends HTMLElement {
                 );
             })
     }
-    
+    submitForm(){
+        firebase.logIn(formPost.username,formPost.password);
+    }
+
+    changeTitle(e: any){
+        formPost.username = e.target.value;
+    }
+
+    changeDescription(e:any){
+        formPost.password = e.target.value;
+    }
+
+
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
