@@ -55,7 +55,7 @@ class BoxDetails extends HTMLElement {
     connectedCallback(){
         this.render();
 
-        const heart = this.shadowRoot?.querySelectorAll(".heart");
+        const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
             heart?.forEach((heart) => {
                 heart.addEventListener("click", this.likeClick);
             });
@@ -83,14 +83,14 @@ class BoxDetails extends HTMLElement {
                 <h1>${this.username}</h1>
                 </div>
 
-                <div class= "posterdetails">
+                <div class= "captionandtags">
                 <p id="caption" >${this.caption}</p>
                 <p id="tags" >${this.tags}</p>
                 </div>
+
                 
-                <div class= "likehearth">
-                <img class="post-heart-desktop heart" src="${this.like}">
-                </div>
+                <img class="post-heart-desktop-heart" src="${this.like}">
+                
             </div>
             </section>
             `
@@ -100,7 +100,7 @@ class BoxDetails extends HTMLElement {
 
     likeClick = () => {
         this.isliked = !this.isliked;
-        const heart = this.shadowRoot?.querySelectorAll(".heart") as NodeListOf<HTMLImageElement>;
+        const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart") as NodeListOf<HTMLImageElement>;
 
         heart.forEach((heart) => {
         if (this.isliked) {
