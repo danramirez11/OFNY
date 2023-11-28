@@ -62,6 +62,7 @@ class MainPost extends HTMLElement{
     
     detailsPost(){
         dispatch(navigate(Screens.DETAILS))
+        dispatch
     }
 
     render(){
