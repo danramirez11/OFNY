@@ -23,7 +23,7 @@ class ProfileContainer extends HTMLElement {
     }
 
     async connectedCallback(){
-        const postData = await firebase.getPost()
+        const postData = await firebase.getPostProfile("saggu")
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
             const url = await firebase.getFile(post.img)
