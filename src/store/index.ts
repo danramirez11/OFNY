@@ -7,7 +7,7 @@ const user = await getProfile()
 
 export let appState: AppState = {
 	screen: Screens.DASHBOARD,
-	editprofile: true,
+	editprofile: false,
 	user: user,
 };
 
