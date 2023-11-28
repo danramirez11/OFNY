@@ -39,16 +39,24 @@ class BoxLogin extends HTMLElement {
                     )
                 );
             })
+            const inputusername = this.shadowRoot?.querySelector('#username');
+            inputusername?.addEventListener('change', this.changeUsername);
+
+            const inputpassword = this.shadowRoot?.querySelector('#password');
+            inputpassword?.addEventListener('change', this.changeUsername);  
+
+            const btmlogin = this.shadowRoot?.querySelector('#login-button');
+            btmlogin?.addEventListener('click', this.submitForm);  
     }
     submitForm(){
         firebase.logIn(formPost.username,formPost.password);
     }
 
-    changeTitle(e: any){
+    changeUsername(e: any){
         formPost.username = e.target.value;
     }
 
-    changeDescription(e:any){
+    changePassword(e:any){
         formPost.password = e.target.value;
     }
 
