@@ -49,15 +49,15 @@ class BoxLogin extends HTMLElement {
             btmlogin?.addEventListener('click', this.submitForm);  
     }
     submitForm(){
-        firebase.logIn(formPost.username,formPost.password);
+        firebase.logIn(formLogin.username,formLogin.password);
     }
 
     changeUsername(e: any){
-        formPost.username = e.target.value;
+        formLogin.username = e.target.value;
     }
 
     changePassword(e:any){
-        formPost.password = e.target.value;
+        formLogin.password = e.target.value;
     }
 
 
