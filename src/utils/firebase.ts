@@ -1,6 +1,6 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, setDoc } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
 import { getStorage, ref, uploadBytes } from "firebase/storage"
 
@@ -90,7 +90,38 @@ const uploadFile = async (file: File) => {
 
 }
 
+const createUser = async (email: string,password: string, name: string, age: number) => {
+  //Primer paso: Crear usuario con auth
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+    console.log(userCredential.user);
+    //Segundo paso: Agregar la info restante a la db con el id del usuario
+    const where = doc(db, "users", userCredential.user.uid);
+    const data = {
+      name: name,
+      age: age
+    }
+    await setDoc(where, data);
+    //Tercer paso: Retornar true para dejarlo pasar de pantalla
+    return true;
+  } catch (error: any) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode,errorMessage);
+    alert("Vuelve a intentarlo");
+    return false;
+  }
+}
 
+const logIn = async (email: string, password: string) => {
+  setPersistence(auth,browserLocalPersistence).then(() =>{
+    return signInWithEmailAndPassword(auth,email,password);
+  }).catch((error)=> {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(errorCode,errorMessage);
+  })
+}
 
 export default {
   addPost, getPost, getProfile, uploadFile
