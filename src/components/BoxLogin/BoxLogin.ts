@@ -48,7 +48,17 @@ class BoxLogin extends HTMLElement {
             const btmlogin = this.shadowRoot?.querySelector('#login-button');
             btmlogin?.addEventListener('click', this.submitForm);  
     }
-   
+    submitForm(){
+        firebase.logIn(formPost.username,formPost.password);
+    }
+
+    changeUsername(e: any){
+        formPost.username = e.target.value;
+    }
+
+    changePassword(e:any){
+        formPost.password = e.target.value;
+    }
 
 
     render(){
