@@ -5,7 +5,7 @@ import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
 import firebase from "../../utils/firebase";
 
-const formPost = {
+const formSingup = {
     username: "",
     email: "",
     password: "",
@@ -58,15 +58,15 @@ class BoxSingUp extends HTMLElement {
             btmsingup?.addEventListener('click', this.submitForm);  
     }
     submitForm(){
-        firebase.logIn(formPost.username,formPost.password);
+        firebase.logIn(formSingup.username,formSingup.password, formSingup);
     }
 
     changeUsername(e: any){
-        formPost.username = e.target.value;
+        formSingup.username = e.target.value;
     }
 
     changePassword(e:any){
-        formPost.password = e.target.value;
+        formSingup.password = e.target.value;
     }
 
     render(){
