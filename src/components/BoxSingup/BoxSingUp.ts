@@ -52,7 +52,7 @@ class BoxSingUp extends HTMLElement {
             inputpassword?.addEventListener('change', this.changePassword);  
 
             const inputconfirmpassword = this.shadowRoot?.querySelector('#confirm-password');
-            inputconfirmpassword?.addEventListener('change', this.changeUsername);
+            inputconfirmpassword?.addEventListener('change', this.changeConfirmPassword);
 
             const btmsingup = this.shadowRoot?.querySelector('#singup-button');
             btmsingup?.addEventListener('click', this.submitForm);  
@@ -64,9 +64,14 @@ class BoxSingUp extends HTMLElement {
     changeUsername(e: any){
         formSingup.username = e.target.value;
     }
-
+    changeEmail(e: any){
+        formSingup.email = e.target.value;
+    }
     changePassword(e:any){
         formSingup.password = e.target.value;
+    }
+    changeConfirmPassword(e:any){
+        formSingup.confirmpassword = e.target.value;
     }
 
     render(){
