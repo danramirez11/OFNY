@@ -58,7 +58,7 @@ class BoxSingUp extends HTMLElement {
             btmsingup?.addEventListener('click', this.submitForm);  
     }
     submitForm(){
-        firebase.logIn(formSingup.username,formSingup.password, formSingup);
+        firebase.createUser(formSingup.username,formSingup.email,formSingup.password, formSingup.confirmpassword );
     }
 
     changeUsername(e: any){

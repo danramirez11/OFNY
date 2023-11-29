@@ -90,7 +90,7 @@ const uploadFile = async (file: File) => {
 
 }
 
-const createUser = async (email: string,password: string, name: string, age: number) => {
+const createUser = async (username: string,email: string,password: string, confirmpassword: string) => {
   //Primer paso: Crear usuario con auth
   try {
     const userCredential = await createUserWithEmailAndPassword(auth,email,password);
@@ -98,8 +98,8 @@ const createUser = async (email: string,password: string, name: string, age: num
     //Segundo paso: Agregar la info restante a la db con el id del usuario
     const where = doc(db, "users", userCredential.user.uid);
     const data = {
-      name: name,
-      age: age
+      username: username,
+      email: email,
     }
     await setDoc(where, data);
     //Tercer paso: Retornar true para dejarlo pasar de pantalla
@@ -115,6 +115,7 @@ const createUser = async (email: string,password: string, name: string, age: num
 
 const logIn = async (email: string, password: string) => {
   setPersistence(auth,browserLocalPersistence).then(() =>{
+
     return signInWithEmailAndPassword(auth,email,password);
   }).catch((error)=> {
     const errorCode = error.code;
