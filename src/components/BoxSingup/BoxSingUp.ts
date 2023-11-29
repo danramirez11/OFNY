@@ -57,6 +57,17 @@ class BoxSingUp extends HTMLElement {
             const btmsingup = this.shadowRoot?.querySelector('#singup-button');
             btmsingup?.addEventListener('click', this.submitForm);  
     }
+    submitForm(){
+        firebase.logIn(formLogin.username,formLogin.password);
+    }
+
+    changeUsername(e: any){
+        formLogin.username = e.target.value;
+    }
+
+    changePassword(e:any){
+        formLogin.password = e.target.value;
+    }
 
     render(){
         if(this.shadowRoot){
