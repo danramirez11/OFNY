@@ -24,30 +24,8 @@ class MainContainer extends HTMLElement {
         this.attachShadow({mode:"open"});
     }
 
-    async connectedCallback(){
-        const postData = await firebase.getPost()
-        
-        postData.forEach(async (post: any) => {
-            const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            newpost.setAttribute(PostAttribute.username, post.username);
-            newpost.setAttribute(PostAttribute.profilepicture, post.pfp);
-            const url = await firebase.getFile(post.img);
-            newpost.setAttribute(PostAttribute.post, url);
-            newpost.setAttribute(PostAttribute.uid, post.id);
-
-            newpost.addEventListener(('click'), () => {
-                dispatch(navigate(Screens.DETAILS));
-                dispatch(changepost(`${post.id}`));
-                console.log("clicked post uid: " + post.id);
-                console.log(appState);
-            })
-            this.mainposts.push(newpost);
-
-        })
-
+    connectedCallback(){
         this.render();
-
-        console.log(this.mainposts)
     }
 
     async render(){
@@ -72,13 +50,6 @@ class MainContainer extends HTMLElement {
 
             const postscontainer =  this.ownerDocument.createElement("section");
             postscontainer.classList.add("postscontainer")
-            this.mainposts.forEach((post) => {
-                try {
-                    postscontainer.appendChild(post)
-                } catch (error) {
-                    console.log(error)
-                }
-            });
             this.shadowRoot.appendChild(postscontainer);
 
             const barmobile = this.ownerDocument.createElement("bar-mobile") as BarMobile;
@@ -90,7 +61,34 @@ class MainContainer extends HTMLElement {
             create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp)
             create.setAttribute(CreateAttribute.username, userData[0].username)
             this.shadowRoot.appendChild(create);
+
+            
+
+            const postData = await firebase.getPost()
+        
+        postData.forEach(async (post: any) => {
+            const newpost = this.ownerDocument.createElement("main-post") as MainPost;
+            newpost.setAttribute(PostAttribute.username, post.username);
+            newpost.setAttribute(PostAttribute.profilepicture, post.pfp);
+            const url = await firebase.getFile(post.img);
+            newpost.setAttribute(PostAttribute.post, url);
+            newpost.setAttribute(PostAttribute.uid, post.id);
+
+            newpost.addEventListener(('click'), () => {
+                console.log("imf clicked")
+                dispatch(navigate(Screens.DETAILS));
+                dispatch(changepost(`${post.id}`));
+                console.log("clicked post uid: " + post.id);
+                console.log(appState);
+            })
+            
+            postscontainer?.appendChild(newpost)
+
+        })
+
         }
+
+        
     }
 }
 customElements.define("app-dashboard", MainContainer);

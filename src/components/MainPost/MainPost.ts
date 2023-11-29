@@ -56,16 +56,8 @@ class MainPost extends HTMLElement{
                 heart.addEventListener("click", this.likeClick);
             });
 
-        const imgPost = this.shadowRoot?.querySelector('.post-img');
-        imgPost?.addEventListener("click", this.detailsPost)
     }
     
-    detailsPost(){
-        dispatch(navigate(Screens.DETAILS));
-        dispatch(changepost(`${this.uid}`));
-        console.log("clicked post uid: " + this.uid + this.username);
-        console.log(appState);
-    }
 
     render(){
         if(this.shadowRoot){
