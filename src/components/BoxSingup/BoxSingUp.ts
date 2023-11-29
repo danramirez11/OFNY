@@ -41,6 +41,21 @@ class BoxSingUp extends HTMLElement {
                     )
                 );
             })
+
+            const inputusername = this.shadowRoot?.querySelector('#username');
+            inputusername?.addEventListener('change', this.changeUsername);
+
+            const inputemail = this.shadowRoot?.querySelector('#email');
+            inputemail?.addEventListener('change', this.changeEmail);
+
+            const inputpassword = this.shadowRoot?.querySelector('#password');
+            inputpassword?.addEventListener('change', this.changePassword);  
+
+            const inputconfirmpassword = this.shadowRoot?.querySelector('#confirm-password');
+            inputconfirmpassword?.addEventListener('change', this.changeUsername);
+
+            const btmsingup = this.shadowRoot?.querySelector('#singup-button');
+            btmsingup?.addEventListener('click', this.submitForm);  
     }
 
     render(){
