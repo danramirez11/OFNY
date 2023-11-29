@@ -73,8 +73,12 @@ class MainContainer extends HTMLElement {
             const postscontainer =  this.ownerDocument.createElement("section");
             postscontainer.classList.add("postscontainer")
             this.mainposts.forEach((post) => {
-                postscontainer.appendChild(post);
-            })
+                try {
+                    postscontainer.appendChild(post)
+                } catch (error) {
+                    console.log(error)
+                }
+            });
             this.shadowRoot.appendChild(postscontainer);
 
             const barmobile = this.ownerDocument.createElement("bar-mobile") as BarMobile;
