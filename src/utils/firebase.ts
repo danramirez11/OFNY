@@ -115,7 +115,7 @@ const createUser = async (username: string,email: string,password: string, confi
 
 const logIn = async (email: string, password: string) => {
   setPersistence(auth,browserLocalPersistence).then(() =>{
-
+    console.log("uwuwuwu")
     return signInWithEmailAndPassword(auth,email,password);
   }).catch((error)=> {
     const errorCode = error.code;
