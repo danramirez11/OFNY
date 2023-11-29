@@ -70,7 +70,6 @@ class MainPost extends HTMLElement{
                 <img class="profilepicture" src="${this.profilepicture}">
                 <p>${this.username}</p>
                 <img class="post-heart-desktop heart" src="${this.like}">
-                <img class="post-buy" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153041634519429120/OFNYbuy.png">
             </div>
             </section>
             `
