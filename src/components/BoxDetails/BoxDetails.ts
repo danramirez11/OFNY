@@ -109,7 +109,7 @@ class BoxDetails extends HTMLElement {
 
                 <div class= "captionandtags">
                 <p id="caption" >${this.caption}</p>
-                <section id="tags" > </section>
+                <p id="tags" > </p>
                 </div>
 
                 

@@ -60,7 +60,6 @@ const getFile = async (filename: string) => {
   return url
 }
 
-
 const editProfile = async (forms: any, id: string) => {
   try{
     const where = doc(db, "users", id);

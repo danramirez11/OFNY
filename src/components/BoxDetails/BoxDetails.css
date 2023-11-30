@@ -6,11 +6,12 @@ section {
     font-family: "poppins";
     width: 800px;
     height: 455px;
-    opacity: 0.7;
+    
   }
   
 #imagepost {
     width: 50%;
+    border-left: 53px;
   }
   
 .postdetails {
@@ -26,10 +27,14 @@ section {
 #profilepicture{
   border-radius: 100%;
   object-fit: cover;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
 }
 h1{
     font-size: 30px;
     color: #4565FE;
+    margin-left: 15px;
 }
 
 .captionandtags{
@@ -38,18 +43,24 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100px;
 }
 
 #caption{
   background-image: linear-gradient(to right, #667FF7, #BBC3FA);
   border-radius: 20px;
+  width: 350px;
+  height: 100px;
 }
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
   border-radius: 20px;
-  width: 100%;
-  height: 100%;
+  width: 310px;
+  margin-right: 20px;
+  height: 100px;
 }
 .post-heart-desktop-heart{
   position: absolute;
@@ -58,12 +69,19 @@ h1{
   width: 30px;
 }
 
-.button-tag{
-  border-radius: 16px;
-  color: #667FF7;
-  background-color: white;
-  border-style: solid;
-  border-color: #667FF7;
+#tags{
+  background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
+  border-radius: 20px;
+  background-color: none;
   padding: 8px;
   padding-inline: 24px;
+  width: 310px;
+  margin-right: 20px;
+  height: 100px;
+}
+.button-tag{
+  border-style: solid;
+  border-color: #4565FE;
+  background-color: transparent;
+  border-radius: 5px;
 }
