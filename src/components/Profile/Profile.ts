@@ -1,6 +1,7 @@
 import ProfileStyle from "./Profile.css"
 import { addObserver, appState, dispatch } from '../../store/index';
 import { showmodal } from '../../store/actions';
+import firebase from "../../utils/firebase";
 
 
 
@@ -59,7 +60,14 @@ class Profile extends HTMLElement{
         addObserver(this);
     }
     
-    connectedCallback(){
+    async connectedCallback(){
+        this.username = appState.user.username;
+
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
+
+        this.desc = appState.user.bio
+
         this.render();
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');

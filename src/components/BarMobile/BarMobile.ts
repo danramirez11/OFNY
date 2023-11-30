@@ -35,7 +35,11 @@ class BarMobile extends HTMLElement{
         this.attachShadow({mode: "open"});
     }
     
-    connectedCallback(){
+    async connectedCallback(){
+
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
+
         this.render();
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');

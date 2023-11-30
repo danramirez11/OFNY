@@ -12,6 +12,7 @@ import displayPostStyle from "./displayPost.css";
 import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
 import { getPost, addPost } from "../utils/firebase";
 import firebase from "../utils/firebase";
+import { appState } from "../store";
 
 class ProfileContainer extends HTMLElement {
 
@@ -23,12 +24,14 @@ class ProfileContainer extends HTMLElement {
     }
 
     async connectedCallback(){
-        const postData = await firebase.getPost()
+        const postData = await firebase.getPostProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            newpost.setAttribute(PostAttribute.post, post.img);
-            newpost.setAttribute(PostAttribute.username, post.username);
-            newpost.setAttribute(PostAttribute.profilepicture, post.pfp)
+            const url = await firebase.getFile(post.img)
+            newpost.setAttribute(PostAttribute.post, url)
+            newpost.setAttribute(PostAttribute.username, appState.user.username);
+            const pfpurl = await firebase.getFile(appState.user.pfp);
+            newpost.setAttribute(PostAttribute.profilepicture, pfpurl);
             this.posts.push(newpost);
         })
 
@@ -47,20 +50,12 @@ class ProfileContainer extends HTMLElement {
             <style>${displayPostStyle}</style>
             `
 
-            const userData = await firebase.getProfile()
-            const postData = await firebase.getPost()
+            const postData = await firebase.getPostProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
-            mainbar.setAttribute(Attribute.username, userData[0].username);
-            mainbar.setAttribute(Attribute.profilepicture, userData[0].pfp);
             this.shadowRoot.appendChild(mainbar);
 
             const profile = this.ownerDocument.createElement("my-profile") as Profile;
-            profile.setAttribute(ProfileAttribute.username, userData[0].username);
-            profile.setAttribute(ProfileAttribute.profilepicture, userData[0].pfp);
-            profile.setAttribute(ProfileAttribute.desc, userData[0].desc);
-            profile.setAttribute(ProfileAttribute.followers, userData[0].followers);
-            profile.setAttribute(ProfileAttribute.following, userData[0].following);
             profile.setAttribute(ProfileAttribute.posts, String(postData.length));
             this.shadowRoot.appendChild(profile);
 
@@ -77,22 +72,25 @@ class ProfileContainer extends HTMLElement {
 
             const postscontainer =  this.ownerDocument.createElement("section");
             postscontainer.classList.add("postscontainer");
-            this.posts.forEach((post) => {
-                postscontainer.appendChild(post);
-            })
+        
             profileposts.appendChild(postscontainer);
             this.shadowRoot.appendChild(profileposts)
 
             const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
-            edit.setAttribute(EditAttribute.username, userData[0].username);
-            edit.setAttribute(EditAttribute.profilepicture, userData[0].pfp);
-            edit.setAttribute(EditAttribute.birth, userData[0].birth)
             this.shadowRoot.appendChild(edit);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            create.setAttribute(CreateAttribute.username, userData[0].username);
-            create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp);
             this.shadowRoot.appendChild(create);
+
+        postData.forEach(async (post: any) => {
+            const newpost = this.ownerDocument.createElement("main-post") as MainPost;
+            const url = await firebase.getFile(post.img)
+            newpost.setAttribute(PostAttribute.post, url)
+            newpost.setAttribute(PostAttribute.username, appState.user.username);
+            const pfpurl = await firebase.getFile(appState.user.pfp);
+            newpost.setAttribute(PostAttribute.profilepicture, pfpurl);
+            postscontainer.appendChild(newpost)
+        })
     }
 }
 }

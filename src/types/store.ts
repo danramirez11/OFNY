@@ -3,11 +3,13 @@ export type Observer = { render: () => void } & HTMLElement;
 export type AppState = {
 	screen: string,
 	editprofile: boolean,
-	user: string
+	user: any,
+	postid: string,
 };
 
 export enum Navigate {
 	'NAVIGATE' = 'NAVIGATE',
+	'CHANGEPOSTUID' = 'CHANGEPOSTUID'
 }
 
 export enum EditModal {
@@ -19,9 +21,14 @@ export interface ChangeScreen {
 	payload: "white";
 }
 
+export interface ChangePostId {
+	action: Navigate.CHANGEPOSTUID;
+	payload: " "
+}
+
 export interface ShowModal {
 	action: EditModal.EDITMODAL
 	payload: true,
 }
 
-export type Actions = ChangeScreen | ShowModal;
+export type Actions = ChangeScreen | ShowModal | ChangePostId;

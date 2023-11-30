@@ -14,3 +14,10 @@ export const showmodal = (show: boolean) => {
 		payload: show
 	}
 }
+
+export const changepost = (uid: string) => {
+	return {
+		action: Navigate.CHANGEPOSTUID,
+		payload: uid
+	}
+}

@@ -1,8 +1,8 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, doc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc, getDoc } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
-import { getStorage, ref, uploadBytes } from "firebase/storage"
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -11,14 +11,21 @@ const storage = getStorage(app)
 
 export const addPost = async (post: any) => {
   try{
-      const where = collection(db, "posts")
-      await addDoc(where, post)
-  } catch (error) {
-      console.error(error)
-  }
+    const postWithTimestamp = {
+      ...post,
+      createdAt: serverTimestamp(),
+  };
+  const where = collection(db, "posts");
+  await addDoc(where, postWithTimestamp);
+} catch (error) {
+  console.error(error)
 }
+}
+
 export const getPost = async () => {
-  const querySnapshot = await getDocs(collection(db, "posts"));
+  const q = query((collection(db, "posts")), orderBy("createdAt", "desc"));
+  const querySnapshot = await getDocs(q);
+
   const transformed: any = [];
 
   querySnapshot.forEach((doc: any) => {
@@ -29,65 +36,59 @@ export const getPost = async () => {
   return transformed;
 }
 
-export const getProfile = async () => {
-  const querySnapshot = await getDocs(collection(db, "users"));
-  const transformed: any = [];
+export const getProfile = async (id: string) => {
 
-  querySnapshot.forEach((doc: any) => {
-      const data = doc.data();
-      transformed.push({id: doc.id, ...data})
-  });
+  const querySnapshot = await getDoc(doc(db, "users", id));
 
-  return transformed;
+  return querySnapshot.data();
 }
-
-/*export const createUser = (email: any, pass: any /other stuff lije username/) => {
-  createUserWithEmailAndPassword(auth, email, pass)
-  .then(async (userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user)
-    try{
-      const where = collection(db, "users", user.uid)
-      const data = {
-        /*name: name,
-        age: age,
-      }
-      await addUser(where, data)
-  } catch (error) {
-      console.error(error)
-  }
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-}
-
-export const addUser = (a: any, b: any) => {
-
-}
-
-const logIn = (email:any, pass: any) => {
-  signInWithEmailAndPassword(auth, email, pass)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-}*/
 
 const uploadFile = async (file: File) => {
-  const storageRef = ref(storage, file.name);
+  const storageRef = ref(storage, `posts/${file.name}`);
   const res = await uploadBytes(storageRef, file);
-  console.log("subio img", res)
 
+  return res.metadata.fullPath;
+  
+};
+
+
+
+
+const getFile = async (filename: string) => {
+  const url = getDownloadURL(ref(storage, filename))
+
+  return url
+}
+
+const editProfile = async (forms: any, id: string) => {
+  try{
+    const where = doc(db, "users", id);
+    await updateDoc(where, {
+      username: forms.username,
+    pfp: forms.profilepicture,
+    bio: forms.bio,
+    pron: forms.pronouns,
+    web: forms.website,
+    birth: forms.birth
+    })
+    
+} catch (error) {
+    console.error(error)
+}
+}
+
+const getPostProfile = async (id:string) => {
+  const q = query((collection(db, "posts")), where("user", "==", id), orderBy("createdAt", "desc"));
+  const querySnapshot = await getDocs(q);
+
+  const transformed: any = [];
+
+  querySnapshot.forEach((doc: any) => {
+      const data = doc.data();
+      transformed.push({id: doc.id, ...data})
+  });
+
+  return transformed;
 }
 
 const createUser = async (username: string,email: string,password: string, confirmpassword: string) => {
@@ -124,6 +125,19 @@ const logIn = async (email: string, password: string) => {
   })
 }
 
+const getDetailsInfo = async (id:string) => {
+  try {
+    const where = doc(db, "posts", id);
+    const details = await getDoc(where);
+
+    console.log(details.data())
+    
+    return details.data();
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export default {
-  addPost, getPost, getProfile, uploadFile, logIn, createUser, 
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, getDetailsInfo
 }

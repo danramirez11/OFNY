@@ -10,7 +10,7 @@
   }
   
   .postscontainer section {
-    break-inside: avoid;
+    break-inside:avoid-page;
   }
   
   .postscontainer section::before {
