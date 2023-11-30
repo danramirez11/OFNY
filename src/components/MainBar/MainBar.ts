@@ -42,6 +42,9 @@ class MainBar extends HTMLElement{
     async connectedCallback(){
         this.username = appState.user.username;
 
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
+
         this.render();
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
