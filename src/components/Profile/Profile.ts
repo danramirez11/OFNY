@@ -97,7 +97,7 @@ class Profile extends HTMLElement{
                 <section>
                 <div class="profile-user">
                     <h3>${this.username}</h3>
-                    <button class="btnEditProfile">EDIT PROFILE</button>
+                    <button class="btnEditProfile hide">EDIT PROFILE</button>
                 </div>
                 <p class="user-stats">${this.posts || 0} Ofnis    ${this.followers || 0} followers ${this.following || 0}    following</p>
                 <p>${this.desc || "No description available :("}</p>
