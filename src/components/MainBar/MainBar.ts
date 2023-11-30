@@ -40,8 +40,7 @@ class MainBar extends HTMLElement{
     }
     
     async connectedCallback(){
-        this.username = appState.user[0]
-
+        this.username = appState.user.username;
 
         this.render();
 
