@@ -14,6 +14,8 @@ export enum EditAttribute {
     "like" = "like"
 }
 
+
+
 class BoxDetails extends HTMLElement {
     imagepost?: string;
     username?: string;
@@ -21,6 +23,8 @@ class BoxDetails extends HTMLElement {
     caption?: string;
     tags?: string;
     like?: string;
+
+    tagslist = []
 
 
     static get observedAttributes(){
@@ -79,17 +83,11 @@ class BoxDetails extends HTMLElement {
                 this.caption = post.desc;
 
                 const img = await firebase.getFile(post.img);
-                console.log(img);
                 this.imagepost = img;
 
                 const tags = JSON.parse(post.tags);
-                const tagsContainer = this.shadowRoot.querySelector('#tags')
-                tags.forEach((tagText: string) => {
-                    const tag = document.createElement('button');
-            tag.className = '.button-tag';
-            tag.textContent = tagText;
-            tagsContainer?.appendChild(tag);
-                })
+                this.tagslist = tags;
+                
             }
             
 
@@ -115,6 +113,14 @@ class BoxDetails extends HTMLElement {
             </div>
             </section>
             `
+
+            const tagsContainer = this.shadowRoot.querySelector('#tags');
+                this.tagslist.forEach((tagText: any) => {
+                    const tag = document.createElement('button');
+                    tag.classList.add('.button-tag')
+                    tag.textContent = tagText;
+                    tagsContainer?.appendChild(tag);
+                })
             
         }
     }
