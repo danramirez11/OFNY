@@ -79,8 +79,17 @@ class BoxDetails extends HTMLElement {
                 this.caption = post.desc;
 
                 const img = await firebase.getFile(post.img);
-                console.log(img)
+                console.log(img);
                 this.imagepost = img;
+
+                const tags = JSON.parse(post.tags);
+                const tagsContainer = this.shadowRoot.querySelector('#tags')
+                tags.forEach((tagText: string) => {
+                    const tag = document.createElement('button');
+            tag.className = '.button-tag';
+            tag.textContent = tagText;
+            tagsContainer?.appendChild(tag);
+                })
             }
             
 
@@ -97,7 +106,7 @@ class BoxDetails extends HTMLElement {
 
                 <div class= "captionandtags">
                 <p id="caption" >${this.caption}</p>
-                <p id="tags" >${this.tags}</p>
+                <section id="tags" > </section>
                 </div>
 
                 
