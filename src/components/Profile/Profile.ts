@@ -9,8 +9,8 @@ export enum ProfileAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
     "posts" = "posts",
-    "following" = "following",
-    "followers" = "followers",
+    "pronouns" = "pronouns",
+    "web" = "web",
     "desc" = "desc"
 }
 
@@ -19,8 +19,8 @@ class Profile extends HTMLElement{
     username?: string;
     profilepicture?: string;
     posts?: number;
-    following?: number;
-    followers?: number;
+    pronouns?: string;
+    web?: string;
     desc?: string;
     
     static get observedAttributes(){
@@ -28,8 +28,8 @@ class Profile extends HTMLElement{
             username: null,
             profilepicture: null,
             posts: null,
-            following: null,
-            followers: null,
+            pronouns: null,
+            web: null,
             desc: null,
         }
         return Object.keys(attrs);
@@ -40,11 +40,6 @@ class Profile extends HTMLElement{
             case ProfileAttribute.posts:
                 this.posts = newValue ? Number(newValue) : undefined;
             break;
-            case ProfileAttribute.followers:
-                this.followers = newValue ? Number(newValue) : undefined;
-            break;
-            case ProfileAttribute.following:
-                this.following = newValue ? Number(newValue) : undefined;
             break;
             default: 
             this[propName] = newValue;
@@ -61,14 +56,16 @@ class Profile extends HTMLElement{
     }
     
     async connectedCallback(){
-        const user = await firebase.getProfile(appState.userscreen);
+        const user = await firebase.getProfile(appState.userscreen || appState.user.uid);
 
         this.username = user?.username;
 
         const pfp = await firebase.getFile(user?.pfp);
         this.profilepicture = pfp;
 
-        this.desc = user?.bio
+        this.desc = user?.bio;
+        this.pronouns = user?.pron;
+        this.web = user?.web;
 
         this.render();
 
@@ -104,8 +101,9 @@ class Profile extends HTMLElement{
                     <h3>${this.username}</h3>
                     <button class="btnEditProfile hide">EDIT PROFILE</button>
                 </div>
-                <p class="user-stats">${this.posts || 0} Ofnis    ${this.followers || 0} followers ${this.following || 0}    following</p>
+                <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
                 <p>${this.desc || "No description available :("}</p>
+                <p>${this.web}</p>
                 </section>
             </section>
             `

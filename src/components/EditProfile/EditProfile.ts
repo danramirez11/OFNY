@@ -15,7 +15,6 @@ const formsProfile = {
     bio: appState.user.bio || ' ',
     pronouns: appState.user.pron || ' ',
     website: appState.user.web || ' ',
-    birth: appState.user.birth || ' ',
 }
 
 class EditProfile extends HTMLElement{
@@ -160,11 +159,6 @@ class EditProfile extends HTMLElement{
                         <input type="text" placeholder="WEBSITE">
                         </div>
                     </section>
-                    <div class="birth">
-                    <p>BIRTH DATE</p>
-                    <h4>${this.birth}</h4>
-                    <button>Edit</button>
-                    </div>
                 </section>
             </section>
             `

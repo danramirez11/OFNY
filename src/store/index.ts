@@ -9,10 +9,11 @@ const user = await getProfile(userid);
 
 const images = {
 	pfp: 'https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fprofilepicture.png?alt=media&token=ff51078d-73f2-4bdc-9369-0a9229d65db4',
+	logo: ""
 }
 
 export let appState: AppState = {
-	screen: Screens.DASHBOARD,
+	screen: Screens.PROFILE,
 	editprofile: false,
 	user: {uid: userid, ...user},
 	postid: " ",
