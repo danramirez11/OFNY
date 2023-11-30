@@ -19,6 +19,12 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
 				editprofile: payload,
 			  };
 			break;
+
+		case Navigate.CHANGEPOSTUID:
+			return {
+				...currentState,
+				postid: payload,
+			}
         
 		default:
 		  return currentState;

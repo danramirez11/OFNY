@@ -14,6 +14,8 @@ export enum EditAttribute {
     "like" = "like"
 }
 
+
+
 class BoxDetails extends HTMLElement {
     imagepost?: string;
     username?: string;
@@ -21,6 +23,8 @@ class BoxDetails extends HTMLElement {
     caption?: string;
     tags?: string;
     like?: string;
+
+    tagslist = []
 
 
     static get observedAttributes(){
@@ -53,6 +57,7 @@ class BoxDetails extends HTMLElement {
     }
 
     connectedCallback(){
+
         this.render();
 
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
@@ -70,12 +75,31 @@ class BoxDetails extends HTMLElement {
         })
     }
     
-    render(){
+    async render(){
         if(this.shadowRoot){
+
+            const post = await firebase.getDetailsInfo(appState.postid)
+            if (post){
+                this.caption = post.desc;
+
+                const img = await firebase.getFile(post.img);
+                this.imagepost = img;
+
+                const tags = JSON.parse(post.tags);
+                this.tagslist = tags;
+
+                const postperson = await firebase.getProfile(post.user);
+                this.username = postperson?.username
+                const pfpurl = await firebase.getFile(postperson?.pfp);
+                this.profilepicture = pfpurl;
+                
+            }
+            
+
             this.shadowRoot.innerHTML = `
             <style>${BoxDetailsStyle}</style>
             <section>
-            <img id="imagepost" src="<>${this.imagepost}">
+            <img id="imagepost" src="${this.imagepost}">
             
             <div class="postdetails">
                 <div class="userdetails">
@@ -85,7 +109,7 @@ class BoxDetails extends HTMLElement {
 
                 <div class= "captionandtags">
                 <p id="caption" >${this.caption}</p>
-                <p id="tags" >${this.tags}</p>
+                <section id="tags" > </section>
                 </div>
 
                 
@@ -94,6 +118,15 @@ class BoxDetails extends HTMLElement {
             </div>
             </section>
             `
+
+            const tagsContainer = this.shadowRoot.querySelector('#tags');
+                this.tagslist.forEach((tagText: any) => {
+                    const tag = document.createElement('button');
+                    tag.classList.add('.button-tag')
+                    tag.textContent = tagText;
+                    tagsContainer?.appendChild(tag);
+                })
+            
         }
     }
     isliked: boolean = false

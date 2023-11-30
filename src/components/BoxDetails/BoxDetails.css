@@ -48,10 +48,22 @@ h1{
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
 }
 .post-heart-desktop-heart{
   position: absolute;
   bottom: 5%;
   right: 7%;
   width: 30px;
+}
+
+.button-tag{
+  border-radius: 16px;
+  color: #667FF7;
+  background-color: white;
+  border-style: solid;
+  border-color: #667FF7;
+  padding: 8px;
+  padding-inline: 24px;
 }

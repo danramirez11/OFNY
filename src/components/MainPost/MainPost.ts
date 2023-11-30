@@ -1,10 +1,14 @@
+import { appState, dispatch } from "../../store";
+import { changepost, navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
 import MainPostStyle from "./MainPost.css"
 
 export enum PostAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
     "post" = "post",
-    "like" = "like"
+    "like" = "like",
+    "uid" = "uid",
 }
 
 class MainPost extends HTMLElement{
@@ -15,6 +19,7 @@ class MainPost extends HTMLElement{
     profilepicture?: string;
     post?: string;
     like?: string;
+    uid?: string;
     
     static get observedAttributes(){
         const attrs: Record<PostAttribute,null> = {
@@ -22,6 +27,7 @@ class MainPost extends HTMLElement{
             profilepicture: null,
             post: null,
             like: null,
+            uid: null,
         }
         return Object.keys(attrs);
     }
@@ -49,8 +55,10 @@ class MainPost extends HTMLElement{
             heart?.forEach((heart) => {
                 heart.addEventListener("click", this.likeClick);
             });
+
     }
     
+
     render(){
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
@@ -62,7 +70,6 @@ class MainPost extends HTMLElement{
                 <img class="profilepicture" src="${this.profilepicture}">
                 <p>${this.username}</p>
                 <img class="post-heart-desktop heart" src="${this.like}">
-                <img class="post-buy" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153041634519429120/OFNYbuy.png">
             </div>
             </section>
             `
