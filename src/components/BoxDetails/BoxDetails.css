@@ -42,7 +42,7 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 80px;
   margin-left: 20px;
   margin-right: 20px;
   height: 80px;
@@ -51,17 +51,11 @@ h1{
 #caption{
   background-image: linear-gradient(to right, #667FF7, #BBC3FA);
   border-radius: 20px;
-  height: 80px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
   border-radius: 20px;
   width: 100%;
-  height: 80px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 .post-heart-desktop-heart{
   position: absolute;
@@ -70,3 +64,12 @@ h1{
   width: 30px;
 }
 
+#tags{
+  background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
+  border-radius: 20px;
+  background-color: none;
+  padding: 8px;
+  padding-inline: 24px;
+  width: 100%;
+  height: 20%;
+}
