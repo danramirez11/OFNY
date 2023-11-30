@@ -75,11 +75,19 @@ class BoxDetails extends HTMLElement {
         if(this.shadowRoot){
 
             const post = await firebase.getDetailsInfo(appState.postid)
+            if (post){
+                this.caption = post.desc;
+
+                const img = await firebase.getFile(post.img);
+                console.log(img)
+                this.imagepost = img;
+            }
+            
 
             this.shadowRoot.innerHTML = `
             <style>${BoxDetailsStyle}</style>
             <section>
-            <img id="imagepost" src="<>${this.imagepost}">
+            <img id="imagepost" src="${this.imagepost}">
             
             <div class="postdetails">
                 <div class="userdetails">
