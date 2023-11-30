@@ -5,6 +5,7 @@ export type AppState = {
 	editprofile: boolean,
 	user: any,
 	postid: string,
+	images: string,
 };
 
 export enum Navigate {
