@@ -11,8 +11,7 @@ export enum CreateAttribute {
 const formPost = {
     desc: " ",
     img: " ",
-    username: "hpta",
-    pfp: "https://i.pinimg.com/564x/65/be/f4/65bef489cfda8b949f0efd10249c7e19.jpg",
+    user: `z9R9t4beoGh2kwrwHirxaCDMO0r2`,
     tags: " "
 }
 
@@ -48,6 +47,9 @@ class CreatePost extends HTMLElement{
     }
     
     async connectedCallback(){
+
+        this.username = appState.user.username;
+        
         this.render();
 
         const modal = this.shadowRoot?.querySelector('.modal');
