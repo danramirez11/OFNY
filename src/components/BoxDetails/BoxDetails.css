@@ -42,20 +42,24 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 80px;
+  width: 300px;
   margin-left: 20px;
   margin-right: 20px;
-  height: 80px;
+  height: 100px;
 }
 
 #caption{
   background-image: linear-gradient(to right, #667FF7, #BBC3FA);
   border-radius: 20px;
+  width: 350px;
+  height: 100px;
 }
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
   border-radius: 20px;
-  width: 100%;
+  width: 310px;
+  margin-right: 20px;
+  height: 100px;
 }
 .post-heart-desktop-heart{
   position: absolute;
@@ -70,6 +74,12 @@ h1{
   background-color: none;
   padding: 8px;
   padding-inline: 24px;
-  width: 100%;
-  height: 20%;
+  width: 310px;
+  margin-right: 20px;
+  height: 100px;
+}
+.button-tag{
+  border-style: solid;
+  border-color: #4565FE;
+  background-color: transparent;
 }
