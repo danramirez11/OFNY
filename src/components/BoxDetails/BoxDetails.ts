@@ -87,6 +87,11 @@ class BoxDetails extends HTMLElement {
 
                 const tags = JSON.parse(post.tags);
                 this.tagslist = tags;
+
+                const postperson = await firebase.getProfile(post.user);
+                this.username = postperson?.username
+                const pfpurl = await firebase.getFile(postperson?.pfp);
+                this.profilepicture = pfpurl;
                 
             }
             

@@ -67,6 +67,9 @@ class MainContainer extends HTMLElement {
             const postperson = await firebase.getProfile(post.user);
             newpost.setAttribute(PostAttribute.username, postperson?.username);
 
+            const pfpurl = await firebase.getFile(postperson?.pfp);
+            newpost.setAttribute(PostAttribute.profilepicture, pfpurl);
+
             const url = await firebase.getFile(post.img);
             newpost.setAttribute(PostAttribute.post, url);
             newpost.setAttribute(PostAttribute.uid, post.id);

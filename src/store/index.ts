@@ -6,7 +6,7 @@ import { Screens } from '../types/navigation';
 const user = await getProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
 
 export let appState: AppState = {
-	screen: Screens.DASHBOARD,
+	screen: Screens.PROFILE,
 	editprofile: false,
 	user: user,
 	postid: " ",

@@ -66,6 +66,8 @@ class Profile extends HTMLElement{
         const pfp = await firebase.getFile(appState.user.pfp);
         this.profilepicture = pfp;
 
+        this.desc = appState.user.bio
+
         this.render();
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
