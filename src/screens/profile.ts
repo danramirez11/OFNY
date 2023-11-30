@@ -48,22 +48,14 @@ class ProfileContainer extends HTMLElement {
             <style>${displayPostStyle}</style>
             `
 
-            /*const userData = await firebase.getProfile()
-            const postData = await firebase.getPostProfile("saggu")
+            const postData = await firebase.getPostProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
-            mainbar.setAttribute(Attribute.username, userData[0].username);
-            mainbar.setAttribute(Attribute.profilepicture, userData[0].pfp);
             this.shadowRoot.appendChild(mainbar);
 
             const profile = this.ownerDocument.createElement("my-profile") as Profile;
-            profile.setAttribute(ProfileAttribute.username, userData[0].username);
-            profile.setAttribute(ProfileAttribute.profilepicture, userData[0].pfp);
-            profile.setAttribute(ProfileAttribute.desc, userData[0].desc);
-            profile.setAttribute(ProfileAttribute.followers, userData[0].followers);
-            profile.setAttribute(ProfileAttribute.following, userData[0].following);
             profile.setAttribute(ProfileAttribute.posts, String(postData.length));
-            this.shadowRoot.appendChild(profile);*/
+            this.shadowRoot.appendChild(profile);
 
             const profileposts =  this.ownerDocument.createElement("section");
             profileposts.classList.add("profileposts");
@@ -84,16 +76,11 @@ class ProfileContainer extends HTMLElement {
             profileposts.appendChild(postscontainer);
             this.shadowRoot.appendChild(profileposts)
 
-            /*const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
-            edit.setAttribute(EditAttribute.username, userData[0].username);
-            edit.setAttribute(EditAttribute.profilepicture, userData[0].pfp);
-            edit.setAttribute(EditAttribute.birth, userData[0].birth)
+            const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
             this.shadowRoot.appendChild(edit);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            create.setAttribute(CreateAttribute.username, userData[0].username);
-            create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp);
-            this.shadowRoot.appendChild(create);*/
+            this.shadowRoot.appendChild(create);
     }
 }
 }

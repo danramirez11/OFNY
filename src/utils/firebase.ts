@@ -61,10 +61,17 @@ const getFile = async (filename: string) => {
 }
 
 
-const editProfile = async (forms: Object, id: string) => {
+const editProfile = async (forms: any, id: string) => {
   try{
     const where = doc(db, "users", id);
-    await updateDoc(where, {})
+    await updateDoc(where, {
+      username: forms.username,
+    pfp: forms.profilepicture,
+    bio: forms.bio,
+    pron: forms.pronouns,
+    web: forms.website,
+    birth: forms.birth
+    })
     
 } catch (error) {
     console.error(error)
@@ -72,7 +79,7 @@ const editProfile = async (forms: Object, id: string) => {
 }
 
 const getPostProfile = async (id:string) => {
-  const q = query((collection(db, "posts")), where("username", "==", id), orderBy("createdAt", "desc"));
+  const q = query((collection(db, "posts")), where("user", "==", id), orderBy("createdAt", "desc"));
   const querySnapshot = await getDocs(q);
 
   const transformed: any = [];

@@ -10,12 +10,12 @@ export enum EditAttribute {
 }
 
 const formsProfile = {
-    username: " ",
-    profilepicture: " ",
-    bio: " ",
-    pronouns: " ",
-    website: " ",
-    birth: " ",
+    username: appState.user.username || ' ',
+    profilepicture: appState.user.pfp || ' ',
+    bio: appState.user.bio || ' ',
+    pronouns: appState.user.pron || ' ',
+    website: appState.user.web || ' ',
+    birth: appState.user.birth || ' ',
 }
 
 class EditProfile extends HTMLElement{
@@ -51,7 +51,7 @@ class EditProfile extends HTMLElement{
     
     connectedCallback(){
         this.username = appState.user.username;
-        
+
         this.render();
 
         const modal = this.shadowRoot?.querySelector('.modal')
@@ -109,7 +109,7 @@ class EditProfile extends HTMLElement{
     }
 
     saveProfile(){
-        firebase.editProfile(formsProfile, " id!!!!")
+        firebase.editProfile(formsProfile, "z9R9t4beoGh2kwrwHirxaCDMO0r2")
         this.OpenEditProfile();
     }
 
