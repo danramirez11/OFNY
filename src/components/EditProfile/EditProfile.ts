@@ -49,8 +49,11 @@ class EditProfile extends HTMLElement{
         addObserver(this);
     }
     
-    connectedCallback(){
+    async connectedCallback(){
         this.username = appState.user.username;
+
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
 
         this.render();
 
