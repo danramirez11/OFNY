@@ -74,7 +74,7 @@ class Profile extends HTMLElement{
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
         btnEditProfile?.addEventListener(('click'), this.OpenEditProfile);
-        if (appState.userscreen === "z9R9t4beoGh2kwrwHirxaCDMO0r2"){
+        if (appState.userscreen === `${appState.user.uid}`){
             btnEditProfile?.classList.remove('hide')
         }
 

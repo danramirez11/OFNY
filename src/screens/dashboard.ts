@@ -59,7 +59,7 @@ class MainContainer extends HTMLElement {
 
             
 
-            const postData = await firebase.getPost()
+        const postData = await firebase.getPost()
         
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;

@@ -3,12 +3,14 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
-const user = await getProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
+const userid = "z9R9t4beoGh2kwrwHirxaCDMO0r2";
+
+const user = await getProfile(userid);
 
 export let appState: AppState = {
-	screen: Screens.PROFILE,
+	screen: Screens.DASHBOARD,
 	editprofile: false,
-	user: user,
+	user: {uid: userid, ...user},
 	postid: " ",
 	userscreen: " ",
 };
