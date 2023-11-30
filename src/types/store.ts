@@ -6,6 +6,7 @@ export type AppState = {
 	user: any,
 	postid: string,
 	userscreen: string,
+	images: any,
 };
 
 export enum Navigate {

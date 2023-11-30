@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc, getDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
+import { appState } from "../store";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -102,6 +103,7 @@ const createUser = async (username: string,email: string,password: string, confi
     const data = {
       username: username,
       email: email,
+      pfp: appState.images.pfp,
     }
     await setDoc(where, data);
     //Tercer paso: Retornar true para dejarlo pasar de pantalla

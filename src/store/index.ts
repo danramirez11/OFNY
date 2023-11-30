@@ -7,12 +7,17 @@ const userid = "z9R9t4beoGh2kwrwHirxaCDMO0r2";
 
 const user = await getProfile(userid);
 
+const images = {
+	pfp: 'https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fprofilepicture.png?alt=media&token=ff51078d-73f2-4bdc-9369-0a9229d65db4',
+}
+
 export let appState: AppState = {
 	screen: Screens.DASHBOARD,
 	editprofile: false,
 	user: {uid: userid, ...user},
 	postid: " ",
 	userscreen: " ",
+	images: images
 };
 
 console.log(appState);
