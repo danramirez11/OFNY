@@ -35,17 +35,12 @@ class MainContainer extends HTMLElement {
             <style>${displayPostStyle}</style>
             `
 
-            const userData = await firebase.getProfile();
+            //const userData = await firebase.getProfile();
 
-            /*const posts = await firebase.getPost();
-            posts.forEach((post: any) => {
-                //acá ya se crea esa vuelta idk like ownder document ykwim
-                //se referencia como post.algo
-            })*/
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
-            mainbar.setAttribute(Attribute.profilepicture, userData[0].pfp)
-            mainbar.setAttribute(Attribute.username, userData[0].username)
+            /*mainbar.setAttribute(Attribute.profilepicture, userData[0].pfp)
+            mainbar.setAttribute(Attribute.username, userData[0].username)*/
             this.shadowRoot.appendChild(mainbar);
 
             const postscontainer =  this.ownerDocument.createElement("section");
@@ -53,13 +48,13 @@ class MainContainer extends HTMLElement {
             this.shadowRoot.appendChild(postscontainer);
 
             const barmobile = this.ownerDocument.createElement("bar-mobile") as BarMobile;
-            barmobile.setAttribute(BarMobileAttribute.profilepicture, userData[0].pfp)
+            //barmobile.setAttribute(BarMobileAttribute.profilepicture, userData[0].pfp)
             barmobile.classList.add("barmobile")
             this.shadowRoot.appendChild(barmobile);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp)
-            create.setAttribute(CreateAttribute.username, userData[0].username)
+            //create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp)
+            //create.setAttribute(CreateAttribute.username, userData[0].username)
             this.shadowRoot.appendChild(create);
 
             

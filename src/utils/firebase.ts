@@ -36,16 +36,11 @@ export const getPost = async () => {
   return transformed;
 }
 
-export const getProfile = async () => {
-  const querySnapshot = await getDocs(collection(db, "users"));
-  const transformed: any = [];
+export const getProfile = async (id: string) => {
 
-  querySnapshot.forEach((doc: any) => {
-      const data = doc.data();
-      transformed.push({id: doc.id, ...data})
-  });
+  const querySnapshot = await getDoc(doc(db, "users", id));
 
-  return transformed;
+  return querySnapshot.data();
 }
 
 const uploadFile = async (file: File) => {

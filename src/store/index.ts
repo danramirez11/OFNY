@@ -3,7 +3,7 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
-const user = await getProfile()
+const user = await getProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
 
 export let appState: AppState = {
 	screen: Screens.DASHBOARD,

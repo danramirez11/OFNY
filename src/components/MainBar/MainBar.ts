@@ -40,6 +40,9 @@ class MainBar extends HTMLElement{
     }
     
     async connectedCallback(){
+        this.username = appState.user[0]
+
+
         this.render();
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');

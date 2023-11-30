@@ -48,7 +48,7 @@ class ProfileContainer extends HTMLElement {
             <style>${displayPostStyle}</style>
             `
 
-            const userData = await firebase.getProfile()
+            /*const userData = await firebase.getProfile()
             const postData = await firebase.getPostProfile("saggu")
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
@@ -63,7 +63,7 @@ class ProfileContainer extends HTMLElement {
             profile.setAttribute(ProfileAttribute.followers, userData[0].followers);
             profile.setAttribute(ProfileAttribute.following, userData[0].following);
             profile.setAttribute(ProfileAttribute.posts, String(postData.length));
-            this.shadowRoot.appendChild(profile);
+            this.shadowRoot.appendChild(profile);*/
 
             const profileposts =  this.ownerDocument.createElement("section");
             profileposts.classList.add("profileposts");
@@ -84,7 +84,7 @@ class ProfileContainer extends HTMLElement {
             profileposts.appendChild(postscontainer);
             this.shadowRoot.appendChild(profileposts)
 
-            const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
+            /*const edit = this.ownerDocument.createElement("edit-profile") as EditProfile;
             edit.setAttribute(EditAttribute.username, userData[0].username);
             edit.setAttribute(EditAttribute.profilepicture, userData[0].pfp);
             edit.setAttribute(EditAttribute.birth, userData[0].birth)
@@ -93,7 +93,7 @@ class ProfileContainer extends HTMLElement {
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
             create.setAttribute(CreateAttribute.username, userData[0].username);
             create.setAttribute(CreateAttribute.profilepicture, userData[0].pfp);
-            this.shadowRoot.appendChild(create);
+            this.shadowRoot.appendChild(create);*/
     }
 }
 }

@@ -3,7 +3,7 @@ export type Observer = { render: () => void } & HTMLElement;
 export type AppState = {
 	screen: string,
 	editprofile: boolean,
-	user: string,
+	user: any,
 	postid: string,
 };
 
