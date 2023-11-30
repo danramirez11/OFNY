@@ -76,7 +76,7 @@ class MainContainer extends HTMLElement {
 
             newpost.addEventListener(('click'), () => {
                 console.log("imf clicked")
-                dispatch(navigate(Screens.DETAILS));
+                dispatch(navigate(Screens.POSTDETAILS));
                 dispatch(changepost(`${post.id}`));
                 console.log("clicked post uid: " + post.id);
                 console.log(appState);
