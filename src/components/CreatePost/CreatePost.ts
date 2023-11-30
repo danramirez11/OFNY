@@ -13,7 +13,7 @@ const formPost = {
     img: " ",
     username: "hpta",
     pfp: "https://i.pinimg.com/564x/65/be/f4/65bef489cfda8b949f0efd10249c7e19.jpg",
-    tags: {}
+    tags: " "
 }
 
 class CreatePost extends HTMLElement{
@@ -93,7 +93,7 @@ class CreatePost extends HTMLElement{
 
     changeTags(e: any){
         const selectedOptions = Array.from(e.target.selectedOptions).map( (option: any) => option.value);
-        formPost.tags = selectedOptions;
+        formPost.tags = JSON.stringify(selectedOptions);
     }
 
     changeCaption(e: any){
