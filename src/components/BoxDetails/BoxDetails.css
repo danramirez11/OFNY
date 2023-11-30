@@ -11,6 +11,7 @@ section {
   
 #imagepost {
     width: 50%;
+    border-left: 53px;
   }
   
 .postdetails {
@@ -82,4 +83,5 @@ h1{
   border-style: solid;
   border-color: #4565FE;
   background-color: transparent;
+  border-radius: 5px;
 }
