@@ -2,7 +2,7 @@ import BoxDetailsStyle from "./BoxDetails.css"
 import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
-import { navigate } from '../../store/actions';
+import { changeuserscreen, navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 export enum EditAttribute {
@@ -92,6 +92,8 @@ class BoxDetails extends HTMLElement {
                 this.username = postperson?.username
                 const pfpurl = await firebase.getFile(postperson?.pfp);
                 this.profilepicture = pfpurl;
+
+                
                 
             }
             
@@ -125,6 +127,15 @@ class BoxDetails extends HTMLElement {
                     tag.classList.add('.button-tag')
                     tag.textContent = tagText;
                     tagsContainer?.appendChild(tag);
+                })
+
+                const postinfo = await firebase.getDetailsInfo(appState.postid)
+                const userdetails = this.shadowRoot.querySelector('.userdetails');
+                userdetails?.addEventListener(('click'), () => {
+                    console.log('clicked');
+                    dispatch(changeuserscreen(postinfo?.user));
+                    dispatch(navigate(Screens.PROFILE));
+                    
                 })
             
         }

@@ -2,7 +2,7 @@ import MainBarStyle from "./MainBar.css"
 import { addObserver, appState, dispatch } from '../../store/index';
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
-import { navigate } from '../../store/actions';
+import { changeuserscreen, navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 
@@ -49,11 +49,9 @@ class MainBar extends HTMLElement{
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
         btnProfile?.addEventListener(('click'), () => {
-			dispatch( 
-				navigate(
-					Screens.PROFILE
-				)
-			);
+			dispatch( navigate(Screens.PROFILE));
+            dispatch(changeuserscreen("z9R9t4beoGh2kwrwHirxaCDMO0r2"));
+            console.log(appState)
         })
 
         const btnMain = this.shadowRoot?.querySelector('.logo-desktop');

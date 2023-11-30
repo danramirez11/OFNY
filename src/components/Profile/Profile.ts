@@ -61,17 +61,22 @@ class Profile extends HTMLElement{
     }
     
     async connectedCallback(){
-        this.username = appState.user.username;
+        const user = await firebase.getProfile(appState.userscreen);
 
-        const pfp = await firebase.getFile(appState.user.pfp);
+        this.username = user?.username;
+
+        const pfp = await firebase.getFile(user?.pfp);
         this.profilepicture = pfp;
 
-        this.desc = appState.user.bio
+        this.desc = user?.bio
 
         this.render();
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
-            btnEditProfile?.addEventListener(('click'), this.OpenEditProfile)
+        btnEditProfile?.addEventListener(('click'), this.OpenEditProfile);
+        if (appState.userscreen === "z9R9t4beoGh2kwrwHirxaCDMO0r2"){
+            btnEditProfile?.classList.remove('hide')
+        }
 
     }
 
