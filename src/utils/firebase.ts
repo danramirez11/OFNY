@@ -126,16 +126,17 @@ const logIn = async (email: string, password: string) => {
 
 const getDetailsInfo = async (id:string) => {
   try {
-    const where = doc(db, "users", id);
+    const where = doc(db, "posts", id);
     const details = await getDoc(where);
-    console.log(details);
 
-    return details;
+    console.log(details.data())
+    
+    return details.data();
   } catch (error) {
     console.error(error)
   }
 }
 
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, 
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, getDetailsInfo
 }

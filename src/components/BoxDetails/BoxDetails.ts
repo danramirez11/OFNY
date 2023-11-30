@@ -53,6 +53,7 @@ class BoxDetails extends HTMLElement {
     }
 
     connectedCallback(){
+
         this.render();
 
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
@@ -70,8 +71,11 @@ class BoxDetails extends HTMLElement {
         })
     }
     
-    render(){
+    async render(){
         if(this.shadowRoot){
+
+            const post = await firebase.getDetailsInfo(appState.postid)
+
             this.shadowRoot.innerHTML = `
             <style>${BoxDetailsStyle}</style>
             <section>
@@ -94,7 +98,6 @@ class BoxDetails extends HTMLElement {
             </div>
             </section>
             `
-
             
         }
     }
