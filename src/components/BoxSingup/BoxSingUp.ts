@@ -25,14 +25,7 @@ class BoxSingUp extends HTMLElement {
             check?.forEach((check) => {
                 check.addEventListener("click", this.checkClick);
             });
-        const btnSingup = this.shadowRoot?.querySelector('#singup-button');
-             btnSingup?.addEventListener(('click'), () => {
-                dispatch( 
-                    navigate(
-                        Screens.LOGIN
-                    )
-                );
-            })
+        
         const btnLogin = this.shadowRoot?.querySelector('#already-acount');
             btnLogin?.addEventListener(('click'), () => {
                 dispatch( 
@@ -57,8 +50,9 @@ class BoxSingUp extends HTMLElement {
             const btmsingup = this.shadowRoot?.querySelector('#singup-button');
             btmsingup?.addEventListener('click', this.submitForm);  
     }
-    submitForm(){
-        firebase.createUser(formSingup.username,formSingup.email,formSingup.password, formSingup.confirmpassword );
+    async submitForm(){
+        const createuser = await firebase.createUser(formSingup.username,formSingup.email,formSingup.password, formSingup.confirmpassword );
+        if (createuser) {dispatch (navigate(Screens.LOGIN))}
     }
 
     changeUsername(e: any){
