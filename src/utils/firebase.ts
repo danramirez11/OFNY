@@ -1,13 +1,13 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const storage = getStorage(app);
+const storage = getStorage(app)
 
 export const addPost = async (post: any) => {
   try{
@@ -58,6 +58,7 @@ const uploadFile = async (file: File) => {
 
 
 
+
 const getFile = async (filename: string) => {
   const url = getDownloadURL(ref(storage, filename))
 
@@ -89,50 +90,40 @@ const getPostProfile = async (id:string) => {
   return transformed;
 }
 
-/*export const createUser = (email: any, pass: any /other stuff lije username/) => {
-  createUserWithEmailAndPassword(auth, email, pass)
-  .then(async (userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user)
-    try{
-      const where = collection(db, "users", user.uid)
-      const data = {
-        /*name: name,
-        age: age,
-      }
-      await addUser(where, data)
-  } catch (error) {
-      console.error(error)
+const createUser = async (username: string,email: string,password: string, confirmpassword: string) => {
+  //Primer paso: Crear usuario con auth
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+    console.log(userCredential.user);
+    //Segundo paso: Agregar la info restante a la db con el id del usuario
+    const where = doc(db, "users", userCredential.user.uid);
+    const data = {
+      username: username,
+      email: email,
+    }
+    await setDoc(where, data);
+    //Tercer paso: Retornar true para dejarlo pasar de pantalla
+    return true;
+  } catch (error: any) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode,errorMessage);
+    alert("Vuelve a intentarlo");
+    return false;
   }
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
 }
 
-export const addUser = (a: any, b: any) => {
-
-}
-
-const logIn = (email:any, pass: any) => {
-  signInWithEmailAndPassword(auth, email, pass)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
+const logIn = async (email: string, password: string) => {
+  setPersistence(auth,browserLocalPersistence).then(() =>{
+    console.log("uwuwuwu")
+    return signInWithEmailAndPassword(auth,email,password);
+  }).catch((error)=> {
     const errorCode = error.code;
     const errorMessage = error.message;
-  });
-}*/
-
-
+    console.error(errorCode,errorMessage);
+  })
+}
 
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, 
 }

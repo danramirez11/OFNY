@@ -4,5 +4,5 @@ export enum Screens {
     LANDING = "LANDING",
     SINGUP = "SINGUP",
     LOGIN = "LOGIN",
-    DETAILS = "DETAILS"
+    POSTDETAILS = "POSTDETAILS"
 }

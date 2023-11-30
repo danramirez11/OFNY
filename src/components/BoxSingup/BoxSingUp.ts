@@ -3,6 +3,14 @@ import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from "../../types/store";
 import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
+import firebase from "../../utils/firebase";
+
+const formSingup = {
+    username: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+};
 
 class BoxSingUp extends HTMLElement {
     constructor() {
@@ -33,6 +41,37 @@ class BoxSingUp extends HTMLElement {
                     )
                 );
             })
+
+            const inputusername = this.shadowRoot?.querySelector('#username');
+            inputusername?.addEventListener('change', this.changeUsername);
+
+            const inputemail = this.shadowRoot?.querySelector('#email');
+            inputemail?.addEventListener('change', this.changeEmail);
+
+            const inputpassword = this.shadowRoot?.querySelector('#password');
+            inputpassword?.addEventListener('change', this.changePassword);  
+
+            const inputconfirmpassword = this.shadowRoot?.querySelector('#confirm-password');
+            inputconfirmpassword?.addEventListener('change', this.changeConfirmPassword);
+
+            const btmsingup = this.shadowRoot?.querySelector('#singup-button');
+            btmsingup?.addEventListener('click', this.submitForm);  
+    }
+    submitForm(){
+        firebase.createUser(formSingup.username,formSingup.email,formSingup.password, formSingup.confirmpassword );
+    }
+
+    changeUsername(e: any){
+        formSingup.username = e.target.value;
+    }
+    changeEmail(e: any){
+        formSingup.email = e.target.value;
+    }
+    changePassword(e:any){
+        formSingup.password = e.target.value;
+    }
+    changeConfirmPassword(e:any){
+        formSingup.confirmpassword = e.target.value;
     }
 
     render(){
