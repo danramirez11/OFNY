@@ -1,6 +1,6 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc, getDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
 
@@ -122,6 +122,18 @@ const logIn = async (email: string, password: string) => {
     const errorMessage = error.message;
     console.error(errorCode,errorMessage);
   })
+}
+
+const getDetailsInfo = async (id:string) => {
+  try {
+    const where = doc(db, "users", id);
+    const details = await getDoc(where);
+    console.log(details);
+
+    return details;
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export default {

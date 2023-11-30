@@ -94,6 +94,8 @@ class BoxDetails extends HTMLElement {
             </div>
             </section>
             `
+
+            
         }
     }
     isliked: boolean = false
