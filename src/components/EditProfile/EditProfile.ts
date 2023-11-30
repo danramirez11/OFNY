@@ -50,6 +50,8 @@ class EditProfile extends HTMLElement{
     }
     
     connectedCallback(){
+        this.username = appState.user.username;
+        
         this.render();
 
         const modal = this.shadowRoot?.querySelector('.modal')

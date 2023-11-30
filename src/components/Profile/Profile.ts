@@ -60,6 +60,8 @@ class Profile extends HTMLElement{
     }
     
     connectedCallback(){
+        this.username = appState.user.username;
+        
         this.render();
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
