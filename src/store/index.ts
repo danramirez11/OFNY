@@ -11,7 +11,7 @@ const images = {
 	corblanc: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fcorazon%20blanco.png?alt=media&token=a810797c-fbf6-42c8-a920-555df8a45258",
 	corborde: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fcorazon%20borde.png?alt=media&token=e8d3bc00-57dd-463f-a520-6b06a1892cc8",
 	alien: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Falien.png?alt=media&token=4726b9c0-44c0-4775-8392-ce96520a70c1",
-	landing: "",
+	landing: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Flanding.png?alt=media&token=72647b94-073a-42bd-8184-b7fd217e81e2",
 	login: "",
 	backlogin: "",
 	user: "",
