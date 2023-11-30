@@ -10,6 +10,7 @@ export let appState: AppState = {
 	editprofile: false,
 	user: user,
 	postid: " ",
+	userscreen: " ",
 };
 
 console.log(appState);
