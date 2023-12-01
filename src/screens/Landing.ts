@@ -3,6 +3,7 @@ import LandingBar from "../components/LandingBar/LandingBar";
 import LandingShare from "../components/LandingShare/LandingShare";
 import Footer from "../components/LandingFooter/LandingFooter";
 import LandigStyle from "./Landing.css";
+import LandingMobile from "../components/MobileLanding/MobileLanding"
 
 class LandingContainer extends HTMLElement {
     constructor() {
@@ -32,6 +33,9 @@ class LandingContainer extends HTMLElement {
 
             const Footer = document.createElement("footer-landing");
             body.appendChild(Footer);
+
+            const LandingMobile = document.createElement("landing-mobile");
+            body.appendChild(LandingMobile)
         }
     }
 }

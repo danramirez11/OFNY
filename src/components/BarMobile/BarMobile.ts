@@ -2,7 +2,7 @@ import BarMobileStyle from "./BarMobile.css"
 import { addObserver, appState, dispatch } from '../../store/index';
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
-import { navigate } from '../../store/actions';
+import { changeuserscreen, navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 export enum BarMobileAttribute {
@@ -44,11 +44,8 @@ class BarMobile extends HTMLElement{
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
         btnProfile?.addEventListener(('click'), () => {
-			dispatch( 
-				navigate(
-					Screens.PROFILE
-				)
-			);
+			dispatch( navigate( Screens.PROFILE));
+            dispatch(changeuserscreen(`${appState.user.uid}`));
         })
 
         

@@ -21,3 +21,10 @@ export const changepost = (uid: string) => {
 		payload: uid
 	}
 }
+
+export const changeuserscreen = (uid: string) => {
+	return {
+		action: Navigate.CHANGEUSERSCREEN,
+		payload: uid
+	}
+}

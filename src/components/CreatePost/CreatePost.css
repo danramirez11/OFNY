@@ -153,6 +153,7 @@ h4{
         align-items: flex-start;
         flex-direction: column;
         gap: 12px;
+        padding: 15px;
     }
     .post-info-user{
         display: none;
@@ -164,7 +165,11 @@ h4{
     }
     .upload-photo{
         width: 100%;
+        margin-right: 5px;
+        margin-left: 5px;
     }
+    
+
     input{
         border-style: solid;
         border-top: transparent;

@@ -14,6 +14,9 @@
     margin-top: 10vh;
     padding: 8px;
 }
+.hide{
+    display: none;
+}
 
 .profilepicture{
     width: 190px;
@@ -45,10 +48,10 @@ p{
 }
 
 @media (max-width: 540px) {
-
+    
     .profilepicture{
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
         min-width: none;
         min-height: none;
         top: -4%;
@@ -59,15 +62,22 @@ p{
         position: absolute;
         bottom: 4px;
     }
-
+    
     .profile-user{
         flex-direction: column;
-        align-items: end;
         gap: 4px;
+        align-items: center;
+    }
+    .description{
+        flex-direction: column;
+        gap: 4px;
+        text-align: right;
     }
 
     .allprofile{
         min-height: 32vh;
         width: 84vw;
+        margin-right: 20px;
+        padding-left: 200px;
     }
 }

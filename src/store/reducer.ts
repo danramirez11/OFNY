@@ -25,6 +25,12 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
 				...currentState,
 				postid: payload,
 			}
+
+		case Navigate.CHANGEUSERSCREEN:
+			return {
+				...currentState,
+				userscreen: payload,
+			}
         
 		default:
 		  return currentState;

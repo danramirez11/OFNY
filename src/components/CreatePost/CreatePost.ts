@@ -11,7 +11,7 @@ export enum CreateAttribute {
 const formPost = {
     desc: " ",
     img: " ",
-    user: `z9R9t4beoGh2kwrwHirxaCDMO0r2`,
+    user: `${appState.user.uid}`,
     tags: " "
 }
 
@@ -44,11 +44,14 @@ class CreatePost extends HTMLElement{
         super();
         this.attachShadow({mode: "open"});
         addObserver(this);
+        
     }
     
     async connectedCallback(){
 
         this.username = appState.user.username;
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
         
         this.render();
 
@@ -163,7 +166,7 @@ class CreatePost extends HTMLElement{
                 <h4>${this.username}</h4>
                 </div>
                     <div class="upload-photo">
-                    <img src=""${appState.images.subirpost}"">
+                    <img src="${appState.images.subirpost}">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">
@@ -178,6 +181,7 @@ class CreatePost extends HTMLElement{
                         <option value="formal">Formal</option>
                         <option value="deportivo">Deportivo</option>
                         <option value="gótico">Gótico</option>
+                        <option value="cotaggecore">Cottagecore</option>
                     </select>
                     <section class="post-info-tags">
                     </section>

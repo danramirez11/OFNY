@@ -66,9 +66,9 @@ class BoxLogin extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <style>${BoxLoginStyle}</style>
             <section>
-            <img id="imagen "src="${appState.images.login}" alt="" srcset="">
+            <img class="img" id="imagen "src="${appState.images.login}" alt="" srcset="">
             
-            <div class=user>
+            <div id="divinputs" class="user">
             <h1>LOG IN</h1>
                 <div class="input-container">
                     <img src="${appState.images.user}" alt="User Icon">

@@ -8,10 +8,18 @@ section {
     height: 455px;
     
   }
+
+  .button-tag{
+    border-style: solid;
+    border-color: #4565FE;
+    background-color: transparent;
+    border-radius: 5px;
+  }
   
 #imagepost {
     width: 50%;
-    border-left: 53px;
+    border-bottom-left-radius: 53px;
+    border-top-left-radius: 53px;
   }
   
 .postdetails {
@@ -47,6 +55,7 @@ h1{
   margin-left: 20px;
   margin-right: 20px;
   height: 100px;
+  gap: 12px;
 }
 
 #caption{
@@ -54,6 +63,7 @@ h1{
   border-radius: 20px;
   width: 350px;
   height: 100px;
+  padding: 10px;
 }
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
@@ -61,6 +71,7 @@ h1{
   width: 310px;
   margin-right: 20px;
   height: 100px;
+  padding: 10px;
 }
 .post-heart-desktop-heart{
   position: absolute;
@@ -78,10 +89,51 @@ h1{
   width: 310px;
   margin-right: 20px;
   height: 100px;
+  padding: 10px;
 }
-.button-tag{
-  border-style: solid;
-  border-color: #4565FE;
-  background-color: transparent;
-  border-radius: 5px;
+
+#tags button{
+  border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
+}
+@media (max-width: 540px) {
+  section {
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EEE7EE;
+    font-family: "poppins";
+    width: 500px;
+    height: 800px;
+  }
+  #imagepost {
+    height: 50%;
+    border-bottom-left-radius: 53px;
+    border-top-left-radius: 53px;
+    align-items: center;
+  }
+  .postdetails {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+  }
+  .post-heart-desktop-heart{
+    display: flex;
+    align-items: center;
+  }
+  .post-heart-desktop-heart{
+    position: absolute;
+    bottom: 20%;
+    right: 35%;
+    width: 30px;
+  }
+
 }

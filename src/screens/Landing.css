@@ -13,3 +13,26 @@
 landing-share{
     height: 200vh;
 }
+
+landing-mobile{
+    display: none;
+}
+@media (max-width: 540px) {
+    landing-bar{
+        display: none;
+    }   
+    landing-share{
+        display: none;
+    } 
+    landing-mobile{
+        display: flex;
+        align-items: center;
+        
+    }
+    .body{
+        margin: 0; 
+        padding: 0; 
+        background-image: linear-gradient(to top, #667FF7, #BBC3FA);
+        background-size: cover;   
+    }
+}
