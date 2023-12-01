@@ -126,5 +126,9 @@ h1{
     display: flex;
     align-items: center;
   }
+  #like{
+    display: flex;
+    align-items: center;
+  }
 
 }
