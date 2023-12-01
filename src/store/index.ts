@@ -3,10 +3,14 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 import { PersistanceKeys, getUser } from '../utils/storage';
+import { navigate } from './actions';
 
 const actualUser = getUser({key: PersistanceKeys.STORE, defaultValue: " "});
 
+
+
 const user = await getProfile(actualUser);
+
 
 
 const images = {
