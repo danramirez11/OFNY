@@ -19,7 +19,7 @@ const images = {
 	check: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fcheck.png?alt=media&token=c8b4555e-c4f0-4785-9043-330dba136830",
 	checkvacio: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fcheckout%20%20vacio.png?alt=media&token=078a2c0b-19d4-4185-a270-4f752f8e673e",
 	subirpost: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fsubir%20post.png?alt=media&token=bdf7f3f4-10ac-478b-b492-f83dd2743678",
-	ovniblanc: "",
+	ovniblanc: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fovni.png?alt=media&token=bf8a188b-1a72-4c7f-9b33-9d3639d0bdbc",
 	ovnimor: "",
 	singup: "",
 
