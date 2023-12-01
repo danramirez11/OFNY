@@ -73,7 +73,7 @@ class BoxSingUp extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <style>${BoxSingUpStyle}</style>
             <section>
-            <div class=user>
+            <div id="divinputs" class=user>
             <h1>SING UP</h1>
                 <div class="input-container">
                     <img src="${appState.images.user}" alt="User Icon">
