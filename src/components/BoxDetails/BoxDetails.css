@@ -126,5 +126,11 @@ h1{
     display: flex;
     align-items: center;
   }
+  .post-heart-desktop-heart{
+    position: absolute;
+    bottom: 0%;
+    right: 40%;
+    width: 30px;
+  }
 
 }
