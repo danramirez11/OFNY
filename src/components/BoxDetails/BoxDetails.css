@@ -99,5 +99,13 @@ h1{
     padding-inline: 24px;
 }
 @media (max-width: 540px) {
-  
+  section {
+    border-radius: 25px;
+    display: flex;
+    background-color: #EEE7EE;
+    font-family: "poppins";
+    width: 500px;
+    height: 1000px;
+    
+  }
 }
