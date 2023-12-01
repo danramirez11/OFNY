@@ -24,12 +24,13 @@ landing-mobile{
     landing-share{
         display: none;
     } 
-    footer-landing{
-        display: none;
-    }
     landing-mobile{
         display: flex;
         align-items: center;
         
+    }
+    .body{
+        margin: 0; 
+        padding: 0;   
     }
 }
