@@ -4,10 +4,7 @@ import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimest
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
 import { appState } from "../store";
-<<<<<<< HEAD
-=======
 import { PersistanceKeys, setUser } from "./storage";
->>>>>>> dan
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
