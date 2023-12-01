@@ -60,7 +60,7 @@ class BarMobile extends HTMLElement{
             <style>${BarMobileStyle}</style>
             <section>
                 <img class="logo-desktop" src="${appState.images.logo}" alt="">
-                <img src="" alt="">
+                <img src="${appState.images.search}" alt="">
                 <img class="profilepicture" src="${this.profilepicture}">
             </section>
             `
