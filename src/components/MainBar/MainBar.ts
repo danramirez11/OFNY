@@ -94,7 +94,7 @@ class MainBar extends HTMLElement{
             </div>
             <div class="main-bar-icons">
                 <img src="${appState.images.alien}" alt="">
-                <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760409722950/OFNYHeart.png" alt="">
+                <img src="${appState.images.ovnimor}" alt="">
                 <img class="profilepicture" src="${this.profilepicture}" alt="">
             </div>
             </section>

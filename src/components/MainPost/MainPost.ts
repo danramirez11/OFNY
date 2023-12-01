@@ -13,8 +13,6 @@ export enum PostAttribute {
 
 class MainPost extends HTMLElement{
 
-    
-    
     username?: string;
     profilepicture?: string;
     post?: string;
