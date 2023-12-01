@@ -53,7 +53,7 @@ class BoxDetails extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
         this.likeClick = this.likeClick.bind(this);
-        this.like = "${appState.images.corborde}";
+        this.like = `${appState.images.corborde}`;
     }
 
     connectedCallback(){
@@ -137,9 +137,9 @@ class BoxDetails extends HTMLElement {
 
         heart.forEach((heart) => {
         if (this.isliked) {
-            heart.src = "${appState.images.cormor}";
+            heart.src = `${appState.images.cormor}`;
         } else {
-            heart.src = "${appState.images.corborde}";
+            heart.src = `${appState.images.corborde}`;
         }});
     };
 }

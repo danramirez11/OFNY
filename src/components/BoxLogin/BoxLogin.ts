@@ -66,7 +66,7 @@ class BoxLogin extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <style>${BoxLoginStyle}</style>
             <section>
-            <img id="imagen "src="https://cdn.discordapp.com/attachments/1108887572618412231/1168662038118154300/zyro-image.png?ex=65529456&is=65401f56&hm=eb5204222175bc38b55177a84d8b9e8b8cbd68f9c7f3c0a0e2a34df455630c2f&" alt="" srcset="">
+            <img id="imagen "src="${appState.images.login}" alt="" srcset="">
             
             <div class=user>
             <h1>LOG IN</h1>
