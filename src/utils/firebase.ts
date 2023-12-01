@@ -155,7 +155,7 @@ const like = async (post:string, user:string) => {
 }
 }
 
-const unlike = async (post: string, user:string) => {
+const dislike = async (post: string, user:string) => {
   try {
     const likesRef = collection(db, 'likes');
     const userLikedQuery = query(likesRef, where('post', '==', post), where('user', '==', user));
@@ -190,5 +190,7 @@ const checklike = async (post: string, user:string) => {
 }
 
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, getDetailsInfo
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, 
+  getPostProfile, logIn, createUser, getDetailsInfo, like,
+  dislike, checklike
 }

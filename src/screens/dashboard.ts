@@ -53,7 +53,6 @@ class MainContainer extends HTMLElement {
             this.shadowRoot.appendChild(barmobile);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            create.setAttribute(CreateAttribute.profilepicture, "uu")
             //create.setAttribute(CreateAttribute.username, userData[0].username)
             this.shadowRoot.appendChild(create);
 
