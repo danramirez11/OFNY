@@ -15,6 +15,7 @@ import firebase from "../utils/firebase";
 import { appState, dispatch } from "../store";
 import { changepost, navigate } from "../store/actions";
 import { Screens } from "../types/navigation";
+import { Navigate } from "../types/store";
 
 class ProfileContainer extends HTMLElement {
 
@@ -26,6 +27,9 @@ class ProfileContainer extends HTMLElement {
     }
 
     connectedCallback(){
+        if (appState.user.id != " "){
+            dispatch(navigate(Screens.DASHBOARD));
+        }
         this.render();
     }
 
