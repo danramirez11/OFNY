@@ -94,7 +94,7 @@ class MainBar extends HTMLElement{
             </div>
             <div class="main-bar-icons">
                 <img src="${appState.images.alien}" alt="">
-                <img src="${appState.images.ovnimor}" alt="">
+                <img src="${appState.images.cormor}" alt="">
                 <img class="profilepicture" src="${this.profilepicture}" alt="">
             </div>
             </section>
