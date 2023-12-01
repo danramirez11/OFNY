@@ -28,6 +28,7 @@ const images = {
 	singup: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fsingup.png?alt=media&token=f20c1fa5-9030-4a5c-9e6d-941909f81bc7",
 	search: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fsearch.png?alt=media&token=59ba7b6b-8483-401f-8d0e-f97d2f23d60c",
 	OFNY: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2FOFNY.png?alt=media&token=47280f75-f23b-4d44-99a7-8959ab7cb187",
+	mobilelanding: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fmobilelanding.png?alt=media&token=8b239559-e8cc-4e21-a4c1-863dcf59c287", 
 }
 export let appState: AppState = {
 	screen: Screens.LANDING,
