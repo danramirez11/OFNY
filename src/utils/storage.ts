@@ -3,7 +3,7 @@ export enum PersistanceKeys {
   }
   
 
-const get = <T>({
+export const getUser = <T>({
     key,
     defaultValue,
   }: {
@@ -15,7 +15,7 @@ const get = <T>({
 };
   
 
-const set = ({
+export const setUser = ({
     key,
     value,
     session = false,
@@ -31,6 +31,6 @@ const set = ({
   
 
 export default {
-    get,
-    set,
+    getUser,
+    setUser,
 };
