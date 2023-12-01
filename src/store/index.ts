@@ -2,10 +2,11 @@ import { AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
+import { PersistanceKeys, getUser } from '../utils/storage';
 
-const userid = "DOqyun2FT6gJZHJ0oeut0a7rKPm1";
+const actualUser = getUser({key: PersistanceKeys.STORE, defaultValue: " "});
 
-const user = await getProfile(userid);
+const user = await getProfile(actualUser);
 
 
 const images = {
@@ -32,7 +33,7 @@ const images = {
 export let appState: AppState = {
 	screen: Screens.LOGIN,
 	editprofile: false,
-	user: {uid: userid, ...user},
+	user: {uid: actualUser, ...user},
 	postid: " ",
 	userscreen: " ",
 	images: images
