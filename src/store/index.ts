@@ -3,7 +3,7 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
-const userid = "z9R9t4beoGh2kwrwHirxaCDMO0r2";
+const userid = "DOqyun2FT6gJZHJ0oeut0a7rKPm1";
 
 const user = await getProfile(userid);
 

@@ -49,8 +49,6 @@ class CreatePost extends HTMLElement{
     
     async connectedCallback(){
 
-        console.log("cons create")
-
         this.username = appState.user.username;
         const pfp = await firebase.getFile(appState.user.pfp);
         this.profilepicture = pfp;

@@ -27,9 +27,16 @@ class MainContainer extends HTMLElement {
 
     connectedCallback(){
         this.render();
+        window.addEventListener('postsChanged', this.listenChanges.bind(this));
+        firebase.listenChanges();
+    }
+
+    listenChanges(){
+        this.render();
     }
 
     async render(){
+        
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${mainStyle}</style>

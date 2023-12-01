@@ -142,7 +142,7 @@ const getDetailsInfo = async (id:string) => {
 }
 
 const listenChanges = () => {
-  const where = doc(db, "posts");
+  const where = collection(db, "posts");
   onSnapshot(where, () => {
     const event = new CustomEvent('postsChanged');
     window.dispatchEvent(event);

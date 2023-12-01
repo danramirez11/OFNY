@@ -25,7 +25,13 @@ class ProfileContainer extends HTMLElement {
         this.attachShadow({mode:"open"});
     }
 
-    async connectedCallback(){
+    connectedCallback(){
+        this.render();
+        window.addEventListener('postsChanged', this.listenChanges.bind(this));
+        firebase.listenChanges();
+    }
+
+    listenChanges(){
         this.render();
     }
 
@@ -56,7 +62,6 @@ class ProfileContainer extends HTMLElement {
             <nav>
                 <h3>OFNIS</h3>
                 <h3>LIKES</h3>
-                <h3>FOLLOWING</h3>
                 </nav>
                 <hr>
             `

@@ -64,8 +64,8 @@ class Profile extends HTMLElement{
         this.profilepicture = pfp;
 
         this.desc = user?.bio;
-        this.pronouns = user?.pron;
-        this.web = user?.web;
+        this.pronouns = user?.pron || " ";
+        this.web = user?.web || " ";
 
         this.render();
 
