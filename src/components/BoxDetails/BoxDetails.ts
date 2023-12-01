@@ -22,7 +22,8 @@ class BoxDetails extends HTMLElement {
     tags?: string;
     like?: string;
 
-    tagslist = []
+    tagslist = [];
+    tagshtml: any = [];
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
@@ -72,6 +73,7 @@ class BoxDetails extends HTMLElement {
 			);
         })
     }
+
     
     async render(){
         if(this.shadowRoot){
@@ -83,7 +85,7 @@ class BoxDetails extends HTMLElement {
                 const img = await firebase.getFile(post.img);
                 this.imagepost = img;
 
-                const tags = JSON.parse(post.tags);
+                const tags = JSON.parse(post.tags) || [];
                 this.tagslist = tags;
 
                 const postperson = await firebase.getProfile(post.user);
@@ -106,7 +108,9 @@ class BoxDetails extends HTMLElement {
                 </div>
 
                 <div class= "captionandtags">
-                <p id="caption" >${this.caption}</p>
+                <section id="caption">
+                <p>${this.caption}</p>
+                </section>
                 <section id="tags" > </section>
                 </div>
 
@@ -117,13 +121,13 @@ class BoxDetails extends HTMLElement {
             </section>
             `
 
-            const tagsContainer = this.shadowRoot.querySelector('#tags');
-                this.tagslist.forEach((tagText: any) => {
-                    const tag = document.createElement('button');
-                    tag.classList.add('.button-tag')
-                    tag.textContent = tagText;
-                    tagsContainer?.appendChild(tag);
-                })
+            this.tagslist.forEach((tagText: any) => {
+                const tagsContainer = this.shadowRoot?.querySelector('#tags')
+                const tag = document.createElement('button');
+                tag.classList.add('.button-tag')
+                tag.textContent = tagText;
+                tagsContainer?.appendChild(tag)
+            })
 
                 const postinfo = await firebase.getDetailsInfo(appState.postid)
                 const userdetails = this.shadowRoot.querySelector('.userdetails');
