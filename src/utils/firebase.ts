@@ -124,6 +124,7 @@ const logIn = async (email: string, password: string) => {
     const user = userCredential.user;
     console.log("Inicio de sesión exitoso", user);
     setUser({ key: PersistanceKeys.STORE, value: user.uid});
+    window.location.reload();
   }).catch((error)=> {
     const errorCode = error.code;
     const errorMessage = error.message;

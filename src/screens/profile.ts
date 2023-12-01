@@ -27,6 +27,10 @@ class ProfileContainer extends HTMLElement {
     }
 
     connectedCallback(){
+        if (appState.user.uid === " "){
+            dispatch(navigate(Screens.LANDING));
+            
+        }
         this.render();
     }
 

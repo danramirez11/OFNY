@@ -43,6 +43,14 @@ button{
     padding-inline: 24px;
 }
 
+.btnLogOut{
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    color: #323544;
+    background-color: #67707a7c;
+}
+
 p{
     margin-bottom: 8px;
 }
