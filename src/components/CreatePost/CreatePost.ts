@@ -151,7 +151,7 @@ class CreatePost extends HTMLElement{
             <style>${CreatePostStyle}</style>
 
             <div class="btnPost">
-            <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1168721226831757312/OFNYLogofullwhite.png?ex=6552cb76&is=65405676&hm=0799a421db5ad330e568478f2056bd692ad71111ccb9d08bd0c19533d96e0e39&">
+            <img src="${appState.images.ovniblanc}">
             </div>
 
             <section class="modal" id="modal">
@@ -163,7 +163,7 @@ class CreatePost extends HTMLElement{
                 <h4>${this.username}</h4>
                 </div>
                     <div class="upload-photo">
-                    <img src="https://media.discordapp.net/attachments/1108887572618412231/1168670571152822385/OFNYupload.png?ex=65529c49&is=65402749&hm=527adb16f0bd124e4d44bb325dbe8654004fa7cb31bd3fa9c8e979e5c1a09b68&=&width=486&height=655">
+                    <img src=""${appState.images.subirpost}"">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">

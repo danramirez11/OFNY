@@ -84,17 +84,17 @@ class MainBar extends HTMLElement{
             <style>${MainBarStyle}</style>
             <section>
             <div class="main-bar-name">
-            <img class="logo-desktop" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png" alt="">
-            <img class="logo-mobile" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153024263939440760/OFNYLogoletras.png" alt="">
+            <img class="logo-desktop" src="${appState.images.logo}" alt="">
+            <img class="logo-mobile" src="${appState.images.OFNY}" alt="">
             <h3>${this.username}</h3>
             </div>
             <div class="search-bar">
-                <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153003565049204847/OFNYSearch.png" alt="">
+                <img src="${appState.images.search}" alt="">
                 <input type="text" placeholder="Search">
             </div>
             <div class="main-bar-icons">
-                <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760992731186/OFNYNotif.png" alt="">
-                <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760409722950/OFNYHeart.png" alt="">
+                <img src="${appState.images.alien}" alt="">
+                <img src="${appState.images.ovnimor}" alt="">
                 <img class="profilepicture" src="${this.profilepicture}" alt="">
             </div>
             </section>

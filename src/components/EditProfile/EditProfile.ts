@@ -148,15 +148,15 @@ class EditProfile extends HTMLElement{
                     </section>
                     <section class="desc">
                         <div class="desc-bio">
-                        <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png">
+                        <img src="${appState.images.logo}">
                         <input type="text" placeholder="BIO">
                         </div>
                         <div class="desc-pronouns">
-                        <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png">
+                        <img src="${appState.images.logo}">
                         <input type="text" placeholder="PRONOUNS">
                         </div>
                         <div class="desc-web">
-                        <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png">
+                        <img src="${appState.images.logo}">
                         <input type="text" placeholder="WEBSITE">
                         </div>
                     </section>
