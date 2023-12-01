@@ -3,13 +3,10 @@ import LandingBar from "../components/LandingBar/LandingBar";
 import LandingShare from "../components/LandingShare/LandingShare";
 import Footer from "../components/LandingFooter/LandingFooter";
 import LandigStyle from "./Landing.css";
-<<<<<<< HEAD
 import LandingMobile from "../components/MobileLanding/MobileLanding"
-=======
 import { appState, dispatch } from "../store";
 import { navigate } from "../store/actions";
 import { Screens } from "../types/navigation";
->>>>>>> 78d99055322d559d2cdbbd0da155adc4863a768b
 
 class LandingContainer extends HTMLElement {
     constructor() {

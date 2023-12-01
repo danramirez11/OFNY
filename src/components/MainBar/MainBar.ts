@@ -49,12 +49,7 @@ class MainBar extends HTMLElement{
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
         btnProfile?.addEventListener(('click'), () => {
-<<<<<<< HEAD
 			dispatch( navigate(Screens.PROFILE));
-=======
-            console.log("click perfil")
-			dispatch(navigate(Screens.PROFILE));
->>>>>>> 78d99055322d559d2cdbbd0da155adc4863a768b
             dispatch(changeuserscreen(`${appState.user.uid}`));
             console.log(appState)
         })
