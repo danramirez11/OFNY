@@ -1,6 +1,4 @@
-.barmobile{
-    display: none;
-}
+
 .body {
     background-color: #EFEDFB;
     margin: 0; 
@@ -9,12 +7,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.body {
     background-image: url('https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fbackground%20login.png?alt=media&token=7fd25afd-3e5f-4f17-a2b1-64971e56a73e'); 
     background-size: contain;
     background-position: center; 
     background-repeat: no-repeat;
+    flex-direction: column;
+    width: 100%;
     
+}
+
+main-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
 }

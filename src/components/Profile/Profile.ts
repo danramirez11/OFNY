@@ -63,7 +63,9 @@ class Profile extends HTMLElement{
         const pfp = await firebase.getFile(user?.pfp);
         this.profilepicture = pfp;
 
-        this.desc = appState.user.bio
+        this.desc = user?.bio;
+        this.pronouns = user?.pron || " ";
+        this.web = user?.web || " ";
 
         this.render();
 
@@ -72,6 +74,13 @@ class Profile extends HTMLElement{
         if (appState.userscreen === `${appState.user.uid}`){
             btnEditProfile?.classList.remove('hide')
         }
+
+        const btnLogOut = this.shadowRoot?.querySelector('.btnLogOut');
+        btnLogOut?.addEventListener(("click"), () => {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.reload();
+        })
 
     }
 
@@ -102,6 +111,10 @@ class Profile extends HTMLElement{
                 <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
                 <p>${this.desc || "No description available :("}</p>
                 <p>${this.web}</p>
+<<<<<<< HEAD
+=======
+                <button class="btnLogOut">Log out :c</button>
+>>>>>>> dan
                 </section>
             </section>
             `

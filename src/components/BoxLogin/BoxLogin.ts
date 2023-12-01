@@ -23,14 +23,6 @@ class BoxLogin extends HTMLElement {
             check?.forEach((check) => {
                 check.addEventListener("click", this.checkClick);
             });
-        const btnLogin = this.shadowRoot?.querySelector('#login-button');
-            btnLogin?.addEventListener(('click'), () => {
-                dispatch( 
-                    navigate(
-                        Screens.DASHBOARD
-                    )
-                );
-            })
             const btnSingup = this.shadowRoot?.querySelector('#no-acount');
             btnSingup?.addEventListener(('click'), () => {
                 dispatch( 

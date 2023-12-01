@@ -129,8 +129,6 @@ class BoxDetails extends HTMLElement {
                 tagsContainer?.appendChild(tag)
             })
 
-    
-
                 const postinfo = await firebase.getDetailsInfo(appState.postid)
                 const userdetails = this.shadowRoot.querySelector('.userdetails');
                 userdetails?.addEventListener(('click'), () => {

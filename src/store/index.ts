@@ -2,10 +2,13 @@ import { AppState, Observer } from '../types/store';
 import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
+import { PersistanceKeys, getUser } from '../utils/storage';
+import { navigate } from './actions';
 
-const userid = "DOqyun2FT6gJZHJ0oeut0a7rKPm1";
+const actualUser = getUser({key: PersistanceKeys.STORE, defaultValue: " "});
 
-const user = await getProfile(userid);
+const user = await getProfile(actualUser);
+
 
 
 const images = {
@@ -30,9 +33,9 @@ const images = {
 	OFNY: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2FOFNY.png?alt=media&token=47280f75-f23b-4d44-99a7-8959ab7cb187",
 }
 export let appState: AppState = {
-	screen: Screens.DASHBOARD,
+	screen: Screens.LANDING,
 	editprofile: false,
-	user: {uid: userid, ...user},
+	user: {uid: actualUser, ...user},
 	postid: " ",
 	userscreen: " ",
 	images: images
