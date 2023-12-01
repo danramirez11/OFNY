@@ -22,7 +22,7 @@ const images = {
 	ovniblanc: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fovni.png?alt=media&token=bf8a188b-1a72-4c7f-9b33-9d3639d0bdbc",
 	ovnimor: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fovni%20morado.png?alt=media&token=6208a3d2-5a2f-49f4-9fdd-8f2eb82ee6da",
 	singup: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fsingup.png?alt=media&token=f20c1fa5-9030-4a5c-9e6d-941909f81bc7",
-
+	search: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fsearch.png?alt=media&token=59ba7b6b-8483-401f-8d0e-f97d2f23d60c"
 }
 export let appState: AppState = {
 	screen: Screens.PROFILE,

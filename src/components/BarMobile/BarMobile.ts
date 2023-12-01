@@ -59,8 +59,8 @@ class BarMobile extends HTMLElement{
             this.shadowRoot.innerHTML = `
             <style>${BarMobileStyle}</style>
             <section>
-                <img class="logo-desktop" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153002760678146078/OFNYLogo.png" alt="">
-                <img src="https://cdn.discordapp.com/attachments/1108887572618412231/1153003565049204847/OFNYSearch.png" alt="">
+                <img class="logo-desktop" src="${appState.images.logo}" alt="">
+                <img src="" alt="">
                 <img class="profilepicture" src="${this.profilepicture}">
             </section>
             `
