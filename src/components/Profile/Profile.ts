@@ -100,7 +100,7 @@ class Profile extends HTMLElement{
                     <button class="btnEditProfile hide">EDIT PROFILE</button>
                 </div>
                 <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
-                <p>${this.desc || "No description available :("}</p>
+                <p class="description">${this.desc || "No description available :("}</p>
                 <p>${this.web}</p>
                 </section>
             </section>
