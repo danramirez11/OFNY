@@ -37,7 +37,7 @@ class LandingBar extends HTMLElement {
             <section>
             <div class="Landing-bar-logo">
             <img class="logo-desktop" src="${appState.images.logo}" alt="">
-            <img class="logo-mobile" src="https://cdn.discordapp.com/attachments/1108887572618412231/1153024263939440760/OFNYLogoletras.png" alt="">
+            <img class="logo-mobile" src="${appState.images.OFNY}" alt="">
             <h3>OFNY</h3>
             </div>
             
