@@ -12,6 +12,9 @@ class SingUpContainer extends HTMLElement {
     }
 
     connectedCallback() {
+        if (appState.user.uid !== " "){
+            dispatch(navigate(Screens.DASHBOARD))
+        }
         this.render();
     }
 
