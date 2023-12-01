@@ -27,9 +27,6 @@ class ProfileContainer extends HTMLElement {
     }
 
     connectedCallback(){
-        if (appState.user.id != " "){
-            dispatch(navigate(Screens.DASHBOARD));
-        }
         this.render();
     }
 

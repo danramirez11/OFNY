@@ -6,7 +6,6 @@ import firebase from "../../utils/firebase";
 export enum EditAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
-    "birth" = "birth"
 }
 
 const formsProfile = {
@@ -21,13 +20,11 @@ class EditProfile extends HTMLElement{
     
     username?: string;
     profilepicture?: string;
-    birth?: string;
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
             username: null,
             profilepicture: null,
-            birth: null,
         }
         return Object.keys(attrs);
     }

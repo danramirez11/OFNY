@@ -72,7 +72,6 @@ const editProfile = async (forms: any, id: string) => {
     bio: forms.bio,
     pron: forms.pronouns,
     web: forms.website,
-    birth: forms.birth
     })
     
 } catch (error) {
