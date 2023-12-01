@@ -137,9 +137,9 @@ class BoxDetails extends HTMLElement {
 
         heart.forEach((heart) => {
         if (this.isliked) {
-            heart.src = "";
+            heart.src = "${appState.images.cormor}";
         } else {
-            heart.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
+            heart.src = "${appState.images.corborde}";
         }});
     };
 }
