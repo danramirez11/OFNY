@@ -27,12 +27,6 @@ class ProfileContainer extends HTMLElement {
 
     connectedCallback(){
         this.render();
-        window.addEventListener('postsChanged', this.listenChanges.bind(this));
-        firebase.listenChanges();
-    }
-
-    listenChanges(){
-        this.render();
     }
 
     OpenEditProfile(){
@@ -40,8 +34,9 @@ class ProfileContainer extends HTMLElement {
     }
 
     async render(){
-
         if(this.shadowRoot){
+            this.shadowRoot.innerHTML = " "
+
             this.shadowRoot.innerHTML = `
             <style>${profileconStyle}</style>
             <style>${displayPostStyle}</style>
