@@ -102,7 +102,7 @@ class BoxSingUp extends HTMLElement {
                 <button id="already-acount">Already have an account? Log in</button>
                 </div>
             </div>
-            <img id="imagen "src="${appState.images.singup}">
+            <img class="img" id="imagen "src="${appState.images.singup}">
             </section>
             `
         }

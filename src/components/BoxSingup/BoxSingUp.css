@@ -97,3 +97,38 @@ input::placeholder{
 #imagen {
     width: 40%;
   }
+
+  @media (max-width: 540px) {
+
+    .img {
+        display: none;
+      }
+      section {
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        background-image: linear-gradient(to right, #667FF7, #BBC3FA);
+        font-family: "poppins";
+        width: 450px;
+        height: 600px;
+        opacity: 0.9;
+      }
+    .user{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      width: 100%;
+    
+    }
+    #divinputs{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      width: 100%;
+    }
+    
+    
+    
+    }
