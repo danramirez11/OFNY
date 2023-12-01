@@ -63,6 +63,7 @@ h1{
   border-radius: 20px;
   width: 350px;
   height: 100px;
+  padding: 10px;
 }
 #tags{
   background-image: linear-gradient(to right, #9F7EFF, #BBC3FA);
@@ -70,6 +71,7 @@ h1{
   width: 310px;
   margin-right: 20px;
   height: 100px;
+  padding: 10px;
 }
 .post-heart-desktop-heart{
   position: absolute;
@@ -87,6 +89,7 @@ h1{
   width: 310px;
   margin-right: 20px;
   height: 100px;
+  padding: 10px;
 }
 
 #tags button{
