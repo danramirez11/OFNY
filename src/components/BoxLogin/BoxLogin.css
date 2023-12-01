@@ -80,3 +80,18 @@ input::placeholder{
   text-align: center;
 }
 
+@media (max-width: 540px) {
+
+.img {
+    display: none;
+  }
+.user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+}

@@ -62,11 +62,16 @@ p{
         position: absolute;
         bottom: 4px;
     }
-
+    
     .profile-user{
         flex-direction: column;
-        align-items: end;
         gap: 4px;
+        align-items: center;
+    }
+    .description{
+        flex-direction: column;
+        gap: 4px;
+        text-align: right;
     }
 
     .allprofile{
