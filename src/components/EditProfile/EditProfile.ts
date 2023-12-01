@@ -108,7 +108,7 @@ class EditProfile extends HTMLElement{
     }
 
     saveProfile(){
-        firebase.editProfile(formsProfile, "z9R9t4beoGh2kwrwHirxaCDMO0r2");
+        firebase.editProfile(formsProfile, `${appState.user.uid}`);
         this.OpenEditProfile();
     }
 
