@@ -60,6 +60,7 @@ h3{
 }
 .logo-mobile{
     display: block;
+    margin-left: 5px;
 }
 .search-bar{
     display: none;
@@ -67,5 +68,7 @@ h3{
 .profilepicture{
     display: none;
 }
+
+
 
 }

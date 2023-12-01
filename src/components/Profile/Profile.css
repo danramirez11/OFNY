@@ -50,8 +50,8 @@ p{
 @media (max-width: 540px) {
 
     .profilepicture{
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
         min-width: none;
         min-height: none;
         top: -4%;
