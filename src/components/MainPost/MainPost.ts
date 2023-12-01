@@ -43,7 +43,7 @@ class MainPost extends HTMLElement{
         super();
         this.attachShadow({mode: "open"});
         this.likeClick = this.likeClick.bind(this);
-        this.like = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
+        this.like = `${appState.images.corborde}`;
     }
     
     connectedCallback(){
