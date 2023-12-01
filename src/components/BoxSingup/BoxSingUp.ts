@@ -76,7 +76,7 @@ class BoxSingUp extends HTMLElement {
             <div class=user>
             <h1>SING UP</h1>
                 <div class="input-container">
-                    <img src="${appState.images.singup}" alt="User Icon">
+                    <img src="${appState.images.user}" alt="User Icon">
                     <input placeholder="Username" type="text" id="username" name="username">
                 </div>
                 <div class="input-container">
@@ -92,7 +92,7 @@ class BoxSingUp extends HTMLElement {
                 <input placeholder="Confirm password" type="password" id="confirm-password" name="confirm-password">
             </div>
                 <div class="terms-service">
-                <img class="post-heart-desktop check" src="https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&">
+                <img class="post-heart-desktop check" src="${appState.images.checkvacio}">
                     <button id="terms">I agree Terms of Service and Privace Policy</button>
                 </div>
                 <div class"button-singup">
@@ -102,7 +102,7 @@ class BoxSingUp extends HTMLElement {
                 <button id="already-acount">Already have an account? Log in</button>
                 </div>
             </div>
-            <img id="imagen "src="https://cdn.discordapp.com/attachments/1108887572618412231/1169266173930655814/Subtract.png?ex=6554c6fb&is=654251fb&hm=65356a867ede575622f6b1e8b87403b426cd94dcf4833096008c71e067adde5c&">
+            <img id="imagen "src="${appState.images.singup}">
             </section>
             `
         }
