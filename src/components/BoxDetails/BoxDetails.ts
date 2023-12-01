@@ -53,7 +53,7 @@ class BoxDetails extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
         this.likeClick = this.likeClick.bind(this);
-        this.like = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
+        this.like = "${appState.images.corborde}";
     }
 
     connectedCallback(){
@@ -137,7 +137,7 @@ class BoxDetails extends HTMLElement {
 
         heart.forEach((heart) => {
         if (this.isliked) {
-            heart.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1153002760409722950/OFNYHeart.png";
+            heart.src = "";
         } else {
             heart.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1154166566510940230/OFNYHeartline.png";
         }});
