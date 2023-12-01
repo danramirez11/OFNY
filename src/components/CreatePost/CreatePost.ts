@@ -11,7 +11,7 @@ export enum CreateAttribute {
 const formPost = {
     desc: " ",
     img: " ",
-    user: `z9R9t4beoGh2kwrwHirxaCDMO0r2`,
+    user: `${appState.user.uid}`,
     tags: " "
 }
 
@@ -49,6 +49,8 @@ class CreatePost extends HTMLElement{
     async connectedCallback(){
 
         this.username = appState.user.username;
+        const pfp = await firebase.getFile(appState.user.pfp);
+        this.profilepicture = pfp;
         
         this.render();
 

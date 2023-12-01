@@ -1,8 +1,9 @@
 import { firebaseConfig } from "./firebaseconfig";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimestamp, query, orderBy, where, refEqual, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
+import { appState } from "../store";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -60,6 +61,7 @@ const getFile = async (filename: string) => {
   return url
 }
 
+
 const editProfile = async (forms: any, id: string) => {
   try{
     const where = doc(db, "users", id);
@@ -101,6 +103,7 @@ const createUser = async (username: string,email: string,password: string, confi
     const data = {
       username: username,
       email: email,
+      pfp: appState.images.pfp,
     }
     await setDoc(where, data);
     //Tercer paso: Retornar true para dejarlo pasar de pantalla
@@ -138,6 +141,56 @@ const getDetailsInfo = async (id:string) => {
   }
 }
 
+const like = async (post:string, user:string) => {
+  try{
+    const likedPost = {
+      post: post,
+      user: user,
+      createdAt: serverTimestamp(),
+  };
+  const where = collection(db, "likes");
+  await addDoc(where, likedPost);
+} catch (error) {
+  console.error(error)
+}
+}
+
+const dislike = async (post: string, user:string) => {
+  try {
+    const likesRef = collection(db, 'likes');
+    const userLikedQuery = query(likesRef, where('post', '==', post), where('user', '==', user));
+    const userLikedSnapshot = await getDocs(userLikedQuery);
+    if (!userLikedSnapshot.empty) {
+      const likeDoc = userLikedSnapshot.docs[0];
+      await deleteDoc(doc(likesRef, likeDoc.id));
+      console.log('Like borrado con éxito.');
+    } else {
+      console.log('No se encontró el like.');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const checklike = async (post: string, user:string) => {
+  try {
+    const likesRef = collection(db, 'likes');
+    const userLikedQuery = query(likesRef, where('post', '==', post), where('user', '==', user));
+    const userLikedSnapshot = await getDocs(userLikedQuery);
+    if (!userLikedSnapshot.empty) {
+      const likeDoc = userLikedSnapshot.docs[0];
+      await deleteDoc(doc(likesRef, likeDoc.id));
+      console.log('Like borrado con éxito.');
+    } else {
+      console.log('No se encontró el like.');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export default {
-  addPost, getPost, getProfile, uploadFile, getFile, editProfile, getPostProfile, logIn, createUser, getDetailsInfo
+  addPost, getPost, getProfile, uploadFile, getFile, editProfile, 
+  getPostProfile, logIn, createUser, getDetailsInfo, like,
+  dislike, checklike
 }

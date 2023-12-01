@@ -12,7 +12,9 @@ import displayPostStyle from "./displayPost.css";
 import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
 import { getPost, addPost } from "../utils/firebase";
 import firebase from "../utils/firebase";
-import { appState } from "../store";
+import { appState, dispatch } from "../store";
+import { changepost, navigate } from "../store/actions";
+import { Screens } from "../types/navigation";
 
 class ProfileContainer extends HTMLElement {
 
@@ -24,17 +26,6 @@ class ProfileContainer extends HTMLElement {
     }
 
     async connectedCallback(){
-        const postData = await firebase.getPostProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
-        postData.forEach(async (post: any) => {
-            const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            const url = await firebase.getFile(post.img)
-            newpost.setAttribute(PostAttribute.post, url)
-            newpost.setAttribute(PostAttribute.username, appState.user.username);
-            const pfpurl = await firebase.getFile(appState.user.pfp);
-            newpost.setAttribute(PostAttribute.profilepicture, pfpurl);
-            this.posts.push(newpost);
-        })
-
         this.render();
     }
 
@@ -50,7 +41,7 @@ class ProfileContainer extends HTMLElement {
             <style>${displayPostStyle}</style>
             `
 
-            const postData = await firebase.getPostProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
+            const postData = await firebase.getPostProfile(`${appState.userscreen}`)
 
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
             this.shadowRoot.appendChild(mainbar);
@@ -84,12 +75,26 @@ class ProfileContainer extends HTMLElement {
 
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;
-            const url = await firebase.getFile(post.img)
-            newpost.setAttribute(PostAttribute.post, url)
-            newpost.setAttribute(PostAttribute.username, appState.user.username);
-            const pfpurl = await firebase.getFile(appState.user.pfp);
+
+            const postperson = await firebase.getProfile(post.user);
+            newpost.setAttribute(PostAttribute.username, postperson?.username);
+
+            const pfpurl = await firebase.getFile(postperson?.pfp);
             newpost.setAttribute(PostAttribute.profilepicture, pfpurl);
-            postscontainer.appendChild(newpost)
+
+            const url = await firebase.getFile(post.img);
+            newpost.setAttribute(PostAttribute.post, url);
+            newpost.setAttribute(PostAttribute.uid, post.id);
+
+            newpost.addEventListener(('click'), () => {
+                console.log("imf clicked")
+                dispatch(navigate(Screens.POSTDETAILS));
+                dispatch(changepost(`${post.id}`));
+                console.log("clicked post uid: " + post.id);
+                console.log(appState);
+            })
+            
+            postscontainer?.appendChild(newpost)
         })
     }
 }

@@ -3,7 +3,11 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
-const user = await getProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
+const userid = "z9R9t4beoGh2kwrwHirxaCDMO0r2";
+
+const user = await getProfile(userid);
+
+
 const images = {
 	pfp: 'https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fprofilepicture.png?alt=media&token=ff51078d-73f2-4bdc-9369-0a9229d65db4',
 	logo: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Flogo.png?alt=media&token=2a208276-2249-4196-ba20-eaebd0711f46",
@@ -28,9 +32,10 @@ const images = {
 export let appState: AppState = {
 	screen: Screens.PROFILE,
 	editprofile: false,
-	user: user,
+	user: {uid: userid, ...user},
 	postid: " ",
-	images: images,
+	userscreen: " ",
+	images: images
 };
 
 console.log(appState);

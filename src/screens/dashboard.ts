@@ -53,13 +53,12 @@ class MainContainer extends HTMLElement {
             this.shadowRoot.appendChild(barmobile);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            create.setAttribute(CreateAttribute.profilepicture, "uu")
             //create.setAttribute(CreateAttribute.username, userData[0].username)
             this.shadowRoot.appendChild(create);
 
             
 
-            const postData = await firebase.getPost()
+        const postData = await firebase.getPost()
         
         postData.forEach(async (post: any) => {
             const newpost = this.ownerDocument.createElement("main-post") as MainPost;

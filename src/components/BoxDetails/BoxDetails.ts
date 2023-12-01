@@ -2,7 +2,7 @@ import BoxDetailsStyle from "./BoxDetails.css"
 import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
-import { navigate } from '../../store/actions';
+import { changeuserscreen, navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 export enum EditAttribute {
@@ -109,7 +109,7 @@ class BoxDetails extends HTMLElement {
 
                 <div class= "captionandtags">
                 <p id="caption" >${this.caption}</p>
-                <p id="tags" > </p>
+                <section id="tags" > </section>
                 </div>
 
                 
@@ -126,13 +126,22 @@ class BoxDetails extends HTMLElement {
                     tag.textContent = tagText;
                     tagsContainer?.appendChild(tag);
                 })
+
+                const postinfo = await firebase.getDetailsInfo(appState.postid)
+                const userdetails = this.shadowRoot.querySelector('.userdetails');
+                userdetails?.addEventListener(('click'), () => {
+                    console.log('clicked');
+                    dispatch(changeuserscreen(postinfo?.user));
+                    dispatch(navigate(Screens.PROFILE));
+                    
+                })
             
         }
     }
     isliked: boolean = false
 
     likeClick = () => {
-        this.isliked = !this.isliked;
+        
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart") as NodeListOf<HTMLImageElement>;
 
         heart.forEach((heart) => {
