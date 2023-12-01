@@ -44,6 +44,7 @@ class CreatePost extends HTMLElement{
         super();
         this.attachShadow({mode: "open"});
         addObserver(this);
+        
     }
     
     async connectedCallback(){
@@ -180,6 +181,7 @@ class CreatePost extends HTMLElement{
                         <option value="formal">Formal</option>
                         <option value="deportivo">Deportivo</option>
                         <option value="gótico">Gótico</option>
+                        <option value="cotaggecore">Cottagecore</option>
                     </select>
                     <section class="post-info-tags">
                     </section>

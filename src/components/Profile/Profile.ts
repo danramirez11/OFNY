@@ -63,9 +63,7 @@ class Profile extends HTMLElement{
         const pfp = await firebase.getFile(user?.pfp);
         this.profilepicture = pfp;
 
-        this.desc = user?.bio;
-        this.pronouns = user?.pron;
-        this.web = user?.web;
+        this.desc = appState.user.bio
 
         this.render();
 

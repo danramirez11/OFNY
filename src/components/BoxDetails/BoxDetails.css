@@ -2,16 +2,24 @@ section {
     border-radius: 53px;
     display: flex;
     width: 70vw;
-    background-color: #EEE7EE;
+    background-color: #f028f0;
     font-family: "poppins";
     width: 800px;
     height: 455px;
     
   }
+
+  .button-tag{
+    border-style: solid;
+    border-color: #4565FE;
+    background-color: transparent;
+    border-radius: 5px;
+  }
   
 #imagepost {
     width: 50%;
-    border-left: 53px;
+    border-bottom-left-radius: 53px;
+    border-top-left-radius: 53px;
   }
   
 .postdetails {
@@ -47,6 +55,7 @@ h1{
   margin-left: 20px;
   margin-right: 20px;
   height: 100px;
+  gap: 12px;
 }
 
 #caption{
@@ -79,9 +88,14 @@ h1{
   margin-right: 20px;
   height: 100px;
 }
-.button-tag{
-  border-style: solid;
-  border-color: #4565FE;
-  background-color: transparent;
-  border-radius: 5px;
+
+#tags button{
+  border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
 }
+

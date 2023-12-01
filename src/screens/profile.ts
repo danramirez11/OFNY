@@ -25,7 +25,7 @@ class ProfileContainer extends HTMLElement {
         this.attachShadow({mode:"open"});
     }
 
-    async connectedCallback(){
+    connectedCallback(){
         this.render();
     }
 
@@ -34,8 +34,9 @@ class ProfileContainer extends HTMLElement {
     }
 
     async render(){
-
         if(this.shadowRoot){
+            this.shadowRoot.innerHTML = " "
+
             this.shadowRoot.innerHTML = `
             <style>${profileconStyle}</style>
             <style>${displayPostStyle}</style>
@@ -56,7 +57,6 @@ class ProfileContainer extends HTMLElement {
             <nav>
                 <h3>OFNIS</h3>
                 <h3>LIKES</h3>
-                <h3>FOLLOWING</h3>
                 </nav>
                 <hr>
             `

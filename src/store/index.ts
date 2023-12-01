@@ -3,7 +3,7 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
-const userid = "z9R9t4beoGh2kwrwHirxaCDMO0r2";
+const userid = "DOqyun2FT6gJZHJ0oeut0a7rKPm1";
 
 const user = await getProfile(userid);
 
@@ -30,7 +30,7 @@ const images = {
 	OFNY: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2FOFNY.png?alt=media&token=47280f75-f23b-4d44-99a7-8959ab7cb187",
 }
 export let appState: AppState = {
-	screen: Screens.PROFILE,
+	screen: Screens.DASHBOARD,
 	editprofile: false,
 	user: {uid: userid, ...user},
 	postid: " ",

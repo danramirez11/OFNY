@@ -14,6 +14,7 @@ import CreatePost, {CreateAttribute} from "../components/CreatePost/CreatePost";
 import { appState, dispatch } from "../store";
 import { changepost, navigate } from "../store/actions";
 import { Screens } from "../types/navigation";
+import { doc, onSnapshot } from "firebase/firestore";
 
 class MainContainer extends HTMLElement {
 
@@ -26,21 +27,22 @@ class MainContainer extends HTMLElement {
 
     connectedCallback(){
         this.render();
+        window.addEventListener('postsChanged', this.listenChanges.bind(this));
+        firebase.listenChanges();
+    }
+
+    listenChanges(){
+        this.render();
     }
 
     async render(){
+        
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <style>${mainStyle}</style>
             <style>${displayPostStyle}</style>
             `
-
-            //const userData = await firebase.getProfile();
-
-
             const mainbar = this.ownerDocument.createElement("main-bar") as MainBar;
-            /*mainbar.setAttribute(Attribute.profilepicture, userData[0].pfp)
-            mainbar.setAttribute(Attribute.username, userData[0].username)*/
             this.shadowRoot.appendChild(mainbar);
 
             const postscontainer =  this.ownerDocument.createElement("section");
@@ -48,12 +50,10 @@ class MainContainer extends HTMLElement {
             this.shadowRoot.appendChild(postscontainer);
 
             const barmobile = this.ownerDocument.createElement("bar-mobile") as BarMobile;
-            //barmobile.setAttribute(BarMobileAttribute.profilepicture, userData[0].pfp)
             barmobile.classList.add("barmobile")
             this.shadowRoot.appendChild(barmobile);
 
             const create = this.ownerDocument.createElement("create-post") as CreatePost;
-            //create.setAttribute(CreateAttribute.username, userData[0].username)
             this.shadowRoot.appendChild(create);
 
             
