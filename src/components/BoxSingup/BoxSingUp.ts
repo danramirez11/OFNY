@@ -115,10 +115,10 @@ class BoxSingUp extends HTMLElement {
 
         check.forEach((check) => {
         if (this.isliked) {
-            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218243448973/Group_311.png?ex=6554d8b8&is=654263b8&hm=eb4eb00eca23aee00264abf3df56800956f46e24ea2a462ef32d57c8cf19336b&"
+            check.src = `${appState.images.check}`
             ;
         } else {
-            check.src = "https://cdn.discordapp.com/attachments/1108887572618412231/1169285218528673862/Group_3111.png?ex=6554d8b8&is=654263b8&hm=59a1ef10175f86c38a8f7dda15798a76cf0bdf2f1ecc3cf9e6585f5f133c4f72&"
+            check.src = `${appState.images.checkvacio}`
             ;
         }});
     };
