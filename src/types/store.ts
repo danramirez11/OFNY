@@ -5,12 +5,14 @@ export type AppState = {
 	editprofile: boolean,
 	user: any,
 	postid: string,
+	userscreen: string,
 	images: any,
 };
 
 export enum Navigate {
 	'NAVIGATE' = 'NAVIGATE',
-	'CHANGEPOSTUID' = 'CHANGEPOSTUID'
+	'CHANGEPOSTUID' = 'CHANGEPOSTUID',
+	'CHANGEUSERSCREEN' = 'CHANGEUSERSCREEN'
 }
 
 export enum EditModal {
@@ -32,4 +34,9 @@ export interface ShowModal {
 	payload: true,
 }
 
-export type Actions = ChangeScreen | ShowModal | ChangePostId;
+export interface ChangeUserScreen {
+	action: Navigate.CHANGEUSERSCREEN;
+	payload: " "
+}
+
+export type Actions = ChangeScreen | ShowModal | ChangePostId | ChangeUserScreen;

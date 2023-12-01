@@ -2,16 +2,31 @@ section {
     border-radius: 53px;
     display: flex;
     width: 70vw;
-    background-color: #EEE7EE;
+    background-color: #f028f0;
     font-family: "poppins";
     width: 800px;
     height: 455px;
     
+<<<<<<< HEAD
+=======
+  }
+
+  .button-tag{
+    border-style: solid;
+    border-color: #4565FE;
+    background-color: transparent;
+    border-radius: 5px;
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
   }
   
 #imagepost {
     width: 50%;
+<<<<<<< HEAD
     border-left: 53px;
+=======
+    border-bottom-left-radius: 53px;
+    border-top-left-radius: 53px;
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
   }
   
 .postdetails {
@@ -47,6 +62,10 @@ h1{
   margin-left: 20px;
   margin-right: 20px;
   height: 100px;
+<<<<<<< HEAD
+=======
+  gap: 12px;
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
 }
 
 #caption{
@@ -78,10 +97,24 @@ h1{
   width: 310px;
   margin-right: 20px;
   height: 100px;
+<<<<<<< HEAD
 }
 .button-tag{
   border-style: solid;
   border-color: #4565FE;
   background-color: transparent;
   border-radius: 5px;
+=======
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
 }
+
+#tags button{
+  border-radius: 16px;
+    color: #667FF7;
+    background-color: white;
+    border-style: solid;
+    border-color: #667FF7;
+    padding: 8px;
+    padding-inline: 24px;
+}
+

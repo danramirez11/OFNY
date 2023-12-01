@@ -3,7 +3,15 @@ import { reducer } from './reducer';
 import firebase, { getProfile } from '../utils/firebase';
 import { Screens } from '../types/navigation';
 
+<<<<<<< HEAD
 const user = await getProfile("z9R9t4beoGh2kwrwHirxaCDMO0r2")
+=======
+const userid = "DOqyun2FT6gJZHJ0oeut0a7rKPm1";
+
+const user = await getProfile(userid);
+
+
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
 const images = {
 	pfp: 'https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fprofilepicture.png?alt=media&token=ff51078d-73f2-4bdc-9369-0a9229d65db4',
 	logo: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Flogo.png?alt=media&token=2a208276-2249-4196-ba20-eaebd0711f46",
@@ -26,11 +34,16 @@ const images = {
 	OFNY: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2FOFNY.png?alt=media&token=47280f75-f23b-4d44-99a7-8959ab7cb187",
 }
 export let appState: AppState = {
-	screen: Screens.PROFILE,
+	screen: Screens.DASHBOARD,
 	editprofile: false,
-	user: user,
+	user: {uid: userid, ...user},
 	postid: " ",
+<<<<<<< HEAD
 	images: images,
+=======
+	userscreen: " ",
+	images: images
+>>>>>>> eef0764d684c074ff6332bad70210783e1ffb7d4
 };
 
 console.log(appState);

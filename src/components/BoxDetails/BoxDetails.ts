@@ -2,7 +2,7 @@ import BoxDetailsStyle from "./BoxDetails.css"
 import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from '../../types/store';
 import { Screens } from '../../types/navigation';
-import { navigate } from '../../store/actions';
+import { changeuserscreen, navigate } from '../../store/actions';
 import firebase from "../../utils/firebase";
 
 export enum EditAttribute {
@@ -14,8 +14,6 @@ export enum EditAttribute {
     "like" = "like"
 }
 
-
-
 class BoxDetails extends HTMLElement {
     imagepost?: string;
     username?: string;
@@ -24,8 +22,8 @@ class BoxDetails extends HTMLElement {
     tags?: string;
     like?: string;
 
-    tagslist = []
-
+    tagslist = [];
+    tagshtml: any = [];
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
@@ -63,6 +61,7 @@ class BoxDetails extends HTMLElement {
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
             heart?.forEach((heart) => {
                 heart.addEventListener("click", this.likeClick);
+                console.log("heartss")
             });
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
@@ -74,6 +73,7 @@ class BoxDetails extends HTMLElement {
 			);
         })
     }
+
     
     async render(){
         if(this.shadowRoot){
@@ -85,7 +85,7 @@ class BoxDetails extends HTMLElement {
                 const img = await firebase.getFile(post.img);
                 this.imagepost = img;
 
-                const tags = JSON.parse(post.tags);
+                const tags = JSON.parse(post.tags) || [];
                 this.tagslist = tags;
 
                 const postperson = await firebase.getProfile(post.user);
@@ -108,8 +108,10 @@ class BoxDetails extends HTMLElement {
                 </div>
 
                 <div class= "captionandtags">
-                <p id="caption" >${this.caption}</p>
-                <p id="tags" > </p>
+                <section id="caption">
+                <p>${this.caption}</p>
+                </section>
+                <section id="tags" > </section>
                 </div>
 
                 
@@ -119,12 +121,23 @@ class BoxDetails extends HTMLElement {
             </section>
             `
 
-            const tagsContainer = this.shadowRoot.querySelector('#tags');
-                this.tagslist.forEach((tagText: any) => {
-                    const tag = document.createElement('button');
-                    tag.classList.add('.button-tag')
-                    tag.textContent = tagText;
-                    tagsContainer?.appendChild(tag);
+            this.tagslist.forEach((tagText: any) => {
+                const tagsContainer = this.shadowRoot?.querySelector('#tags')
+                const tag = document.createElement('button');
+                tag.classList.add('.button-tag')
+                tag.textContent = tagText;
+                tagsContainer?.appendChild(tag)
+            })
+
+    
+
+                const postinfo = await firebase.getDetailsInfo(appState.postid)
+                const userdetails = this.shadowRoot.querySelector('.userdetails');
+                userdetails?.addEventListener(('click'), () => {
+                    console.log('clicked');
+                    dispatch(changeuserscreen(postinfo?.user));
+                    dispatch(navigate(Screens.PROFILE));
+                    
                 })
             
         }
@@ -132,9 +145,9 @@ class BoxDetails extends HTMLElement {
     isliked: boolean = false
 
     likeClick = () => {
-        this.isliked = !this.isliked;
+        
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart") as NodeListOf<HTMLImageElement>;
-
+console.log("corazon click")
         heart.forEach((heart) => {
         if (this.isliked) {
             heart.src = `${appState.images.cormor}`;

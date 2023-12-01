@@ -9,8 +9,8 @@ export enum ProfileAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
     "posts" = "posts",
-    "following" = "following",
-    "followers" = "followers",
+    "pronouns" = "pronouns",
+    "web" = "web",
     "desc" = "desc"
 }
 
@@ -19,8 +19,8 @@ class Profile extends HTMLElement{
     username?: string;
     profilepicture?: string;
     posts?: number;
-    following?: number;
-    followers?: number;
+    pronouns?: string;
+    web?: string;
     desc?: string;
     
     static get observedAttributes(){
@@ -28,8 +28,8 @@ class Profile extends HTMLElement{
             username: null,
             profilepicture: null,
             posts: null,
-            following: null,
-            followers: null,
+            pronouns: null,
+            web: null,
             desc: null,
         }
         return Object.keys(attrs);
@@ -40,11 +40,6 @@ class Profile extends HTMLElement{
             case ProfileAttribute.posts:
                 this.posts = newValue ? Number(newValue) : undefined;
             break;
-            case ProfileAttribute.followers:
-                this.followers = newValue ? Number(newValue) : undefined;
-            break;
-            case ProfileAttribute.following:
-                this.following = newValue ? Number(newValue) : undefined;
             break;
             default: 
             this[propName] = newValue;
@@ -61,9 +56,11 @@ class Profile extends HTMLElement{
     }
     
     async connectedCallback(){
-        this.username = appState.user.username;
+        const user = await firebase.getProfile(appState.userscreen || appState.user.uid);
 
-        const pfp = await firebase.getFile(appState.user.pfp);
+        this.username = user?.username;
+
+        const pfp = await firebase.getFile(user?.pfp);
         this.profilepicture = pfp;
 
         this.desc = appState.user.bio
@@ -71,7 +68,10 @@ class Profile extends HTMLElement{
         this.render();
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
-            btnEditProfile?.addEventListener(('click'), this.OpenEditProfile)
+        btnEditProfile?.addEventListener(('click'), this.OpenEditProfile);
+        if (appState.userscreen === `${appState.user.uid}`){
+            btnEditProfile?.classList.remove('hide')
+        }
 
     }
 
@@ -97,10 +97,11 @@ class Profile extends HTMLElement{
                 <section>
                 <div class="profile-user">
                     <h3>${this.username}</h3>
-                    <button class="btnEditProfile">EDIT PROFILE</button>
+                    <button class="btnEditProfile hide">EDIT PROFILE</button>
                 </div>
-                <p class="user-stats">${this.posts || 0} Ofnis    ${this.followers || 0} followers ${this.following || 0}    following</p>
+                <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
                 <p>${this.desc || "No description available :("}</p>
+                <p>${this.web}</p>
                 </section>
             </section>
             `
