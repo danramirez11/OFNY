@@ -30,7 +30,7 @@ const images = {
 	OFNY: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2FOFNY.png?alt=media&token=47280f75-f23b-4d44-99a7-8959ab7cb187",
 }
 export let appState: AppState = {
-	screen: Screens.SINGUP,
+	screen: Screens.LANDING,
 	editprofile: false,
 	user: {uid: userid, ...user},
 	postid: " ",
