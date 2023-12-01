@@ -1,6 +1,9 @@
 import * as components from "../components/export"
 import BoxSingUp from "../components/BoxSingup/BoxSingUp";
 import SingUptyle from "./SingUp.css";
+import { appState, dispatch } from "../store";
+import { navigate } from "../store/actions";
+import { Screens } from "../types/navigation";
 
 class SingUpContainer extends HTMLElement {
     constructor() {
@@ -9,6 +12,9 @@ class SingUpContainer extends HTMLElement {
     }
 
     connectedCallback() {
+        if (appState.user.uid !== " "){
+            dispatch(navigate(Screens.DASHBOARD))
+        }
         this.render();
     }
 

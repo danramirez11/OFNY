@@ -20,7 +20,10 @@ class DetailsPostContainer extends HTMLElement {
             `;
             const body = document.createElement("section")
             this.shadowRoot.appendChild(body);
-            body.classList.add("body")
+            body.classList.add("body");
+
+            const mainbar = document.createElement("main-bar");
+            this.shadowRoot.appendChild(mainbar);
 
             const BoxDetails = document.createElement("box-details");
             body.appendChild(BoxDetails);

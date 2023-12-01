@@ -1,6 +1,9 @@
 import * as components from "../components/export"
 import BoxLogin from "../components/BoxLogin/BoxLogin";
 import LoginStyle from "./Login.css";
+import { appState, dispatch } from "../store";
+import { navigate } from "../store/actions";
+import { Screens } from "../types/navigation";
 
 class LogInContainer extends HTMLElement {
     constructor() {
@@ -9,6 +12,9 @@ class LogInContainer extends HTMLElement {
     }
 
     connectedCallback() {
+        if (appState.user.uid !== " "){
+            dispatch(navigate(Screens.DASHBOARD))
+        }
         this.render();
     }
 

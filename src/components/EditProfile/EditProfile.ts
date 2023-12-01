@@ -6,7 +6,6 @@ import firebase from "../../utils/firebase";
 export enum EditAttribute {
     "username" = "username",
     "profilepicture" = "profilepicture",
-    "birth" = "birth"
 }
 
 const formsProfile = {
@@ -21,13 +20,11 @@ class EditProfile extends HTMLElement{
     
     username?: string;
     profilepicture?: string;
-    birth?: string;
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
             username: null,
             profilepicture: null,
-            birth: null,
         }
         return Object.keys(attrs);
     }
@@ -111,7 +108,11 @@ class EditProfile extends HTMLElement{
     }
 
     saveProfile(){
+<<<<<<< HEAD
         firebase.editProfile(formsProfile, "z9R9t4beoGh2kwrwHirxaCDMO0r2");
+=======
+        firebase.editProfile(formsProfile, `${appState.user.uid}`);
+>>>>>>> 78d99055322d559d2cdbbd0da155adc4863a768b
         this.OpenEditProfile();
     }
 

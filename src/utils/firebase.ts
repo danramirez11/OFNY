@@ -4,6 +4,7 @@ import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, serverTimest
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, } from "firebase/auth";
 import { appState } from "../store";
+import { PersistanceKeys, setUser } from "./storage";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -61,6 +62,7 @@ const getFile = async (filename: string) => {
   return url
 }
 
+
 const editProfile = async (forms: any, id: string) => {
   try{
     const where = doc(db, "users", id);
@@ -70,7 +72,6 @@ const editProfile = async (forms: any, id: string) => {
     bio: forms.bio,
     pron: forms.pronouns,
     web: forms.website,
-    birth: forms.birth
     })
     
 } catch (error) {
@@ -117,9 +118,13 @@ const createUser = async (username: string,email: string,password: string, confi
 }
 
 const logIn = async (email: string, password: string) => {
-  setPersistence(auth,browserLocalPersistence).then(() =>{
-    console.log("uwuwuwu")
-    return signInWithEmailAndPassword(auth,email,password);
+  setPersistence(auth,browserLocalPersistence).then(async () =>{
+    console.log()
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log("Inicio de sesión exitoso", user);
+    setUser({ key: PersistanceKeys.STORE, value: user.uid});
+    window.location.reload();
   }).catch((error)=> {
     const errorCode = error.code;
     const errorMessage = error.message;
