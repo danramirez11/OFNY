@@ -27,6 +27,7 @@ class LandingShare extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <style>${LandingShareStyle}</style>
             <section>
+            <img class="post-img" src="${appState.images.mobilelanding}">
             <h1>OFNY</h1>
             <h2>DRESS UR WORLD</h2>
             <button id="share-button">Share my style</button>
