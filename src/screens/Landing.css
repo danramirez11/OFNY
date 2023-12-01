@@ -31,6 +31,8 @@ landing-mobile{
     }
     .body{
         margin: 0; 
-        padding: 0;   
+        padding: 0; 
+        background-image: linear-gradient(to top, #667FF7, #BBC3FA);
+        background-size: cover;   
     }
 }
