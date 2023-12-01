@@ -182,6 +182,7 @@ class CreatePost extends HTMLElement{
                         <option value="deportivo">Deportivo</option>
                         <option value="gótico">Gótico</option>
                         <option value="cotaggecore">Cottagecore</option>
+                        <option value="cosplay">Cosplay</option>
                     </select>
                     <section class="post-info-tags">
                     </section>

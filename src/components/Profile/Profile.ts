@@ -71,9 +71,6 @@ class Profile extends HTMLElement{
 
         const btnEditProfile = this.shadowRoot?.querySelector('.btnEditProfile');
         btnEditProfile?.addEventListener(('click'), this.OpenEditProfile);
-        if (appState.userscreen === `${appState.user.uid}`){
-            btnEditProfile?.classList.remove('hide')
-        }
 
         const btnLogOut = this.shadowRoot?.querySelector('.btnLogOut');
         btnLogOut?.addEventListener(("click"), () => {
@@ -81,6 +78,11 @@ class Profile extends HTMLElement{
             sessionStorage.clear();
             window.location.reload();
         })
+
+        if (appState.userscreen === `${appState.user.uid}`){
+            btnEditProfile?.classList.remove('hide');
+            btnLogOut?.classList.remove('hide');
+        }
 
     }
 
@@ -111,7 +113,7 @@ class Profile extends HTMLElement{
                 <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
                 <p class="description">${this.desc || "No description available :("}</p>
                 <p>${this.web}</p>
-                <button class="btnLogOut">Log out :c</button>
+                <button class="btnLogOut hide">Log out :c</button>
                 </section>
             </section>
             `
