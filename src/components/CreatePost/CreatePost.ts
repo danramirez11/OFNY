@@ -166,7 +166,7 @@ class CreatePost extends HTMLElement{
                 <h4>${this.username}</h4>
                 </div>
                     <div class="upload-photo">
-                    <img src=""${appState.images.subirpost}"">
+                    <img src="${appState.images.subirpost}">
                     </div>
                     <section class="post-info">
                     <div class="post-info-user">
