@@ -14,8 +14,6 @@ export enum EditAttribute {
     "like" = "like"
 }
 
-
-
 class BoxDetails extends HTMLElement {
     imagepost?: string;
     username?: string;
@@ -25,7 +23,6 @@ class BoxDetails extends HTMLElement {
     like?: string;
 
     tagslist = []
-
 
     static get observedAttributes(){
         const attrs: Record<EditAttribute,null> = {
@@ -63,6 +60,7 @@ class BoxDetails extends HTMLElement {
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
             heart?.forEach((heart) => {
                 heart.addEventListener("click", this.likeClick);
+                console.log("heartss")
             });
 
         const btnProfile = this.shadowRoot?.querySelector('.profilepicture');
@@ -143,7 +141,7 @@ class BoxDetails extends HTMLElement {
     likeClick = () => {
         
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart") as NodeListOf<HTMLImageElement>;
-
+console.log("corazon click")
         heart.forEach((heart) => {
         if (this.isliked) {
             heart.src = `${appState.images.cormor}`;

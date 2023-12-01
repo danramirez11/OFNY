@@ -44,9 +44,12 @@ class CreatePost extends HTMLElement{
         super();
         this.attachShadow({mode: "open"});
         addObserver(this);
+        
     }
     
     async connectedCallback(){
+
+        console.log("cons create")
 
         this.username = appState.user.username;
         const pfp = await firebase.getFile(appState.user.pfp);
