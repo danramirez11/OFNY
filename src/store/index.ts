@@ -31,7 +31,7 @@ const images = {
 	mobilelanding: "https://firebasestorage.googleapis.com/v0/b/dcalg-7b097.appspot.com/o/media%2Fmobilelanding.png?alt=media&token=8b239559-e8cc-4e21-a4c1-863dcf59c287", 
 }
 export let appState: AppState = {
-	screen: Screens.LANDING,
+	screen: Screens.DASHBOARD,
 	editprofile: false,
 	user: {uid: userid, ...user},
 	postid: " ",

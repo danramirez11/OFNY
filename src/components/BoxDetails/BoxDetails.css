@@ -98,4 +98,6 @@ h1{
     padding: 8px;
     padding-inline: 24px;
 }
-
+@media (max-width: 540px) {
+  
+}
