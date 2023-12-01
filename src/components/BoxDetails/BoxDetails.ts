@@ -115,7 +115,7 @@ class BoxDetails extends HTMLElement {
                 </div>
 
                 
-                <img id="like"class="post-heart-desktop-heart" src="${this.like}">
+                <img class="post-heart-desktop-heart" src="${this.like}">
                 
             </div>
             </section>
