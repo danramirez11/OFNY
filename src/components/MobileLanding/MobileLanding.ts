@@ -1,10 +1,10 @@
-import LandingShareStyle from "./LandingShare.css"
+import LandingShareStyle from "./MobileLanding.css"
 import { addObserver, appState, dispatch } from "../../store/index";
 import { Navigate } from "../../types/store";
 import { Screens } from "../../types/navigation";
 import { navigate } from "../../store/actions";
 
-class LandingShare extends HTMLElement {
+class LandingMobile extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -37,5 +37,5 @@ class LandingShare extends HTMLElement {
     }
 }
 
-customElements.define("landing-share", LandingShare);
-export default LandingShare;
+customElements.define("landing-mobile", LandingMobile);
+export default LandingMobile;

@@ -11,3 +11,4 @@ export {default as BoxLogin} from "./BoxLogin/BoxLogin";
 export {default as BoxSingUp} from "./BoxSingup/BoxSingUp";
 export {default as BoxDetails} from "./BoxDetails/BoxDetails";
 export {default as CreatePost} from "./CreatePost/CreatePost";
+export {default as LandingMobile} from "./MobileLanding/MobileLanding";
