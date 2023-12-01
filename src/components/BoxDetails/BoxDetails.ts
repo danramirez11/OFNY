@@ -58,6 +58,8 @@ class BoxDetails extends HTMLElement {
 
     connectedCallback(){
 
+        
+
         this.render();
 
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart");
@@ -143,7 +145,7 @@ class BoxDetails extends HTMLElement {
     isliked: boolean = false
 
     likeClick = () => {
-        this.isliked = !this.isliked;
+        
         const heart = this.shadowRoot?.querySelectorAll(".post-heart-desktop-heart") as NodeListOf<HTMLImageElement>;
 
         heart.forEach((heart) => {
