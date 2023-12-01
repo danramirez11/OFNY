@@ -111,10 +111,7 @@ class Profile extends HTMLElement{
                 <p class="user-stats">${this.posts || 0} Ofnis     ${this.pronouns}</p>
                 <p>${this.desc || "No description available :("}</p>
                 <p>${this.web}</p>
-<<<<<<< HEAD
-=======
                 <button class="btnLogOut">Log out :c</button>
->>>>>>> dan
                 </section>
             </section>
             `
