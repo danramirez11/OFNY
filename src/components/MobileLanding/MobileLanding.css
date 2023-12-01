@@ -27,15 +27,18 @@ h2 {
 
 #share-button {
     font-family: 'Poppins';
-    font-size: 19px;
-    margin: 0 auto; 
+    font-size: 19px; 
     padding: 10px;
     cursor: pointer;
     border-radius: 15px;
     background-color: #667FF7;
     color: #fff;
     border: none;
-    position:absolute;
     left: 16%;
     bottom: 300px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-left: 100px;
+    position: absolute;
 }
